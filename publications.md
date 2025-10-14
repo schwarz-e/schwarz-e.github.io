@@ -35,7 +35,7 @@ title: Publications
   *Nature communications*  
   [Link](https://www.nature.com/articles/s41467-024-46431-4)
 
-- **FSGe: a Fast and Strongly-coupled 3d Fluid–Solid-Growth Interaction Method**  
+- **FSGe: A Fast and Strongly-coupled 3d Fluid–Solid-Growth Interaction Method**  
   Pfaller, M. R., Latorre, M., **Schwarz, E. L.**, Gerosa, F. M., Szafron, J. M., Humphrey, J. D., & Marsden, A. L. (2024)  
   *Computer Methods in Applied Mechanics and Engineering*  
   [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
