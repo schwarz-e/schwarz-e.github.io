@@ -1,12 +1,12 @@
 from scholarly import scholarly
-import yaml
 import time
+from datetime import datetime
 
 # === CONFIGURATION ===
 SCHOLAR_ID = "s4mUv1AAAAAJ"   # Replace with your Google Scholar ID
-YOUR_NAME = "E. Schwarz"        # Used to bold your name later if desired
-OUTPUT_FILE = "_data/publications.yml"
-SLEEP_BETWEEN_REQUESTS = 1     # seconds between requests (to avoid throttling)
+YOUR_NAME = "E. Schwarz"       # Will be bolded in authors
+OUTPUT_FILE = "../publications.md"
+SLEEP_BETWEEN_REQUESTS = 0.1
 
 # === FETCH AUTHOR DATA ===
 print(f"Fetching publications for Scholar ID: {SCHOLAR_ID} ...")
@@ -17,7 +17,6 @@ pubs = []
 
 for i, pub in enumerate(author["publications"], 1):
     try:
-        # Get full details for each publication
         pub_filled = scholarly.fill(pub)
         bib = pub_filled.get("bib", {})
 
@@ -28,34 +27,52 @@ for i, pub in enumerate(author["publications"], 1):
             "venue": bib.get("venue", bib.get("journal", "")).strip(),
             "url": pub_filled.get("pub_url", "").strip(),
         })
-
         print(f"✓ {i}. {bib.get('title', '')[:60]}")
         time.sleep(SLEEP_BETWEEN_REQUESTS)
 
     except Exception as e:
         print(f"⚠️ Skipping one entry due to error: {e}")
 
-# === SORT ===
-def sort_year(entry):
-    y = entry.get("year", "")
-    return int(y) if str(y).isdigit() else 0
-
-pubs = sorted(pubs, key=sort_year, reverse=True)
-
-# === CLEAN ===
+# === CLEAN AND SORT ===
 pubs = [p for p in pubs if p["title"]]
+pubs.sort(key=lambda x: int(x["year"]) if str(x["year"]).isdigit() else 0, reverse=True)
 
-# === WRITE CLEAN YAML ===
-# This formatting block makes it very readable for direct copy/paste
-yaml.SafeDumper.org_represent_str = yaml.SafeDumper.represent_str
-def str_presenter(dumper, data):
-    """Keep long strings in quotes"""
-    if len(data) > 60 or ":" in data:
-        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style='"')
-    return dumper.org_represent_str(data)
-yaml.add_representer(str, str_presenter, Dumper=yaml.SafeDumper)
+# === GENERATE MARKDOWN ===
+def bold_name(authors, name):
+    if not authors:
+        return ""
+    return authors.replace(name, f"**{name}**")
 
+header = f"""---
+layout: default
+title: Publications
+---
+
+# Publications
+
+> 📚 Automatically generated from Google Scholar
+> Last updated: {datetime.now().strftime("%B %d, %Y")}
+
+"""
+
+md_lines = [header]
+
+for pub in pubs:
+    title = pub["title"]
+    authors = bold_name(pub["authors"], YOUR_NAME)
+    year = pub["year"] or "n.d."
+    venue = pub["venue"]
+    url = pub["url"]
+
+    entry = f"- **{title}**  \n  {authors} ({year})"
+    if venue:
+        entry += f"  \n  *{venue}*"
+    if url:
+        entry += f"  \n  [Link]({url})"
+    md_lines.append(entry + "\n")
+
+# === WRITE FILE ===
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    yaml.dump(pubs, f, allow_unicode=True, sort_keys=False, width=100)
+    f.write("\n".join(md_lines))
 
-print(f"\n✅ Saved {len(pubs)} publications to {OUTPUT_FILE}")
+print(f"\n✅ Markdown file written to {OUTPUT_FILE}")
