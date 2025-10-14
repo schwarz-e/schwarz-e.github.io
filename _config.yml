@@ -19,6 +19,13 @@ navigation:
     link: /
   - name: Research
     link: /research
+    children:
+      - name: Pulmonary
+        link: /research/pulmonary
+      - name: Aorta
+        link: /research/aorta
+      - name: Data Driven
+        link: /research/data-driven
   - name: Publications
     link: /publications
   - name: CV
