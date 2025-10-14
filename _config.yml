@@ -1,3 +1,36 @@
+# Site settings
+title: Erica L. Schwarz, Ph.D.
+description: Computational mechanobiologist studying vascular growth and remodeling using simulation and data-driven modeling.
+url: "https://schwarz-e.github.io" # replace with your actual GitHub Pages URL
+author: Erica L. Schwarz
+
+# Theme settings
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme
+
+# Appearance
+logo: /assets/profile.jpg  # add a headshot in assets/
+show_downloads: false
+
+# Navigation links (appear in header)
+nav:
+  - name: About
+    link: /
+  - name: Research
+    link: /research
+  - name: Publications
+    link: /publications
+  - name: CV
+    link: /cv
+  - name: Contact
+    link: /contact
+
+# Social media
+social_links:
+  github: schwarz-e
+  linkedin: ericaschwab
+  scholar: https://scholar.google.com/citations?user=[your-ID]
+  orcid: https://orcid.org/[your-ORCID]
+
+markdown: kramdown
