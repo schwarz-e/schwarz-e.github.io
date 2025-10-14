@@ -74,7 +74,16 @@
           <nav>
             <ul class="nav-links">
               {% for item in site.navigation %}
-                <li><a href="{{ item.link | relative_url }}">{{ item.name }}</a></li>
+                <li>
+                  <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+                  {% if item.children %}
+                    <ul class="nav-sub-links">
+                      {% for child in item.children %}
+                        <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
               {% endfor %}
             </ul>
           </nav>
