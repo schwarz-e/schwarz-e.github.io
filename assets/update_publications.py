@@ -5,7 +5,7 @@ import re
 
 # === CONFIGURATION ===
 SCHOLAR_ID = "s4mUv1AAAAAJ"   # Replace with your Google Scholar ID
-YOUR_NAME = "E. Schwarz"       # Will be bolded in authors
+YOUR_NAME = "Schwarz"       # Will be bolded in authors
 OUTPUT_FILE = "../publications.md"
 SLEEP_BETWEEN_REQUESTS = 0.1
 
@@ -44,34 +44,40 @@ def bold_name(authors, name):
         return ""
     return authors.replace(name, f"**{name}**")
 
-def format_authors(authors_str, your_name="E. Schwab"):
+def format_authors(authors_str, your_name="Schwab"):
     """
-    Converts a raw author string from Google Scholar into:
-    Initials LastName, Initials LastName, ...
+    Converts a raw author string into:
+    Initials LastName, Initials LastName, ..., & LastAuthor
     Bold your name if present.
     """
     if not authors_str:
         return ""
     
-    authors = []
-    for name in authors_str.split(","):
-        name = name.strip()
-        if not name:
-            continue
-        
-        # Split into parts
+    # Split by ' and ' or ',' (Google Scholar style)
+    import re
+    names = re.split(r'\s+and\s+|,', authors_str)
+    names = [n.strip() for n in names if n.strip()]
+    
+    formatted_authors = []
+    for name in names:
         parts = name.split()
-        last = parts[-1]  # last word is last name
+        if not parts:
+            continue
+        last = parts[-1]
         initials = " ".join([p[0] + "." for p in parts[:-1]]) if len(parts) > 1 else ""
-        formatted = f"{initials} {last}".strip()
+        formatted = f"{last}, {initials}".strip() if initials else last
         
-        # Bold your name
-        if your_name and your_name in name:
+        # Bold your name if it matches (match on last name + initials)
+        if your_name and your_name.lower() in name.lower():
             formatted = f"**{formatted}**"
         
-        authors.append(formatted)
+        formatted_authors.append(formatted)
     
-    return ", ".join(authors)
+    # APA-style: add & before the last author if more than one
+    if len(formatted_authors) > 1:
+        return ", ".join(formatted_authors[:-1]) + ", & " + formatted_authors[-1]
+    else:
+        return formatted_authors[0]
 
 
 def title_case(title):
