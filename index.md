@@ -1,4 +1,4 @@
-# Erica Schwab, Ph.D.
+# Erica L, Schwarz, Ph.D.
 _Computational Mechanobiology • Vascular Growth & Remodeling • Neural Operators_
 
 Welcome! I’m a postdoctoral researcher studying **vascular biomechanics and growth and remodeling (G&R)** through **computational and data-driven models**.  

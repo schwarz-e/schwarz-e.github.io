@@ -10,4 +10,4 @@
 - **E. Schwab**, *et al.*  
   *Rate-based constrained mixture modeling of elastin turnover and vascular remodeling.* (submitted, 2024)
 
-[View all on Google Scholar →](https://scholar.google.com/citations?user=[your-ID])
+[View all on Google Scholar →](https://scholar.google.com/citations?user=s4mUv1AAAAAJ)
