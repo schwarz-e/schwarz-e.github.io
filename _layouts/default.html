@@ -72,20 +72,25 @@
 
         <nav class="nav-tree">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li>
-              <a href="/research">Research</a>
-              <a href="#" class="has-children" onclick="toggleSubnav(event)">▾</a>
-              <ul class="subnav">
-                <li><a href="/research/pulmonary">Pulmonary</a></li>
-                <li><a href="/research/aorta">Aorta</a></li>
-                <li><a href="/research/large-data">Large Data</a></li>
-              </ul>
-            </li>
-            <li><a href="/publications">Publications</a></li>
-            <li><a href="/teaching">Teaching</a></li>
-            <li><a href="/cv">CV</a></li>
-            <li><a href="/contact">Contact</a></li>
+            {% for item in site.navigation %}
+              <li>
+                <div class="nav-parent">
+                  <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+
+                  {% if item.children %}
+                    <a href="#" class="toggle" onclick="toggleSubnav(event)">▾</a>
+                  {% endif %}
+                </div>
+
+                {% if item.children %}
+                  <ul class="subnav">
+                    {% for child in item.children %}
+                      <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
           </ul>
         </nav>
 
