@@ -1,4 +1,21 @@
 # Research
+# Research
+
+Explore my work across three domains. Click on each to see detailed publications and methods.
+
+## Pulmonary
+Studies of **pulmonary artery development** and tissue-engineered grafts, combining computational modeling, molecular mapping, and experimental validation.  
+[Explore Pulmonary Research →](/research/pulmonary)
+
+## Aorta
+Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
+[Explore Aortic Research →](/research/aorta)
+
+## Large Data & Computational Methods
+Development of **computational, machine learning, and multiscale modeling tools** to predict cardiovascular outcomes.  
+[Explore Large Data →](/research/large-data)
+
+Other themes in my research include:
 
 ## [Neural Operator Forecasting of Aortic Aneurysm Growth](/research/pulmonary)
 Developed a **neural operator-based framework** to predict time evolution of thoracic aortic aneurysms (TAAs) using both clinical imaging data and simulation-informed biomechanical parameters.
