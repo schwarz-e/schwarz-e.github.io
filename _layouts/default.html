@@ -94,51 +94,6 @@
           </ul>
         </nav>
 
-        <style>
-        .nav-tree {
-          margin-top: 1em;
-        }
-
-        .nav-tree ul {
-          list-style: none;
-          padding-left: 0;
-          margin-left: 0;
-        }
-
-        .nav-tree li {
-          margin: 0.2em 0;
-        }
-
-        .nav-tree a {
-          text-decoration: none;
-          padding: 0.1em 0.3em;
-          display: inline-block;
-        }
-
-        .nav-tree a:hover {
-          text-decoration: underline;
-        }
-
-        .nav-tree .subnav {
-          display: none;
-          margin-left: 1em;
-          padding-left: 0.5em;
-          border-left: 1px solid #ccc;
-        }
-
-        .nav-tree .has-children::after {
-          content: '';
-        }
-
-        .nav-tree .expanded::after {
-          content: '';
-        }
-
-        .nav-tree .expanded + .subnav {
-          display: block;
-        }
-        </style>
-
         <script>
         function toggleSubnav(event) {
           event.preventDefault();
@@ -149,7 +104,45 @@
           toggle.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
         }
         </script>
-                  
+
+        <style>
+        .nav-tree ul {
+          list-style: none;
+          padding-left: 0;
+          margin: 0;
+        }
+
+        .nav-tree li {
+          margin: 0.3em 0;
+        }
+
+        .nav-tree .nav-parent {
+          display: flex;
+          align-items: center;
+          gap: 0.25em;
+        }
+
+        .nav-tree .toggle {
+          text-decoration: none;
+          border: none;
+          background: none;
+          cursor: pointer;
+          font-size: 0.9em;
+          line-height: 1;
+        }
+
+        .nav-tree .subnav {
+          display: none;
+          margin-left: 1em;
+          border-left: 1px solid #ccc;
+          padding-left: 0.75em;
+        }
+
+        .nav-tree .subnav.expanded {
+          display: block;
+        }
+        </style>
+                          
       </header>
       <section>
 
