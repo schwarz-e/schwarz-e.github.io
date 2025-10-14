@@ -1,16 +1,34 @@
-# Research
+---
+title: Large Data & Computational Methods
+layout: default
+---
 
-## Neural Operator Forecasting of Aortic Aneurysm Growth
-Developed a **neural operator-based framework** to predict time evolution of thoracic aortic aneurysms (TAAs) using both clinical imaging data and simulation-informed biomechanical parameters.
+# Large Data & Computational Methods
 
-## Constrained Mixture Theory of Growth and Remodeling
-Built and simulated **3D models of arterial G&R** capturing stable dilation, aneurysm growth, and rupture.  
-Incorporated **rate-based elastin production and degradation dynamics**, enabling mechanistic insights into tissue remodeling.
+### Theme
+Development of **computational, machine learning, and multiscale modeling tools** to study cardiovascular growth, remodeling, and prediction of disease progression.
 
-## Vessel Mechanics and Biaxial Testing
-Analyzed **biaxial mechanical data** to quantify stress invariants and collagen fiber recruitment.  
-Generated **pressure–diameter** and **force–length** relationships to calibrate material parameters.
+### Temporal Workflow
+Research began with **robust FSG solvers and predictive frameworks** (2023–2024), then progressed to **machine learning-driven identification of cellular and biomechanical drivers** (2024–2025), enabling cross-scale prediction of cardiovascular outcomes.
 
-## Computational Methods
-Implemented **Brent root-finding** and **finite element–based solvers** for vessel equilibrium states.  
-Developed MATLAB and Python pipelines for large-scale parameter sweeps and classification heatmaps.
+### Selected Publications
+
+- **FSGe: a Fast and Strongly-coupled 3D Fluid–Solid-Growth Interaction Method** (2024)  
+  Introduced a scalable computational framework for coupling hemodynamics, tissue mechanics, and growth.  
+  [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
+
+- **A Fluid–Solid-Growth Solver for Cardiovascular Modeling** (2023)  
+  Developed a solver enabling large parameter sweeps and patient-specific predictive simulations.  
+  [Link](https://www.sciencedirect.com/science/article/pii/S004578252300436X)
+
+- **Beyond CFD: Emerging Methodologies for Predictive Simulation in Cardiovascular Health and Disease** (2023)  
+  Reviewed computational strategies for multiscale prediction of cardiovascular outcomes.  
+  [Link](https://pubs.aip.org/aip/bpr/article/4/1/011301/2879057)
+
+- **VIP Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling with Supervised Learning** (2024)  
+  Applied machine learning to identify cellular drivers in tissue remodeling.  
+  [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
+
+- **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development** (2025)  
+  Integrated multiscale data to map immune cell contributions to vascular growth and remodeling.  
+  [Link](https://www.biorxiv.org/content/10.1101/2025.10.08.681286.abstract)
