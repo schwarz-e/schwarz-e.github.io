@@ -1,6 +1,7 @@
 from scholarly import scholarly
 import time
 from datetime import datetime
+import re
 
 # === CONFIGURATION ===
 SCHOLAR_ID = "s4mUv1AAAAAJ"   # Replace with your Google Scholar ID
@@ -43,6 +44,52 @@ def bold_name(authors, name):
         return ""
     return authors.replace(name, f"**{name}**")
 
+def format_authors(authors_str, your_name="E. Schwab"):
+    """
+    Converts a raw author string from Google Scholar into:
+    Initials LastName, Initials LastName, ...
+    Bold your name if present.
+    """
+    if not authors_str:
+        return ""
+    
+    authors = []
+    for name in authors_str.split(","):
+        name = name.strip()
+        if not name:
+            continue
+        
+        # Split into parts
+        parts = name.split()
+        last = parts[-1]  # last word is last name
+        initials = " ".join([p[0] + "." for p in parts[:-1]]) if len(parts) > 1 else ""
+        formatted = f"{initials} {last}".strip()
+        
+        # Bold your name
+        if your_name and your_name in name:
+            formatted = f"**{formatted}**"
+        
+        authors.append(formatted)
+    
+    return ", ".join(authors)
+
+
+def title_case(title):
+    """
+    Converts a string to title case, ignoring small words like 'and', 'of', 'in', etc.
+    """
+    if not title:
+        return ""
+    
+    small_words = {'and', 'or', 'the', 'of', 'in', 'on', 'for', 'a', 'an', 'with', 'to', 'by'}
+    words = title.split()
+    title_cased = [words[0].capitalize()]  # always capitalize first word
+    
+    for w in words[1:]:
+        title_cased.append(w.capitalize() if w.lower() not in small_words else w.lower())
+    
+    return " ".join(title_cased)
+
 header = f"""---
 layout: default
 title: Publications
@@ -50,6 +97,7 @@ title: Publications
 
 # Publications
 
+### Selected Works
 > 📚 Automatically generated from Google Scholar
 > Last updated: {datetime.now().strftime("%B %d, %Y")}
 
@@ -58,8 +106,8 @@ title: Publications
 md_lines = [header]
 
 for pub in pubs:
-    title = pub["title"]
-    authors = bold_name(pub["authors"], YOUR_NAME)
+    title = title_case(pub["title"])
+    authors = format_authors(pub["authors"], YOUR_NAME)
     year = pub["year"] or "n.d."
     venue = pub["venue"]
     url = pub["url"]
