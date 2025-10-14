@@ -142,18 +142,14 @@
         <script>
         function toggleSubnav(event) {
           event.preventDefault();
-          const link = event.target;
-          link.classList.toggle('expanded');
-          const subnav = link.nextElementSibling;
-          if (subnav) {
-            subnav.style.display = subnav.style.display === 'block' ? 'none' : 'block';
-            link.textContent = link.textContent.includes('▾')
-              ? link.textContent.replace('▾', '▸')
-              : link.textContent.replace('▸', '▾');
-          }
+          event.stopPropagation();
+          const toggle = event.currentTarget;
+          const subnav = toggle.closest('li').querySelector('.subnav');
+          subnav.classList.toggle('expanded');
+          toggle.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
         }
         </script>
-          
+                  
       </header>
       <section>
 
