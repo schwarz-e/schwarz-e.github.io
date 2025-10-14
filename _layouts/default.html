@@ -70,24 +70,86 @@
           </div>
         {% endif %}
 
-        {% if site.navigation %}
-          <nav>
-            <ul class="nav-links">
-              {% for item in site.navigation %}
-                <li>
-                  <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
-                  {% if item.children %}
-                    <ul class="nav-sub-links">
-                      {% for child in item.children %}
-                        <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          </nav>
-        {% endif %}
+        <nav class="nav-tree">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>
+              <a href="#" class="has-children" onclick="toggleSubnav(event)">Research ▾</a>
+              <ul class="subnav">
+                <li><a href="/research/pulmonary">Pulmonary</a></li>
+                <li><a href="/research/aorta">Aorta</a></li>
+                <li><a href="/research/large-data">Large Data</a></li>
+              </ul>
+            </li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/teaching">Teaching</a></li>
+            <li><a href="/cv">CV</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <style>
+        .nav-tree {
+          font-family: sans-serif;
+          font-size: 0.95em;
+          margin-top: 1em;
+        }
+
+        .nav-tree ul {
+          list-style: none;
+          padding-left: 0;
+          margin-left: 0;
+        }
+
+        .nav-tree li {
+          margin: 0.2em 0;
+        }
+
+        .nav-tree a {
+          text-decoration: none;
+          color: #333;
+          padding: 0.1em 0.3em;
+          display: inline-block;
+        }
+
+        .nav-tree a:hover {
+          text-decoration: underline;
+        }
+
+        .nav-tree .subnav {
+          display: none;
+          margin-left: 1em;
+          padding-left: 0.5em;
+          border-left: 1px solid #ccc;
+        }
+
+        .nav-tree .has-children::after {
+          content: '';
+        }
+
+        .nav-tree .expanded::after {
+          content: '';
+        }
+
+        .nav-tree .expanded + .subnav {
+          display: block;
+        }
+        </style>
+
+        <script>
+        function toggleSubnav(event) {
+          event.preventDefault();
+          const link = event.target;
+          link.classList.toggle('expanded');
+          const subnav = link.nextElementSibling;
+          if (subnav) {
+            subnav.style.display = subnav.style.display === 'block' ? 'none' : 'block';
+            link.textContent = link.textContent.includes('▾')
+              ? link.textContent.replace('▾', '▸')
+              : link.textContent.replace('▸', '▾');
+          }
+        }
+        </script>
           
       </header>
       <section>
