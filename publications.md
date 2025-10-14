@@ -35,16 +35,16 @@ title: Publications
   *Nature communications*  
   [Link](https://www.nature.com/articles/s41467-024-46431-4)
 
-- **Fsge: a Fast and Strongly-coupled 3d Fluid–solid-growth Interaction Method**  
+- **FSGe: a Fast and Strongly-coupled 3d Fluid–solid-growth Interaction Method**  
   Pfaller, M. R., Latorre, M., **Schwarz, E. L.**, Gerosa, F. M., Szafron, J. M., Humphrey, J. D., & Marsden, A. L. (2024)  
   *Computer Methods in Applied Mechanics and Engineering*  
   [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
 
-- **Vip Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning**  
+- **VIP Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning**  
   Han, J., Takaesu, F., **Schwarz, E. L.**, Humphrey, J., & Davis, M. (2024)  
   [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
 
-- **Beyond Cfd: Emerging Methodologies for Predictive Simulation in Cardiovascular Health and Disease**  
+- **Beyond CFD: Emerging Methodologies for Predictive Simulation in Cardiovascular Health and Disease**  
   **Schwarz, E. L.**, Pegolotti, L., Pfaller, M. R., & Marsden, A. L. (2023)  
   [Link](https://pubs.aip.org/aip/bpr/article/4/1/011301/2879057)
 
@@ -60,6 +60,7 @@ title: Publications
 
 - **Computational Modeling of Tissue-engineered Vascular Grafts**  
   **Schwarz, E. L.** (2023)  
+  *Stanford University Ph.D. Thesis* 
   [Link](https://search.proquest.com/openview/6fd0b56d3551b51cbdb994571d712980/1?pq-origsite=gscholar&cbl=18750&diss=y)
 
 - **Tissue Engineered Vascular Grafts Transform Into Autologous Neovessels Capable of Native Function and Growth**  
@@ -87,11 +88,6 @@ title: Publications
   *NPJ Regenerative Medicine*  
   [Link](https://www.nature.com/articles/s41536-021-00148-w)
 
-- **Publisher Correction: Hemodynamic Performance of Tissue-engineered Vascular Grafts in Fontan Patients**  
-  **Schwarz, E. L.**, Kelly, J. M., Blum, K. M., Hor, K. N., Yates, A. R., Zbinden, J. C., Verma, A., Lindsey, S. E., Ramachandra, A. B., Szafron, J. M., Humphrey, J. D., Shin’oka, T., Marsden, A. L., & Breuer, C. K. (2021)  
-  *NPJ Regenerative Medicine*  
-  [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC8360958/)
-
 - **A Spinal Probe Incorporating an Electromechanical System for Detection and Prevention of Breaches During Surgery**  
   Annadanam, A., Allen, R., Bettegowda, C., Gaddipati, R., Herrera, L., Isaacs, B., Lo, S., Xie, E., Andrews, C., Malla, A., & **Schwarz, E. L.** (2017)  
   [Link](https://patents.google.com/patent/US20170056075A1/en)
@@ -115,11 +111,3 @@ title: Publications
   Boyle, P., Zahid, S., **Schwarz, E. L.**, Whyte, K., Vigmond, E., Dubois, R., Haïssaguerre, M., Hocini, M., Jaïs, P., Cochet, H., & Trayanova, N. (2015)  
   *Heart Rhythm*  
   [Link](https://scholar.google.com/scholar?cluster=14829968984659802707&hl=en&oi=scholarr)
-
-- **Hemodynamic Performance of Tissueengineered Vascular Grafts in Fontan Patients, Npj Regen. Med. 6 (2021) 38**  
-  **Schwarz, E. L.**, Kelly, J., Blum, K., Hor, K., Yates, A., Zbinden, J., Verma, A., Lindsey, S., Ramachandra, A., Szafron, J., Humphrey, J., Shin’oka, T., Marsden, A., & Breuer, C. (n.d.)  
-  [Link](https://scholar.google.com/scholar?cluster=10282104494400906300&hl=en&oi=scholarr)
-
-- **Please Cite This Article As Doi: 10.1063/5.0109400**  
-  **Schwarz, E. L.**, Pegolotti, L., Pfaller, M. R., & Marsden, A. L. (n.d.)  
-  [Link](https://scholar.google.com/scholar?cluster=17441077725524417170&hl=en&oi=scholarr)
