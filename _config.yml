@@ -11,7 +11,7 @@ plugins:
 
 # Appearance
 logo: /assets/headshot_2024_square_bw.png  # add a headshot in assets/
-show_downloads: true
+show_downloads: false
 
 # Navigation links (appear in header)
 navigation:
