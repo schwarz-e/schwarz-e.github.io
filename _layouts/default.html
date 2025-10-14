@@ -38,8 +38,31 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-        {{ content1 }}
-        content2
+
+        {% if site.social_links %}
+          <ul class="social-links">
+            {% if site.social_links.github %}
+              <li><a href="https://github.com/{{ site.social_links.github }}" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a></li>
+            {% endif %}
+            {% if site.social_links.linkedin %}
+              <li><a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a></li>
+            {% endif %}
+            {% if site.social_links.scholar %}
+              <li><a href="{{ site.social_links.scholar }}" target="_blank" aria-label="Google Scholar">
+                <i class="fas fa-graduation-cap"></i>
+              </a></li>
+            {% endif %}
+            {% if site.social_links.orcid %}
+              <li><a href="{{ site.social_links.orcid }}" target="_blank" aria-label="ORCID">
+                <i class="fab fa-orcid"></i>
+              </a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
   
       </header>
       <section>
