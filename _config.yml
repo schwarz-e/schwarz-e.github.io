@@ -15,7 +15,7 @@ show_downloads: false
 
 # Navigation links (appear in header)
 navigation:
-  - name: About
+  - name: Home
     link: /
   - name: Research
     link: /research
