@@ -21,7 +21,7 @@ title: Publications
   [Link](https://www.sciencedirect.com/science/article/pii/S2452302X25000658)
 
 - **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
-  Han, J., Kong, D., **Schwarz, E.**, Takaesu, F., Lee, S., Kim, C., Yang, E., Park, M., Kim, E., Kim, W., Ramachandra, A. B., Manning, E. P., Humphrey, J. D., Park, H., & Davis, M. (2025)  
+  Han, J., Kong, D., **Schwarz, E. L.**, Takaesu, F., Lee, S., Kim, C., Yang, E., Park, M., Kim, E., Kim, W., Ramachandra, A. B., Manning, E. P., Humphrey, J. D., Park, H., & Davis, M. (2025)  
   *bioRxiv*  
   [Link](https://www.biorxiv.org/content/10.1101/2025.10.08.681286.abstract)
 
@@ -41,7 +41,7 @@ title: Publications
   [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
 
 - **Vip Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning**  
-  Han, J., Takaesu, F., **Schwarz, E.**, Humphrey, J., & Davis, M. (2024)  
+  Han, J., Takaesu, F., **Schwarz, E. L.**, Humphrey, J., & Davis, M. (2024)  
   [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
 
 - **Beyond Cfd: Emerging Methodologies for Predictive Simulation in Cardiovascular Health and Disease**  
@@ -63,7 +63,7 @@ title: Publications
   [Link](https://search.proquest.com/openview/6fd0b56d3551b51cbdb994571d712980/1?pq-origsite=gscholar&cbl=18750&diss=y)
 
 - **Tissue Engineered Vascular Grafts Transform Into Autologous Neovessels Capable of Native Function and Growth**  
-  Blum, K. M., Zbinden, J. C., Ramachandra, A. B., Lindsey, S. E., Szafron, J. M., Reinhardt, J. W., Heitkemper, M., Best, C. A., Mirhaidari, G. J., Chang, Y., Ulziibayar, A., Kelly, J., Shah, K. V., Drews, J. D., Zakko, J., Miyamoto, S., Matsuzaki, Y., Iwaki, R., Ahmad, H., Daulton, R., Musgrave, D., Wiet, M. G., Heuer, E., Lawson, E., **Schwarz, E.**, McDermott, M. R., Krishnamurthy, R., Krishnamurthy, R., Hor, K., Armstrong, A. K., Boe, B. A., Berman, D. P., Trask, A. J., Humphrey, J. D., Marsden, A. L., Shinoka, T., & Breuer, C. K. (2022)  
+  Blum, K. M., Zbinden, J. C., Ramachandra, A. B., Lindsey, S. E., Szafron, J. M., Reinhardt, J. W., Heitkemper, M., Best, C. A., Mirhaidari, G. J., Chang, Y., Ulziibayar, A., Kelly, J., Shah, K. V., Drews, J. D., Zakko, J., Miyamoto, S., Matsuzaki, Y., Iwaki, R., Ahmad, H., Daulton, R., Musgrave, D., Wiet, M. G., Heuer, E., Lawson, E., **Schwarz, E. L.**, McDermott, M. R., Krishnamurthy, R., Krishnamurthy, R., Hor, K., Armstrong, A. K., Boe, B. A., Berman, D. P., Trask, A. J., Humphrey, J. D., Marsden, A. L., Shinoka, T., & Breuer, C. K. (2022)  
   *Communications medicine*  
   [Link](https://www.nature.com/articles/s43856-021-00063-7)
 
@@ -78,7 +78,7 @@ title: Publications
   [Link](https://www.sciencedirect.com/science/article/pii/S1742706122005049)
 
 - **Simulated Performance of a Bioprinted Pulsatile Fontan Conduit**  
-  Hu, Z., **Schwarz, E.**, Herrmann, J., Skylar-Scott, M., & Marsden, A. (2022)  
+  Hu, Z., **Schwarz, E. L.**, Herrmann, J., Skylar-Scott, M., & Marsden, A. (2022)  
   *Bulletin of the American Physical Society*  
   [Link](https://meetings.aps.org/Meeting/DFD22/Session/S01.76)
 
@@ -93,7 +93,7 @@ title: Publications
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC8360958/)
 
 - **A Spinal Probe Incorporating an Electromechanical System for Detection and Prevention of Breaches During Surgery**  
-  Annadanam, A., Allen, R., Bettegowda, C., Gaddipati, R., Herrera, L., Isaacs, B., Lo, S., Xie, E., Andrews, C., Malla, A., & **Schwarz, E.** (2017)  
+  Annadanam, A., Allen, R., Bettegowda, C., Gaddipati, R., Herrera, L., Isaacs, B., Lo, S., Xie, E., Andrews, C., Malla, A., & **Schwarz, E. L.** (2017)  
   [Link](https://patents.google.com/patent/US20170056075A1/en)
 
 - **Patient-derived Models Link Re-entrant Driver Localization in Atrial Fibrillation to Fibrosis Spatial Pattern**  
@@ -112,12 +112,12 @@ title: Publications
   [Link](https://www.cell.com/biophysj/fulltext/S0006-3495(15)04310-6)
 
 - **Local Complexity of the Fibrosis Spatial Pattern Determines the Locations of Stable Reentrant Sources in Persistent Atrial Fibrillation: Analysis From Patient Specific Models**  
-  Boyle, P., Zahid, S., **Schwarz, E.**, Whyte, K., Vigmond, E., Dubois, R., Haïssaguerre, M., Hocini, M., Jaïs, P., Cochet, H., & Trayanova, N. (2015)  
+  Boyle, P., Zahid, S., **Schwarz, E. L.**, Whyte, K., Vigmond, E., Dubois, R., Haïssaguerre, M., Hocini, M., Jaïs, P., Cochet, H., & Trayanova, N. (2015)  
   *Heart Rhythm*  
   [Link](https://scholar.google.com/scholar?cluster=14829968984659802707&hl=en&oi=scholarr)
 
 - **Hemodynamic Performance of Tissueengineered Vascular Grafts in Fontan Patients, Npj Regen. Med. 6 (2021) 38**  
-  **Schwarz, E.**, Kelly, J., Blum, K., Hor, K., Yates, A., Zbinden, J., Verma, A., Lindsey, S., Ramachandra, A., Szafron, J., Humphrey, J., Shin’oka, T., Marsden, A., & Breuer, C. (n.d.)  
+  **Schwarz, E. L.**, Kelly, J., Blum, K., Hor, K., Yates, A., Zbinden, J., Verma, A., Lindsey, S., Ramachandra, A., Szafron, J., Humphrey, J., Shin’oka, T., Marsden, A., & Breuer, C. (n.d.)  
   [Link](https://scholar.google.com/scholar?cluster=10282104494400906300&hl=en&oi=scholarr)
 
 - **Please Cite This Article As Doi: 10.1063/5.0109400**  

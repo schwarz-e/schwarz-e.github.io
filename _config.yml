@@ -29,8 +29,8 @@ nav:
 # Social media
 social_links:
   github: schwarz-e
-  linkedin: ericaschwab
-  scholar: https://scholar.google.com/citations?user=[your-ID]
-  orcid: https://orcid.org/[your-ORCID]
+  linkedin: ericaschwarz
+  scholar: https://scholar.google.com/citations?user=s4mUv1AAAAAJ
+  orcid: https://orcid.org/0000-0003-3219-6653
 
 markdown: kramdown
