@@ -10,7 +10,8 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papE2o0sDc4n6xN0f9B6wLUMTZv1lZpqN4z3RmYV3N7u5f7l6d0M0zKpRVnG0C0BTV1m5LyyM2K8KUqOdH+DOg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     {% include head-custom.html %}
   </head>
   <body>
@@ -41,7 +42,7 @@
         {% endif %}
 
         {% if site.social_links %}
-          <div class="social-links" style="display:flex; gap:1.5em; align-items:center; margin:1em 0; font-size:0.9em;">
+          <div class="social-links" style="display:flex; gap:1em; align-items:center; margin:1em 0; font-size:0.9em;">
             {% if site.social_links.github %}
               <a href="https://github.com/{{ site.social_links.github }}" target="_blank" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
                 <i class="fab fa-github" style="margin-right:0.3em; font-size:1.1em;"></i> GitHub
