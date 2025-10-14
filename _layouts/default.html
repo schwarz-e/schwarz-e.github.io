@@ -92,6 +92,10 @@
         </nav>
 
         <style>
+        .nav-tree {
+          margin-top: 1em;
+        }
+
         .nav-tree ul {
           list-style: none;
           padding-left: 0;
@@ -102,29 +106,33 @@
           margin: 0.2em 0;
         }
 
-        .nav-parent {
-          display: flex;
-          align-items: center;
-          gap: 0.25em;
+        .nav-tree a {
+          text-decoration: none;
+          color: #333;
+          padding: 0.1em 0.3em;
+          display: inline-block;
         }
 
-        .nav-parent .toggle {
-          background: none;
-          border: none;
-          cursor: pointer;
-          font-size: 0.8em;
-          line-height: 1;
-          padding: 0;
+        .nav-tree a:hover {
+          text-decoration: underline;
         }
 
-        .subnav {
+        .nav-tree .subnav {
           display: none;
           margin-left: 1em;
           padding-left: 0.5em;
           border-left: 1px solid #ccc;
         }
 
-        .subnav.expanded {
+        .nav-tree .has-children::after {
+          content: '';
+        }
+
+        .nav-tree .expanded::after {
+          content: '';
+        }
+
+        .nav-tree .expanded + .subnav {
           display: block;
         }
         </style>
@@ -132,11 +140,15 @@
         <script>
         function toggleSubnav(event) {
           event.preventDefault();
-          event.stopPropagation();
-          const button = event.currentTarget;
-          const subnav = button.closest('li').querySelector('.subnav');
-          subnav.classList.toggle('expanded');
-          button.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
+          const link = event.target;
+          link.classList.toggle('expanded');
+          const subnav = link.nextElementSibling;
+          if (subnav) {
+            subnav.style.display = subnav.style.display === 'block' ? 'none' : 'block';
+            link.textContent = link.textContent.includes('▾')
+              ? link.textContent.replace('▾', '▸')
+              : link.textContent.replace('▸', '▾');
+          }
         }
         </script>
           
