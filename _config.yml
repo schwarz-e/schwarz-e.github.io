@@ -14,7 +14,7 @@ logo: /assets/headshot_2024_square_bw.png  # add a headshot in assets/
 show_downloads: false
 
 # Navigation links (appear in header)
-nav:
+navigation:
   - name: About
     link: /
   - name: Research
