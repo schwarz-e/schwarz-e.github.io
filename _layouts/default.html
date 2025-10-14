@@ -40,18 +40,26 @@
         {% endif %}
 
         {% if site.social_links %}
-          <div class="social-links-text">
+          <div class="social-links" style="display:flex; gap:1.5em; align-items:center; margin:1em 0;">
             {% if site.social_links.github %}
-              <p><a href="https://github.com/{{ site.social_links.github }}" target="_blank">GitHub</a></p>
+              <a href="https://github.com/{{ site.social_links.github }}" target="_blank" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-github" style="margin-right:0.3em;"></i> GitHub
+              </a>
             {% endif %}
             {% if site.social_links.linkedin %}
-              <p><a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" target="_blank">LinkedIn</a></p>
+              <a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" target="_blank" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-linkedin" style="margin-right:0.3em;"></i> LinkedIn
+              </a>
             {% endif %}
             {% if site.social_links.scholar %}
-              <p><a href="{{ site.social_links.scholar }}" target="_blank">Google Scholar</a></p>
+              <a href="{{ site.social_links.scholar }}" target="_blank" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fas fa-graduation-cap" style="margin-right:0.3em;"></i> Google Scholar
+              </a>
             {% endif %}
             {% if site.social_links.orcid %}
-              <p><a href="{{ site.social_links.orcid }}" target="_blank">ORCID</a></p>
+              <a href="{{ site.social_links.orcid }}" target="_blank" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-orcid" style="margin-right:0.3em;"></i> ORCID
+              </a>
             {% endif %}
           </div>
         {% endif %}
