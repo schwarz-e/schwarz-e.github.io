@@ -6,6 +6,11 @@
 Studies of **pulmonary artery development** and tissue-engineered grafts, combining computational modeling, molecular mapping, and experimental validation.  
 [Explore Pulmonary Research →](/research/pulmonary)
 
+<figure style="max-width: 70%; margin: auto;">
+  <img src="/assets/_images/360_dyn.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
+  <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
+</figure>
+
 ## Aorta
 Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
 [Explore Aortic Research →](/research/aorta)
