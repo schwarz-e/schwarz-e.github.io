@@ -28,6 +28,10 @@ navigation:
         link: /research/data-driven
   - name: Publications
     link: /publications
+  - name: Vision
+    link: /vision
+  - name: Teaching
+    link: /teaching
   - name: CV
     link: /cv
   - name: Contact
