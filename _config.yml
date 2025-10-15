@@ -20,11 +20,11 @@ navigation:
   - name: Research
     link: /research
     children:
-      - name: Multiphysics Solver Development
+      - name: Multiphysics Solver
         link: /research/solver
-      - name: Tissue Engineering and Clinical Translation
+      - name: Clinical Translation
         link: /research/translation
-      - name: Machine Learning and Multiscale Modeling
+      - name: Machine Learning
         link: /research/multiscale
   - name: Publications
     link: /publications
