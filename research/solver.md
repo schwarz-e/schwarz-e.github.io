@@ -1,9 +1,9 @@
 ---
-title: Pulmonary Research
+title: Multiphysics Solvers
 layout: default
 ---
 
-# Pulmonary Research
+# Multiphysics Modeling and Solver Development
 
 Mechanistic studies of **pulmonary artery development** and tissue engineering strategies, combining transcriptomic, histological, and biophysical analyses to understand postnatal pulmonary growth and graft integration.
 
