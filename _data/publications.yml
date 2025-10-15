@@ -40,14 +40,14 @@
   journal: Nature communications
   url: https://www.nature.com/articles/s41467-024-46431-4
   id: turner2024tissue
-- title: 'Fsge: a Fast and Strongly-coupled 3d Fluid–solid-growth Interaction Method'
+- title: 'FSGe: a Fast and Strongly-coupled 3d Fluid–solid-growth Interaction Method'
   authors: Pfaller, M. R., Latorre, M., <strong>Schwarz, E. L.</strong>, Gerosa, F.
     M., Szafron, J. M., Humphrey, J. D., & Marsden, A. L.
   year: 2024
   journal: Computer Methods in Applied Mechanics and Engineering
   url: https://www.sciencedirect.com/science/article/pii/S0045782524005152
   id: pfaller2024fsge
-- title: 'Vip Cells: Screening Key Players and Calculating Their Contributions in
+- title: 'VIP Cells: Screening Key Players and Calculating Their Contributions in
     Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning'
   authors: Han, J., Takaesu, F., <strong>Schwarz, E.</strong>, Humphrey, J., & Davis,
     M.
@@ -55,12 +55,12 @@
   journal: ''
   url: https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr
   id: han2024vip
-- title: 'Beyond Cfd: Emerging Methodologies for Predictive Simulation in Cardiovascular
+- title: 'Beyond CFD: Emerging Methodologies for Predictive Simulation in Cardiovascular
     Health and Disease'
   authors: <strong>Schwarz, E. L.</strong>, Pegolotti, L., Pfaller, M. R., & Marsden,
     A. L.
   year: 2023
-  journal: ''
+  journal: 'Biophysics Reviews'
   url: https://pubs.aip.org/aip/bpr/article/4/1/011301/2879057
   id: schwarz2023beyond
 - title: A Fluid–solid-growth Solver for Cardiovascular Modeling
