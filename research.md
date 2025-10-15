@@ -37,7 +37,9 @@ I collaborate extensively with **multi-institutional teams** of clinicians and r
 ---
 
 ## Multiscale Modeling and Machine Learning Integration
-Artificial intelligence is increasingly ubiquitous in research and medicine. However, proper training and validation of these large-data models are critical for safe adoption in the clinical setting. I have used **multiscale physics-based simulations** based on interpretable biological and clinical findings to create high-fidelity data **for training neural operators**. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich, clinically-relevant datasets at a volume that would be impossible to generate *in-vivo*. By bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of **data transparency and quality**.  
+Artificial intelligence is increasingly ubiquitous in research and medicine. However, proper training and validation of these large-data models are critical for safe adoption in the clinical setting.  
+
+I have used **multiscale physics-based simulations** based on interpretable biological and clinical findings to create high-fidelity data **for training neural operators**. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich, clinically-relevant datasets at a volume that would be impossible to generate *in-vivo*. By bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of **data transparency and quality**.  
 
 [Explore Multiscale and Machine Learning Research →](/research/multiscale)  
 
