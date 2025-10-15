@@ -5,7 +5,7 @@ Welcome! I’m a postdoctoral researcher at Yale University studying **vascular 
 
 My work bridges **mechanical engineering, biology, and applied mathematics** to understand and predict how vessels evolve over time.
 
-I am currently working on integrating **constrained mixture theory** of growth and remodeling with **neural operator frameworks** to forecast aneurysm progression and identify biomechanical predictors of rupture risk.  
+I am currently working on integrating **constrained mixture theory** of vascular growth and remodeling with **neural operator frameworks** to forecast aneurysm progression and identify biomechanical predictors of rupture risk.  
 
 ---
 
