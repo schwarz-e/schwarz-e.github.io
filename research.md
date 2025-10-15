@@ -6,7 +6,7 @@
 
 ## Multiphysics Modeling and Solver Development
 Studies of **pulmonary artery development** and tissue-engineered grafts, combining computational modeling, molecular mapping, and experimental validation.  
-[Explore Pulmonary Research →](/research/solver)
+[Explore Multiphysics Solver Research →](/research/solver)
 
 <figure style="max-width: 90%; margin: auto;">
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
@@ -19,7 +19,7 @@ Studies of **pulmonary artery development** and tissue-engineered grafts, combin
 
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
 Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
-[Explore Aortic Research →](/research/translation)
+[Explore Clinical Translation Research →](/research/translation)
 
 <figure style="max-width: 90%; margin: auto;">
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
@@ -30,9 +30,9 @@ Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, c
 
 ---
 
-## Machine Learning and Multiscale Modeling Integration
+## Multiscale Modeling and Machine Learning Integration
 Development of **computational, machine learning, and multiscale modeling tools** to predict cardiovascular outcomes.  
-[Explore Large Data →](/research/multiscale)
+[Explore Multiscale and Machine Learning Research →](/research/multiscale)
 
 <figure style="max-width: 90%; margin: auto;">
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
