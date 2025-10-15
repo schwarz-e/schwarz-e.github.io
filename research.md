@@ -7,7 +7,7 @@ Studies of **pulmonary artery development** and tissue-engineered grafts, combin
 [Explore Pulmonary Research →](/research/pulmonary)
 
 <figure style="max-width: 70%; margin: auto;">
-  <img src="/assets/_images/360_dyn.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
+  <img src="/assets/_images/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
   <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
 </figure>
 
