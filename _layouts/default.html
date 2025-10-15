@@ -72,25 +72,30 @@
 
         <nav class="nav-tree">
           <ul>
-            {% for item in site.navigation %}
-              <li>
-                <div class="nav-parent">
-                  <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
-
-                  {% if item.children %}
-                    <a href="#" class="toggle" onclick="toggleSubnav(event)">▾</a>
-                  {% endif %}
-                </div>
-
-                {% if item.children %}
-                  <ul class="subnav {% if page.url == '/' %}expanded{% endif %}">
-                    {% for child in item.children %}
-                      <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
+            <li>
+              <div class="nav-parent">
+                <a href="#" class="toggle-top" onclick="toggleTopNav(event)">Website Contents ▾</a>
+              </div>
+              <ul class="subnav" id="top-nav">
+                {% for item in site.navigation %}
+                  <li>
+                    <div class="nav-parent">
+                      <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+                      {% if item.children %}
+                        <a href="#" class="toggle" onclick="toggleSubnav(event)">▾</a>
+                      {% endif %}
+                    </div>
+                    {% if item.children %}
+                      <ul class="subnav">
+                        {% for child in item.children %}
+                          <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
           </ul>
         </nav>
 
@@ -104,14 +109,22 @@
           toggle.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
         }
 
-        // Optional: initialize toggle arrows correctly on page load
-        document.addEventListener("DOMContentLoaded", () => {
-          document.querySelectorAll('.nav-tree li .toggle').forEach(toggle => {
-            const subnav = toggle.closest('li').querySelector('.subnav');
-            if (subnav.classList.contains('expanded')) {
-              toggle.textContent = '▴';
-            }
-          });
+        // Toggle the entire top-level navigation
+        function toggleTopNav(event) {
+          event.preventDefault();
+          const topNav = document.getElementById('top-nav');
+          topNav.classList.toggle('expanded');
+          const toggle = event.currentTarget;
+          toggle.textContent = topNav.classList.contains('expanded') ? 'Website Contents ▴' : 'Website Contents ▾';
+        }
+
+        // Expand by default if on index page
+        document.addEventListener("DOMContentLoaded", function() {
+          if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
+            const topNav = document.getElementById('top-nav');
+            topNav.classList.add('expanded');
+            document.querySelector('.toggle-top').textContent = 'Website Contents ▴';
+          }
         });
         </script>
 
@@ -123,7 +136,7 @@
         }
 
         .nav-tree li {
-          margin: 0.0em 0;
+          margin: 0.2em 0;
         }
 
         .nav-tree .nav-parent {
@@ -132,7 +145,8 @@
           gap: 0.1em;
         }
 
-        .nav-tree .toggle {
+        .nav-tree .toggle,
+        .nav-tree .toggle-top {
           text-decoration: none;
           border: none;
           background: none;
