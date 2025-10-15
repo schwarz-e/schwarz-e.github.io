@@ -16,7 +16,7 @@ My vision is to develop **next-generation multiscale models** that integrate **m
 
 This approach couples **organ-scale hemodynamics** with **cell- and tissue-level remodeling**, bridging physics-based simulation and machine learning to enable clinically actionable predictions.  
 
-[➡ Explore the full Research Vision →](research-vision)
+[➡ Explore the full Research Vision →](vision)
 
 ---
 
