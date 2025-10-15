@@ -5,7 +5,7 @@ layout: default
 
 # Multiphysics Modeling and Solver Development
 
-Mechanistic studies of **pulmonary artery development** and tissue engineering strategies, combining transcriptomic, histological, and biophysical analyses to understand postnatal pulmonary growth and graft integration.
+I have developed multiphysics solvers capable of simulating complex cardiovascular behavior. This includes integrating mathematical models of fluid dynamics and vascular solid mechanics into **finite-element** frameworks and designing novel **numerical methods** to improve accuracy and computational efficiency. The resulting solvers have been used for [translational research](/research/translation) and are available as open-source tools for the scientific community.  
 
 ### Research Development
 Research progressed from early **Fontan conduit design simulations** (2022–2025) to **integrated pulmonary artery development mapping** (2025), combining computational modeling and experimental validation for translational impact.

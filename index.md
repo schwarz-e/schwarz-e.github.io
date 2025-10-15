@@ -22,6 +22,9 @@ This approach couples **organ-scale hemodynamics** with **cell- and tissue-level
 
 [Explore the full research vision →](vision)
 
+{% include publication.html id="schwarz2025_fontan" %}
+{% include publication.html id="schwarz2025_stenosis" %}
+
 ---
 
 [📄 Download CV](cv) • [📚 Publications](publications) • [🔬 Research](research)

@@ -1,0 +1,9 @@
+{% assign pub = site.data.publications | where: "id", include.id | first %}
+{% if pub %}
+<div class="publication-entry">
+  <strong>{{ pub.title }}</strong><br>
+  {{ pub.authors }} ({{ pub.year }})<br>
+  <em>{{ pub.journal }}</em><br>
+  <a href="{{ pub.link }}">Link</a>
+</div>
+{% endif %}
