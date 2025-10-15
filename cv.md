@@ -2,7 +2,7 @@
 
 A full version of my CV is available for download below.
 
-📄 [Download CV (PDF)](/assets/Erica_Schwab_CV.pdf)
+📄 [Download CV (PDF)](/assets/CV.pdf)
 
 ---
 
