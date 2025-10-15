@@ -14,6 +14,7 @@ Studies of **pulmonary artery development** and tissue-engineered grafts, combin
 </figure>
   
 <br>
+
 ---
 
 ## Aorta
@@ -26,6 +27,7 @@ Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, c
 </figure>
   
 <br>
+
 ---
 
 ## Large Data & Computational Methods
@@ -38,6 +40,7 @@ Development of **computational, machine learning, and multiscale modeling tools*
 </figure>
   
 <br>
+
 ---
 
 # Other themes in my research include:
