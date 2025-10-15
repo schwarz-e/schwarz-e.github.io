@@ -9,10 +9,10 @@ Studies focused on developing multiphysics solvers capable of simulating complex
 [Explore Multiphysics Solver Research →](/research/solver)
 
 <figure style="max-width: 90%; margin: auto;">
-  <a href="/assets/multiscale_diagram.jpg">
+  <a href="/assets/multiscale_diagram.jpg" target="_blank">
   <img src="/assets/multiscale_diagram.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
    </a>
-  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the governing physics equations.</em></figcaption>
+  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the multiphysics governing equations.</em></figcaption>
 </figure>
   
 <br>
@@ -20,12 +20,16 @@ Studies focused on developing multiphysics solvers capable of simulating complex
 ---
 
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
-Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
+Computational tools have the ability to greatly aid diagnosis and treatment planning. Using computational tools 
+
+ Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
 [Explore Clinical Translation Research →](/research/translation)
 
 <figure style="max-width: 90%; margin: auto;">
-  <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
-  <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
+  <a href="/assets/multiscale_diagram.jpg" target="_blank">
+  <img src="/assets/multiscale_diagram.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+   </a>
+  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the multiphysics governing equations.</em></figcaption>
 </figure>
   
 <br>
@@ -37,8 +41,10 @@ Development of **computational, machine learning, and multiscale modeling tools*
 [Explore Multiscale and Machine Learning Research →](/research/multiscale)
 
 <figure style="max-width: 90%; margin: auto;">
-  <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
-  <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
+  <a href="/assets/multiscale_diagram.jpg" target="_blank">
+  <img src="/assets/multiscale_diagram.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+   </a>
+  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the multiphysics governing equations.</em></figcaption>
 </figure>
   
 <br>
