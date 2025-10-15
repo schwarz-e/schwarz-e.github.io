@@ -47,7 +47,7 @@ I have used **multiscale physics-based simulations** based on interpretable biol
   <a href="/assets/LNO_TB.svg" target="_blank">
   <img src="/assets/LNO_TB.svg" alt="Laplace neural operator" style="width:100%; border-radius:10px;">
    </a>
-  <figcaption style="text-align:center;"><em>Architecture of the Laplace neural operator with autoregressive strategy for forecasting aneurysm dilatation.</em></figcaption>
+  <figcaption style="text-align:center;"><em>Architecture of the Laplace neural operator with autoregressive strategy for forecasting thoracic aortic aneurysm dilatation.</em></figcaption>
 </figure>
   
 <br>

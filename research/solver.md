@@ -5,10 +5,9 @@ layout: default
 
 # Pulmonary Research
 
-### Theme
 Mechanistic studies of **pulmonary artery development** and tissue engineering strategies, combining transcriptomic, histological, and biophysical analyses to understand postnatal pulmonary growth and graft integration.
 
-### Temporal Workflow
+### Research Development
 Research progressed from early **Fontan conduit design simulations** (2022–2025) to **integrated pulmonary artery development mapping** (2025), combining computational modeling and experimental validation for translational impact.
 
 ### Selected Publications
