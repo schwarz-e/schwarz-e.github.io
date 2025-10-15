@@ -20,8 +20,7 @@ Studies focused on developing multiphysics solvers capable of simulating complex
 ---
 
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
-Computational tools have the ability to greatly aid diagnosis and treatment planning. Using computational tools.
-
+Computational tools can directly accelerate the clinical translation of new medical technologies. I have worked extensively with **multi-institutional teams** of clinicians and researchers in the development of **tissue-engineered vascular grafts**, using computational models of vascular behavior to predict surgical outcomes and define safety limits for cardiovascular function.
 [Explore Clinical Translation Research →](/research/translation)
 
 <figure style="max-width: 90%; margin: auto;">
