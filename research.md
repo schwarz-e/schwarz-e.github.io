@@ -9,8 +9,8 @@ Studies focused on developing multiphysics solvers capable of simulating complex
 [Explore Multiphysics Solver Research →](/research/solver)
 
 <figure style="max-width: 90%; margin: auto;">
-  <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
-  <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
+  <img src="/assets/multiscale_diagram.png" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the governing physics equations.</em></figcaption>
 </figure>
   
 <br>
