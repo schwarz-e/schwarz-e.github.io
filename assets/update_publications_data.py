@@ -50,7 +50,7 @@ def format_authors(authors_str, your_name="Schwarz"):
         initials = " ".join([p[0] + "." for p in parts[:-1]]) if len(parts) > 1 else ""
         formatted = f"{last}, {initials}".strip() if initials else last
         if your_name.lower() in name.lower():
-            formatted = f"<strong>{formatted}<strong/>"
+            formatted = f"<strong>{formatted}</strong>"
         formatted_authors.append(formatted)
     if len(formatted_authors) > 1:
         return ", ".join(formatted_authors[:-1]) + ", & " + formatted_authors[-1]
