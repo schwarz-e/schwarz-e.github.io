@@ -22,8 +22,6 @@ This approach couples **organ-scale hemodynamics** with **cell- and tissue-level
 
 [Explore the full research vision →](vision)
 
-{% include publication_list.html ids="schwarz2023computational,weiss2023matchedpair" %}
-
 ---
 
 [📄 Download CV](cv) • [📚 Publications](publications) • [🔬 Research](research)
