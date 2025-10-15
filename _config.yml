@@ -20,7 +20,7 @@ navigation:
   - name: Research
     link: /research
     children:
-      - name: Multiphysics Solver
+      - name: Multiphysics Solvers
         link: /research/solver
       - name: Clinical Translation
         link: /research/translation
