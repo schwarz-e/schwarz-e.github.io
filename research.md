@@ -7,7 +7,7 @@
 ## Multiphysics Modeling and Solver Development
 I have developed multiphysics solvers capable of simulating complex cardiovascular behavior. This includes integrating mathematical models of fluid dynamics and vascular solid mechanics into **finite-element** frameworks and designing novel **numerical methods** to improve accuracy and computational efficiency. The resulting solvers have been used for [translational research](/research/translation) and are available as open-source tools for the scientific community.  
 
-[Explore Multiphysics Solver Research →](/research/solver)
+[Explore Multiphysics Solver Research →](/research/solver)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/multiscale_diagram.jpg" target="_blank">
@@ -23,7 +23,7 @@ I have developed multiphysics solvers capable of simulating complex cardiovascul
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
 I collaborate extensively with **multi-institutional teams** of clinicians and researchers to advance the development of **tissue-engineered vascular grafts**, using computational models of vascular behavior to predict surgical outcomes and define safety limits for cardiovascular function. These computational tools can directly accelerate the clinical translation of new medical technologies. 
 
-[Explore Clinical Translation Research →](/research/translation)
+[Explore Clinical Translation Research →](/research/translation)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/tevg_modeling.jpg" target="_blank">
@@ -37,7 +37,7 @@ I collaborate extensively with **multi-institutional teams** of clinicians and r
 ---
 
 ## Multiscale Modeling and Machine Learning Integration
-No one can escape the mesmerizing pull of artificial intelligence. However, knowing how to use it makes all the difference between a navel-gazing calculator and a powerful tool that can greatly improve quality of life. I have .
+No one can escape the mesmerizing pull of artificial intelligence. However, knowing how to use it makes all the difference between a navel-gazing calculator and a powerful tool that can greatly improve human quality of life. I have .
 
 Physics-based simulations provide high-fidelity data based on interpretable biological and clinical findings. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich data-set that would be impossible to generate *in-vivo*. By coupling these models to neural operators, 
 
@@ -45,7 +45,7 @@ My philosophy is that by bridging these biomechanical models with machine learni
 
 Development of **computational, machine learning, and multiscale modeling tools** to predict cardiovascular outcomes.  
 
-[Explore Multiscale and Machine Learning Research →](/research/multiscale)
+[Explore Multiscale and Machine Learning Research →](/research/multiscale)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/multiscale_diagram.jpg" target="_blank">
