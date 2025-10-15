@@ -113,26 +113,26 @@ A full version of my CV is available for download below.
 ---
 
 ### Service & Outreach
-**Yale Postdoctoral Association Committee Member**, Yale University (2024–2025)  
-- Organized monthly events fostering community, inclusion, and networking among postdocs.
+- **Yale Postdoctoral Association Committee Member**, Yale University (2024–2025)  
+  Organized monthly events fostering community, inclusion, and networking among postdocs.
 
-**Women and Gender Minorities in Science at Yale Mentor**, Yale University (2023–2024)  
-- Mentored a graduate student monthly, supporting academic and gender-related challenges.
+- **Women and Gender Minorities in Science at Yale Mentor**, Yale University (2023–2024)  
+  Mentored a graduate student monthly, supporting academic and gender-related challenges.
 
-**SimVascular Tutorial Series Presenter**, Stanford University (2020)  
-- Delivered workshops on SimVascular; tutorials uploaded to YouTube with 14K+ views.
+- **SimVascular Tutorial Series Presenter**, Stanford University (2020)  
+  Delivered workshops on SimVascular; tutorials uploaded to YouTube with 14K+ views.
 
-**BioAIMS Advocacy Chair**, Stanford University (2018–2019)  
-- Led quarterly roundtables on social issues in biosciences. Organized events to implement initiatives, including voter registration and all-gender facilities info sessions.
+- **BioAIMS Advocacy Chair**, Stanford University (2018–2019)  
+  Led quarterly roundtables on social issues in biosciences. Organized events to implement initiatives, including voter registration and all-gender facilities info sessions.
 
-**Redwood Peninsula Elementary Tutor**, Stanford University (2017–2018)  
-- Tutored elementary students weekly, developing activities to enhance learning and engagement.
+- **Redwood Peninsula Elementary Tutor**, Stanford University (2017–2018)  
+  Tutored elementary students weekly, developing activities to enhance learning and engagement.
 
-**Counselor and Presenter**, National Youth Science Camp (2017, 2019)  
-- Ran STEM activities for ~120 high school students over six-week sessions. Presented original research and led cardiac fluid simulation workshops.
+- **Counselor and Presenter**, National Youth Science Camp (2017, 2019)  
+  Ran STEM activities for ~120 high school students over six-week sessions. Presented original research and led cardiac fluid simulation workshops.
 
-**Girls Who Code Instructor**, Johns Hopkins University (2014)  
-- Taught elementary students coding during Computer Science Education Week. Created grade-specific activities to introduce computer science fundamentals.
+- **Girls Who Code Instructor**, Johns Hopkins University (2014)  
+  Taught elementary students coding during Computer Science Education Week. Created grade-specific activities to introduce computer science fundamentals.
 
 ---
 
@@ -152,8 +152,8 @@ A full version of my CV is available for download below.
 ---
 
 ### Selected Conference Presentations
-- *Postnatal Pulmonary Artery Development from Transcript to Mechanics*, Single Ventricle Investigator Meeting 2024 — Poster  
-- *Data-Informed Modeling of Murine Pulmonary Artery Development*, Vasculata 2024 — Poster  
-- *Developmental Characterization of the Aorta and Pulmonary Arteries*, Additional Ventures Cures Collaborative 2024 — Poster  
-- *A Computational Framework for Simulating Growth and Remodeling of Patient-Specific Vessels*, World Congress of Biomechanics 2022 — Oral  
-- *Hemodynamic Performance of Tissue-Engineered Vascular Grafts in Fontan Patients*, BMES 2019 — Oral
+- **Postnatal Pulmonary Artery Development from Transcript to Mechanics**, Single Ventricle Investigator Meeting 2024 — Poster  
+- **Data-Informed Modeling of Murine Pulmonary Artery Development**, Vasculata 2024 — Poster  
+- **Developmental Characterization of the Aorta and Pulmonary Arteries**, Additional Ventures Cures Collaborative 2024 — Poster  
+- **A Computational Framework for Simulating Growth and Remodeling of Patient-Specific Vessels**, World Congress of Biomechanics 2022 — Oral  
+- **Hemodynamic Performance of Tissue-Engineered Vascular Grafts in Fontan Patients**, BMES 2019 — Oral
