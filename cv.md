@@ -74,12 +74,16 @@ A full version of my CV is available for download below.
 **Teaching**
 - **Guest Lecturer**, “Mathematical Methods I”, Yale University (2024)  
   Delivered a two-part series on vector calculus with application-based examples.
+
 - **Guest Lecturer**, “Cardiovascular Fluid Mechanics”, University of California San Diego (2024)  
   Taught soft-tissue growth and remodeling with emphasis on mechanotransduction modeling.
+
 - **Guest Lecturer**, “Discover and Design in Biomedical Research”, Yale University (2023, 2024)  
   Lectured on biomedical project execution with applications in congenital heart defect research.
+
 - **Teaching Assistant**, “Computational Modeling in the Cardiovascular System”, Stanford University (2021)  
   Led discussion sections on fluid dynamics, structural mechanics, and computational methods.
+
 - **Teaching Assistant**, “Bioengineering Senior Capstone Design I & II”, Stanford University (2018–2019)
   Conducted lectures, provided feedback on project documents, and assisted in prototype construction.  
   Guided student teams that won national engineering awards.
@@ -87,16 +91,22 @@ A full version of my CV is available for download below.
 **Research Supervision**
 - **Murat Khidoyatov**, Undergraduate Student, Yale University (2024)  
   Implementing novel material models of tissue-engineered vascular graft behavior in the open-source finite element solver FEBio.
+
 - **Cole Anderson**, Graduate Student, Ohio State University (2023–2024)  
   Improving tissue-engineered vascular graft performance using computational modeling.
+
 - **Zinan Hu**, Graduate Student, Stanford University (2021–2023)  
   Creating a multiphysics finite element framework to evaluate design parameters of a 3D bioprinted, pulsatile conduit.
+
 - **Chris Chankyo Kim**, Undergraduate Student, Stanford University (2021–2022)  
   Generating virtual reality models of congenital heart defects from clinical imaging data for clinician training.
+
 - **Aaron Panduro**, Undergraduate Student, California State University, Fresno (2020–2023)  
   Investigating hemodynamic factors driving cerebral aneurysm growth using computational fluid dynamics. *(Joint project with Allyson Weiss)*
+
 - **Allyson Weiss**, Undergraduate Student, Stanford University (2020–2023)  
   Investigating hemodynamic factors driving cerebral aneurysm growth using computational fluid dynamics. *(Joint project with Aaron Panduro)*
+  
 - **Kyle Feliciano**, Undergraduate Student, Stanford University (2020–2022)  
   Simulating aortic hemodynamics after fenestrated endovascular aneurysm repair to assess thrombotic risk.
 
