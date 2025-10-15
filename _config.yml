@@ -10,7 +10,7 @@ plugins:
   - jekyll-remote-theme
 
 # Appearance
-logo: /assets/images/headshot_2024_square_bw_low_res.png  # add a headshot in assets/
+logo: /assets/headshot_2024_square_bw_low_res.png  # add a headshot in assets/
 show_downloads: false
 
 # Navigation links (appear in header)
