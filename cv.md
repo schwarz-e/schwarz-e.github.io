@@ -60,13 +60,13 @@ A full version of my CV is available for download below.
 ---
 
 ### Selected Honors & Awards
-- Vasculata Novel Insights in Vascular Biology Poster Award — Yale University, 2024  
-- Melosh Medal Finalist — Stanford University, 2024  
-- Siebel Scholar Award — Stanford University, 2023  
-- 1st Place Tulane Business Model Competition — Johns Hopkins University, 2017  
-- Generation Google Scholar Award — Google, 2015  
-- Vredenburg Scholar Award — Johns Hopkins University, 2015  
-- 1st Place NIH DEBUT Challenge — NIH, 2014
+- **Vasculata Novel Insights in Vascular Biology Poster Award**, Yale University, 2024  
+- **Melosh Medal Finalist**, Stanford University, 2024  
+- **Siebel Scholar Award**, Stanford University, 2023  
+- **1st Place Tulane Business Model Competition**, Johns Hopkins University, 2017  
+- **Generation Google Scholar Award**, Google, 2015  
+- **Vredenburg Scholar Award** Johns Hopkins University, 2015  
+- **1st Place NIH DEBUT Challenge**, NIH, 2014
 
 ---
 
