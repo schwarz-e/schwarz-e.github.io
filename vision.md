@@ -1,9 +1,3 @@
----
-layout: page
-title: "Research Vision"
-permalink: /research-vision/
----
-
 # Research Vision  
 **Erica L. Schwarz, Ph.D.**
 
