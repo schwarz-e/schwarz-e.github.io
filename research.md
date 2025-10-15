@@ -1,3 +1,8 @@
+---
+title: Research Overview
+layout: default
+---
+
 # Research
 
 ---
