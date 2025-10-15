@@ -20,16 +20,15 @@ Studies focused on developing multiphysics solvers capable of simulating complex
 ---
 
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
-Computational tools have the ability to greatly aid diagnosis and treatment planning. Using computational tools 
+Computational tools have the ability to greatly aid diagnosis and treatment planning. Using computational tools.
 
- Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, combined with vascular graft studies.  
 [Explore Clinical Translation Research →](/research/translation)
 
 <figure style="max-width: 90%; margin: auto;">
-  <a href="/assets/multiscale_diagram.jpg" target="_blank">
-  <img src="/assets/multiscale_diagram.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+  <a href="/assets/tevg_modeling.jpg" target="_blank">
+  <img src="/assets/tevg_modeling.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
    </a>
-  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the multiphysics governing equations.</em></figcaption>
+  <figcaption style="text-align:center;"><em>A subject-specific tissue-engineered vascular graft (a) was used to create a finite element model (b) and simulate growth and remodeling for 6 week post-operation (c, d).</em></figcaption>
 </figure>
   
 <br>
