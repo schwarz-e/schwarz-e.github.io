@@ -1,0 +1,25 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* Make page width responsive and variable */
+.wrapper, .container, .page-content {
+  max-width: 95%;       /* allow it to grow wider on large screens */
+  width: 100%;
+  margin: 0 auto;       /* center content */
+  padding: 1.5rem;      /* optional: add space from edges */
+}
+
+/* Set an upper bound for very large monitors */
+@media (min-width: 1600px) {
+  .wrapper, .container, .page-content {
+    max-width: 1400px;
+  }
+}
+
+/* Improve readability on smaller screens */
+@media (max-width: 768px) {
+  .wrapper, .container, .page-content {
+    padding: 1rem;
+  }
+}
