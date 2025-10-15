@@ -153,13 +153,23 @@ A full version of my CV is available for download below.
 
 ### Selected Conference Presentations
 - **Postnatal Pulmonary Artery Development from Transcript to Mechanics – Poster** (2024) Single Ventricle Investigator Meeting
+
 - **A Data-Informed Modeling of Murine Pulmonary Artery Development and Disease – Poster** (2024) Vasculata
+
 - **Developmental Characterization of the Aorta and Pulmonary Arteries – Poster** (2024) Additional Ventures Cures Collaborative
+
 - **A Computational Framework for Simulating the Growth and Remodeling of Patient-Specific Vessels – Oral** (2022) World Congress of Biomechanics
+
 - **Simulated Performance of a Pulsatile Fontan Conduit – Oral** (2021) Single Ventricle Investigators Meeting
+
 - **How Stenosis in Tissue Engineered Vascular Grafts Affects Performance in Fontan Patients – Poster** (2020) BioFluids
+
 - **The Effect of Tissue Engineered Vascular Graft Material Properties on Hemodynamics in Fontan Patients during Exercise – Poster** (2019) North American Vascular Biology Organization
+
 - **Patient-Specific Performance of Tissue-Engineered Vascular Grafts in Fontan Exercise Under Simulated Exercise Conditions – Oral** (2019) Biomedical Engineering Society Annual Meeting
+
 - **Quantifying Energy Loss, Growth, and Remodeling in Fontan Patients with Tissue Engineered Vascular Grafts – Oral** (2019) 6th International Conference on Clinical and Engineering Frontiers in Pediatric and Congenital Heart Disease
+
 - **Preliminary Study of Optimal Ultrasound Parameter Selection and Automated Breast Cancer Detection by Lesser Trained Operators – Poster** (2017) IEEE BHI
+
 - **Using Graph Theory to Predict Ablation Targets in Patient Specific Models of Left Atrial Flutter – Oral** (2016) Biomedical Engineering Society Annual Meeting
