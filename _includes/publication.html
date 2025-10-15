@@ -1,4 +1,4 @@
-{% assign pub = site.assets._data.publications | where: "id", include.id | first %}
+{% assign pub = site.data.publications | where: "id", include.id | first %}
 {% if pub %}
 <div class="publication-entry">
   <strong>{{ pub.title }}</strong><br>
