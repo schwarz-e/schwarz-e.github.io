@@ -9,4 +9,15 @@ I am currently focused on integrating **neural operator frameworks** with **cons
 
 ---
 
+## Research Vision
+Computational modeling is transforming cardiovascular healthcare, yet current models fall short in predicting **long-term, patient-specific outcomes**.  
+
+My vision is to develop **next-generation multiscale models** that integrate **mechanistic growth and remodeling (G&R)** into **computational fluid dynamics (CFD)** simulations of complex cardiovascular geometries.  
+
+This approach couples **organ-scale hemodynamics** with **cell- and tissue-level remodeling**, bridging physics-based simulation and machine learning to enable clinically actionable predictions.  
+
+[➡ Explore the full Research Vision →](research-vision)
+
+---
+
 [📄 Download CV](cv) • [📚 Publications](publications) • [🔬 Research](research)

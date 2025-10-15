@@ -3,9 +3,6 @@
 ---
 
 ### Selected Works
-> 📚 Automatically generated from Google Scholar
-> Last updated: October 14, 2025
-
 
 - **Multiphysics Simulations of a Bioprinted Pulsatile Fontan Conduit**  
   Hu, Z., Herrmann, J. E., **Schwarz, E. L.**, Gerosa, F. M., Emuna, N., Humphrey, J. D., Feinberg, A. W., Hsia, T., Skylar-Scott, M. A., & Marsden, A. L. (2025)  
