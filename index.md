@@ -7,4 +7,6 @@ My work bridges **mechanical engineering, biology, and applied mathematics** to 
 
 I am currently focused on integrating **neural operator frameworks** with **constrained mixture theory** to forecast aneurysm progression and identify biomechanical predictors of rupture risk.
 
+---
+
 [📄 Download CV](cv) • [📚 Publications](publications) • [🔬 Research](research)

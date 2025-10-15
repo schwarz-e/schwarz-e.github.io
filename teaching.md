@@ -1,5 +1,4 @@
-# Statement of Teaching and Mentoring  
-**Erica L. Schwarz, Ph.D.**
+# Statement of Teaching and Mentoring
 
 ---
 

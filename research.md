@@ -1,5 +1,7 @@
 # Research
 
+---
+
 # Explore my work. Click on each to see detailed publications and methods.
 
 ## Pulmonary

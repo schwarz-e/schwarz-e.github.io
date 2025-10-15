@@ -1,5 +1,4 @@
-# Research Vision  
-**Erica L. Schwarz, Ph.D.**
+# Research Vision
 
 ---
 

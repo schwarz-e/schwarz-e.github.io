@@ -1,9 +1,6 @@
----
-layout: default
-title: Publications
----
-
 # Publications
+
+---
 
 ### Selected Works
 > 📚 Automatically generated from Google Scholar
