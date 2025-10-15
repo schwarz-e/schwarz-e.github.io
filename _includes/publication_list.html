@@ -1,0 +1,18 @@
+{% assign ids = include.ids %}
+{% if ids %}
+<ul class="publication-list">
+  {% for id in ids %}
+    {% assign pub = site.data.publications | where: "id", id | first %}
+    {% if pub %}
+      <li class="publication-entry">
+        <strong>{{ pub.title }}</strong><br>
+        {{ pub.authors }} ({{ pub.year }})<br>
+        {% if pub.journal %}<em>{{ pub.journal }}</em><br>{% endif %}
+        {% if pub.link %}<a href="{{ pub.link }}">Link</a>{% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% else %}
+<p><em>No publications found.</em></p>
+{% endif %}
