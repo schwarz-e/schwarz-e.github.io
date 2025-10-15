@@ -71,11 +71,12 @@
         {% endif %}
 
         <nav class="nav-tree">
-          <ul class="top-links">
+          <ul>
             {% for item in site.navigation %}
               <li>
                 <div class="nav-parent">
                   <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+
                   {% if item.children %}
                     <a href="#" class="toggle" onclick="toggleSubnav(event)">▾</a>
                   {% endif %}
@@ -92,6 +93,7 @@
             {% endfor %}
           </ul>
         </nav>
+        <br>
 
         <script>
         function toggleSubnav(event) {
@@ -111,44 +113,25 @@
           margin: 0;
         }
 
-        /* Top-level links in rows of 3 */
-        .nav-tree ul.top-links {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5em 1em; /* row and column spacing */
+        .nav-tree li {
+          margin: 0.0em 0;
         }
 
-        .nav-tree ul.top-links li {
-          flex: 1 0 calc(33.333% - 1em); /* 3 per row with spacing */
-          display: flex;
-          align-items: center;
-        }
-
-        /* Add dot separator between links except the last in row */
-        .nav-tree ul.top-links li:not(:last-child)::after {
-          content: "•";
-          margin-left: 0.5em;
-          color: #555;
-        }
-
-        /* Nav parent flex layout */
         .nav-tree .nav-parent {
           display: flex;
           align-items: center;
-          gap: 0.25em;
+          gap: 0.1em;
         }
 
-        /* Toggle button */
         .nav-tree .toggle {
           text-decoration: none;
           border: none;
           background: none;
           cursor: pointer;
-          font-size: 1em;
+          font-size: 1.0em;
           line-height: 1;
         }
 
-        /* Subnav styling */
         .nav-tree .subnav {
           display: none;
           margin-left: 1em;
