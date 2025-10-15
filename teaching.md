@@ -20,9 +20,12 @@ As a graduate student at Stanford, I served as a teaching assistant for *Bioengi
 I have additionally led technical courses. I served as the teaching assistant for *Computational Modeling in the Cardiovascular System*, a graduate-level course that covered analytical and computational methods for simulating cardiovascular fluid dynamics. My responsibilities included leading discussion sections where I prepared miniature lectures and application-based examples to supplement the main course. I built an inclusive learning environment by encouraging students to ask questions and taking the time to discuss any knowledge gaps both as a group and individually.  
 
 I received exceptionally positive feedback on my teaching. Quotes from students’ anonymous feedback included:  
-> “I really couldn't have asked for a better TA. Erica was phenomenal.”  
+> “I really couldn't have asked for a better TA. Erica was phenomenal.”
+
 > “Erica is one of the best TAs I have had at Stanford.”  
+
 > “She was extremely patient when teaching [...] very good at explaining difficult concepts, especially in terms of drawing things and explaining ideas visually.”  
+
 > “Erica was clearly very knowledgeable, and I always felt like she was really prepared for office hours and lectures.”  
 
 Since becoming a postdoctoral researcher, I have continued to strive for teaching excellence. I have been a guest lecturer at multiple institutions in both the Mechanical Engineering and Biomedical Engineering Departments.  
