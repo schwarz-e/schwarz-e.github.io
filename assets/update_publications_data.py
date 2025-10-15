@@ -7,7 +7,7 @@ import yaml
 # === CONFIGURATION ===
 SCHOLAR_ID = "s4mUv1AAAAAJ"   # Replace with your Google Scholar ID
 YOUR_NAME = "Schwarz"         # Will be bolded in authors
-OUTPUT_FILE = "_data/publications.yml"
+OUTPUT_FILE = "../_data/publications.yml"
 SLEEP_BETWEEN_REQUESTS = 0.1
 
 # === FETCH AUTHOR DATA ===
@@ -50,7 +50,7 @@ def format_authors(authors_str, your_name="Schwarz"):
         initials = " ".join([p[0] + "." for p in parts[:-1]]) if len(parts) > 1 else ""
         formatted = f"{last}, {initials}".strip() if initials else last
         if your_name.lower() in name.lower():
-            formatted = f"**{formatted}**"
+            formatted = f"<strong>{formatted}<strong/>"
         formatted_authors.append(formatted)
     if len(formatted_authors) > 1:
         return ", ".join(formatted_authors[:-1]) + ", & " + formatted_authors[-1]
