@@ -103,18 +103,18 @@ A full version of my CV is available for download below.
 
 ---
 
+### Papers in Preparation
+- **Schwarz, E.L.**, Ramachandra, A.B., Yeung, N., Manning, E.P., Weiss, D., & Humphrey, J.D. *Postnatal pulmonary artery development: From transcript to mechanics.* (To be submitted Dec 2024)  
+- **Schwarz, E.L.**, Cao, Q., Li, D.S., Goswami, S., Karniadakis, G.E., & Humphrey, J.D. *Optimal neural operators for forecasting thoracic aortic aneurysm growth.* (To be submitted Jan 2025)
+
+---
+
 ### Selected Publications
 - Pfaller, M.R., Latorre, M., **Schwarz, E.L.**, Gerosa, F.M., Szafron, J.M., Humphrey, J.D., & Marsden, A.L. *FSGe: A fast and strongly-coupled 3D fluid-solid-growth interaction method.* **arXiv**, 2024.  
 - Turner, M.E., Blum, K.M., Watanabe, T., **Schwarz, E.L.**, et al. *Tissue engineered vascular grafts are resistant to dystrophic calcification.* **Nature Communications**, 2024.  
 - Weiss, A.J., Panduro, A.O., **Schwarz, E.L.**, et al. *A matched-pair case control study identifying hemodynamic predictors of cerebral aneurysm growth using CFD.* **Frontiers in Physiology**, 2023.  
 - **Schwarz, E.L.**, Pfaller, M.R., Szafron, J.M., Latorre, M., Lindsey, S.E., Breuer, C.K., Humphrey, J.D., & Marsden, A.L. *A fluid–solid-growth solver for cardiovascular modeling.* **CMAME**, 2023.  
 - **Schwarz, E.L.**, Pegolotti, L., Pfaller, M.R., & Marsden, A.L. *Beyond CFD: Emerging methodologies for predictive simulation in cardiovascular health and disease.* **Biophysics Reviews**, 2023.
-
----
-
-### Papers in Preparation
-- **Schwarz, E.L.**, Ramachandra, A.B., Yeung, N., Manning, E.P., Weiss, D., & Humphrey, J.D. *Postnatal pulmonary artery development: From transcript to mechanics.* (To be submitted Dec 2024)  
-- **Schwarz, E.L.**, Cao, Q., Li, D.S., Goswami, S., Karniadakis, G.E., & Humphrey, J.D. *Optimal neural operators for forecasting thoracic aortic aneurysm growth.* (To be submitted Jan 2025)
 
 ---
 
