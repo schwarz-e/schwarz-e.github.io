@@ -22,33 +22,29 @@ A full version of my CV is available for download below.
 ---
 
 ### Research Appointments
-- **Postdoctoral Scholar**, Yale University, 2023–Present
+- **Postdoctoral Scholar**, Yale University, 2023–Present  
   *Continuum Biomechanics Laboratory* — Advisor: Jay D. Humphrey  
-  Integrated gene expression data into growth and remodeling models of postnatal pulmonary artery development to predict outcomes in congenital heart disease.  
-  Generated clinically relevant aneurysm simulations to train machine learning models for clinical transfer learning.
+  Integrated gene expression data into growth and remodeling models of postnatal pulmonary arteries and generated aneurysm simulations for machine learning–based outcome prediction.
 
-- **Graduate Research Assistant**, Stanford University, 2017–2023 
+- **Graduate Research Assistant**, Stanford University, 2017–2023  
   *Cardiovascular Biomechanics Computation Laboratory* — Advisor: Alison L. Marsden  
-  Implemented a fluid–solid–growth framework for modeling vascular geometry changes in response to patient-specific hemodynamics.  
-  Modeled cardiac physiology from MRI data with closed-loop boundary conditions to assess the efficacy of surgical interventions.
+  Developed a 3D fluid–solid–growth framework for patient-specific vascular modeling and simulated cardiac physiology to assess surgical interventions.
 
-- **Graduate Research Assistant**, Stanford University, 2017
+- **Graduate Research Assistant**, Stanford University, 2017  
   *CamLab* — Advisor: David B. Camarillo  
-  Used neural networks and TensorFlow to improve system accuracy in a pulmonary catheter system for future applications in robotic surgery.
+  Applied neural networks to improve accuracy of pulmonary catheter systems for robotic surgery applications.
 
-- **Undergraduate Research Assistant**, Applied Physics Laboratory, 2016–2017
+- **Undergraduate Research Assistant**, Applied Physics Laboratory, 2016–2017  
   *Research and Exploratory Development Department* — Advisor: Philippe Burlina  
-  Created a machine learning algorithm to identify breast cancer features in ultrasound samples.  
-  Programmed a linear ultrasound system to capture single-element features.
+  Designed a machine learning algorithm for ultrasound-based breast cancer detection and programmed a linear ultrasound imaging system.
 
-- **Undergraduate Research Assistant**, Johns Hopkins University, 2014–2017
+- **Undergraduate Research Assistant**, Johns Hopkins University, 2014–2017  
   *Computational Cardiology Laboratory* — Advisor: Natalia A. Trayanova  
-  Used patient-specific models to simulate left atrial flutter and predict optimal ablation targets using the “minimum cut” flow network algorithm.
+  Modeled patient-specific atrial flutter and identified optimal ablation targets using graph theory and network algorithms.
 
-- **Research Assistant**, University of Arizona, 2014
+- **Research Assistant**, University of Arizona, 2014  
   *Soft Tissue Biomechanics Laboratory* — Advisor: Jonathan P. Vande Geest  
-  Evaluated coronary artery drug-eluting stent designs using finite element simulations.  
-  Designed a device to compress nerves using a biaxial stretching apparatus.
+  Evaluated coronary stent mechanics via finite element analysis and designed a nerve compression device using biaxial stretching.
 
 ---
 
