@@ -12,8 +12,7 @@ Studies of **pulmonary artery development** and tissue-engineered grafts, combin
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
   <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
 </figure>
-
-
+  
 ---
 
 ## Aorta
@@ -24,8 +23,7 @@ Patient-specific modeling of **aortic growth, remodeling, and aneurysm risk**, c
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
   <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
 </figure>
-
-
+  
 ---
 
 ## Large Data & Computational Methods
@@ -36,8 +34,7 @@ Development of **computational, machine learning, and multiscale modeling tools*
   <img src="/assets/rupture.png" alt="Pulmonary artery model" style="width:100%; border-radius:10px;">
   <figcaption style="text-align:center;"><em>3D reconstruction of murine pulmonary artery growth (E18.5).</em></figcaption>
 </figure>
-
-
+  
 ---
 
 # Other themes in my research include:
