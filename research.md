@@ -37,13 +37,7 @@ I collaborate extensively with **multi-institutional teams** of clinicians and r
 ---
 
 ## Multiscale Modeling and Machine Learning Integration
-No one can escape the mesmerizing pull of artificial intelligence. However, knowing how to use it makes all the difference between a navel-gazing calculator and a powerful tool that can greatly improve human quality of life. I have .
-
-Physics-based simulations provide high-fidelity data based on interpretable biological and clinical findings. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich data-set that would be impossible to generate *in-vivo*. By coupling these models to neural operators, 
-
-My philosophy is that by bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of data transparency and quality.
-
-Development of **computational, machine learning, and multiscale modeling tools** to predict cardiovascular outcomes.  
+No one can escape the mesmerizing pull of artificial intelligence. However, knowing how to use it makes all the difference between a navel-gazing calculator and a powerful tool that can greatly improve human quality of life. I have used **physics-based simulations** based on interpretable biological and clinical findings to create high-fidelity data **for training neural operators**. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich, clinically-relevant data-sets at a volume that would be impossible to generate *in-vivo*. By bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of **data transparency and quality**.  
 
 [Explore Multiscale and Machine Learning Research →](/research/multiscale)  
 
