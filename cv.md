@@ -106,23 +106,33 @@ A full version of my CV is available for download below.
 
 - **Allyson Weiss**, Undergraduate Student, Stanford University (2020–2023)  
   Investigating hemodynamic factors driving cerebral aneurysm growth using computational fluid dynamics. *(Joint project with Aaron Panduro)*
-  
+
 - **Kyle Feliciano**, Undergraduate Student, Stanford University (2020–2022)  
   Simulating aortic hemodynamics after fenestrated endovascular aneurysm repair to assess thrombotic risk.
 
 ---
 
 ### Service & Outreach
-- Yale Postdoctoral Association Committee Member — Yale University (2024)  
-  Organized events promoting inclusion and community among postdocs.  
-- Women and Gender Minorities in Science Mentor — Yale University (2023–2024)  
-  Mentored graduate students navigating challenges around gender in academia.  
-- SimVascular Tutorial Series Presenter — Stanford University (2020)  
-  Created and uploaded workshops now viewed over 14,000 times.  
-- BioAIMS Advocacy Chair — Stanford University (2018–2019)  
-  Led initiatives on diversity, inclusion, and social advocacy in biosciences.  
-- Girls Who Code Instructor — Johns Hopkins University (2014)  
-  Introduced coding concepts to elementary school students.
+**Yale Postdoctoral Association Committee Member**, Yale University (2024–2025)  
+- Organized monthly events fostering community, inclusion, and networking among postdocs.
+
+**Women and Gender Minorities in Science at Yale Mentor**, Yale University (2023–2024)  
+- Mentored a graduate student monthly, supporting academic and gender-related challenges.
+
+**SimVascular Tutorial Series Presenter**, Stanford University (2020)  
+- Delivered workshops on SimVascular; tutorials uploaded to YouTube with 14K+ views.
+
+**BioAIMS Advocacy Chair**, Stanford University (2018–2019)  
+- Led quarterly roundtables on social issues in biosciences. Organized events to implement initiatives, including voter registration and all-gender facilities info sessions.
+
+**Redwood Peninsula Elementary Tutor**, Stanford University (2017–2018)  
+- Tutored elementary students weekly, developing activities to enhance learning and engagement.
+
+**Counselor and Presenter**, National Youth Science Camp (2017, 2019)  
+- Ran STEM activities for ~120 high school students over six-week sessions. Presented original research and led cardiac fluid simulation workshops.
+
+**Girls Who Code Instructor**, Johns Hopkins University (2014)  
+- Taught elementary students coding during Computer Science Education Week. Created grade-specific activities to introduce computer science fundamentals.
 
 ---
 
