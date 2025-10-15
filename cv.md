@@ -7,24 +7,48 @@ A full version of my CV is available for download below.
 ---
 
 ### Education
-- **Ph.D. in Bioengineering**, Stanford University, 2023  
+- **Ph.D. in Bioengineering**, Stanford University, 2019-2023  
   Advisor: Alison L. Marsden  
   *Dissertation:* Creating a coupled framework for simulating full, three-dimensional constrained mixture growth and remodeling of soft tissues in a finite element fluid–structure interaction solver.
 
-- **M.S. in Bioengineering**, Stanford University, 2019  
+- **M.S. in Bioengineering**, Stanford University, 2017-2019  
   Advisor: Alison L. Marsden  
   *Focus:* Quantifying the hemodynamic performance of tissue-engineered vascular grafts in Fontan patients using multiscale CFD.
 
-- **B.S. in Biomedical Engineering and Computer Science**, Johns Hopkins University, 2017  
+- **B.S. in Biomedical Engineering and Computer Science**, Johns Hopkins University, 2013-2017 
   Advisor: Natalia A. Trayanova  
   *Focus:* Utilizing graph theory to identify ablation targets in patients with left atrial flutter.
 
 ---
 
-### Appointments
-- **Postdoctoral Scholar**, Yale University (2023–Present)  
-  Advisor: Jay D. Humphrey  
-  Integrating gene expression and machine learning into growth and remodeling frameworks to predict outcomes in congenital heart patients and aneurysms.
+### Research Appointments
+- **Postdoctoral Scholar**, Yale University, 2023–Present
+  *Continuum Biomechanics Laboratory* — Advisor: Jay D. Humphrey  
+  Integrated gene expression data into growth and remodeling models of postnatal pulmonary artery development to predict outcomes in congenital heart disease.  
+  Generated clinically relevant aneurysm simulations to train machine learning models for clinical transfer learning.
+
+- **Graduate Research Assistant**, Stanford University, 2017–2023 
+  *Cardiovascular Biomechanics Computation Laboratory* — Advisor: Alison L. Marsden  
+  Implemented a fluid–solid–growth framework for modeling vascular geometry changes in response to patient-specific hemodynamics.  
+  Modeled cardiac physiology from MRI data with closed-loop boundary conditions to assess the efficacy of surgical interventions.
+
+- **Graduate Research Assistant**, Stanford University, 2017
+  *CamLab* — Advisor: David B. Camarillo  
+  Used neural networks and TensorFlow to improve system accuracy in a pulmonary catheter system for future applications in robotic surgery.
+
+- **Undergraduate Research Assistant**, Applied Physics Laboratory, 2016–2017
+  *Research and Exploratory Development Department* — Advisor: Philippe Burlina  
+  Created a machine learning algorithm to identify breast cancer features in ultrasound samples.  
+  Programmed a linear ultrasound system to capture single-element features.
+
+- **Undergraduate Research Assistant**, Johns Hopkins University, 2014–2017
+  *Computational Cardiology Laboratory* — Advisor: Natalia A. Trayanova  
+  Used patient-specific models to simulate left atrial flutter and predict optimal ablation targets using the “minimum cut” flow network algorithm.
+
+- **Research Assistant**, University of Arizona, 2014
+  *Soft Tissue Biomechanics Laboratory* — Advisor: Jonathan P. Vande Geest  
+  Evaluated coronary artery drug-eluting stent designs using finite element simulations.  
+  Designed a device to compress nerves using a biaxial stretching apparatus.
 
 ---
 
@@ -59,7 +83,7 @@ A full version of my CV is available for download below.
 - *Teaching Assistant*, “Computational Modeling in the Cardiovascular System”, Stanford University (2021)  
   Led discussion sections on fluid dynamics and computational methods.
 
-**Mentorship**
+**Research Supervision**
 - Murat Khidoyatov — Undergraduate, Yale University (2024)  
   Implementing novel material models in FEBio.  
 - Cole Anderson — Graduate, Ohio State University (2023–2024)  
