@@ -27,7 +27,7 @@ I collaborate extensively with **multi-institutional teams** of clinicians and r
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/tevg_modeling.jpg" target="_blank">
-  <img src="/assets/tevg_modeling.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+  <img src="/assets/tevg_modeling.jpg" alt="Tissue-engineered vascular graft modeling" style="width:100%; border-radius:10px;">
    </a>
   <figcaption style="text-align:center;"><em>A subject-specific tissue-engineered vascular graft (a) was used to create a finite element model (b) and simulate growth and remodeling for 6 week post-operation (c, d).</em></figcaption>
 </figure>
@@ -42,10 +42,10 @@ Artificial intelligence is increasingly ubiquitous in research and medicine. How
 [Explore Multiscale and Machine Learning Research →](/research/multiscale)  
 
 <figure style="max-width: 90%; margin: auto;">
-  <a href="/assets/multiscale_diagram.jpg" target="_blank">
-  <img src="/assets/multiscale_diagram.jpg" alt="Diagram of fluid-solid-growth solver" style="width:100%; border-radius:10px;">
+  <a href="/assets/LNO_TB.svg" target="_blank">
+  <img src="/assets/LNO_TB.svg" alt="Laplace neural operator" style="width:100%; border-radius:10px;">
    </a>
-  <figcaption style="text-align:center;"><em>A schematic view of the fluid-structure-growth framework where updates are determined by iterative convergence of the multiphysics governing equations.</em></figcaption>
+  <figcaption style="text-align:center;"><em>Architecture of the Laplace neural operator with autoregressive strategy for forecasting aneurysm dilatation.</em></figcaption>
 </figure>
   
 <br>
