@@ -83,7 +83,7 @@
                 </div>
 
                 {% if item.children %}
-                  <ul class="subnav">
+                  <ul class="subnav {% if page.url == '/' %}expanded{% endif %}">
                     {% for child in item.children %}
                       <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
                     {% endfor %}
@@ -93,7 +93,6 @@
             {% endfor %}
           </ul>
         </nav>
-        <br>
 
         <script>
         function toggleSubnav(event) {
@@ -104,6 +103,16 @@
           subnav.classList.toggle('expanded');
           toggle.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
         }
+
+        // Optional: initialize toggle arrows correctly on page load
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll('.nav-tree li .toggle').forEach(toggle => {
+            const subnav = toggle.closest('li').querySelector('.subnav');
+            if (subnav.classList.contains('expanded')) {
+              toggle.textContent = '▴';
+            }
+          });
+        });
         </script>
 
         <style>
