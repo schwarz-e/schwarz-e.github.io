@@ -20,12 +20,12 @@ navigation:
   - name: Research
     link: /research
     children:
-      - name: Pulmonary
-        link: /research/pulmonary
-      - name: Aorta
-        link: /research/aorta
-      - name: Data Driven
-        link: /research/data-driven
+      - name: Multiphysics Solver Development
+        link: /research/solver
+      - name: Tissue Engineering and Clinical Translation
+        link: /research/translation
+      - name: Machine Learning and Multiscale Modeling
+        link: /research/multiscale
   - name: Publications
     link: /publications
   - name: Vision
