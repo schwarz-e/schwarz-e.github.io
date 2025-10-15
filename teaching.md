@@ -1,4 +1,4 @@
-# Statement of Teaching and Mentoring
+# Teaching Statement
 
 ---
 
