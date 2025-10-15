@@ -8,7 +8,14 @@ layout: default
 I have developed multiphysics solvers capable of simulating complex cardiovascular behavior. This includes integrating mathematical models of fluid dynamics and vascular solid mechanics into **finite-element** frameworks and designing novel **numerical methods** to improve accuracy and computational efficiency. The resulting solvers have been used for [translational research](/research/translation) and are available as open-source tools for the scientific community.  
 
 ### Research Development
-Research progressed from early **Fontan conduit design simulations** (2022–2025) to **integrated pulmonary artery development mapping** (2025), combining computational modeling and experimental validation for translational impact.
+After initial research using existing computational fluid dynamics and solid mechanics solvers, the limits of 
+
+Motivated by the need to not only calculate hemodynamic behavior at a certain timepoint, but to predict how changes in hemodynamic forces influenced growth and remodeling. As growth and remodeling of cardiovascular structures inevitably changes the hemodynamic forces, this is a tightly coupled problem, perticularly in cases where complex hemodynamic fields or rapid growth and remodeling are expected.
+
+The **constrained mixture theory** of vascular growth and remodeling has become a highly useful framework for modeling cardiovascular evolution as it allows for consideration of individual constituent families that may independently turnover depending on biomechanical stimuli. However, its relatively complex and expensive implementation had previously made it prohibitive to use in 
+
+
+After, I continued my work in multiphysics solvers and numerical methods by assisting with the development of additional frameworks that included electrophysiology coupling as well as more advanced implementations of fluid-structure-growth theory.
 
 ### Selected Publications
 
@@ -26,7 +33,7 @@ Research progressed from early **Fontan conduit design simulations** (2022–202
   *Journal of Biomechanical Engineering*  
   [Link](https://asmedigitalcollection.asme.org/biomechanical/article-abstract/147/7/071001/1214591)
 
-- **FSGe: A Fast and Strongly-coupled 3d Fluid–Solid-Growth Interaction Method**  
+- **FSGe: A Fast and Strongly-coupled 3D Fluid–Solid-Growth Interaction Method**  
   Pfaller, M. R., Latorre, M., **Schwarz, E. L.**, Gerosa, F. M., Szafron, J. M., Humphrey, J. D., & Marsden, A. L. (2024)  
   *Computer Methods in Applied Mechanics and Engineering*  
   [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
