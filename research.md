@@ -25,7 +25,7 @@ I have developed multiphysics solvers capable of simulating complex cardiovascul
 
 ---
 
-## Predictive Modeling of Vascular Grafts and Clinical Translation
+## Predictive Modeling and Clinical Translation
 I collaborate extensively with **multi-institutional teams** of clinicians and researchers to advance the development of **tissue-engineered vascular grafts**, using computational models of vascular behavior to predict surgical outcomes and define safety limits for cardiovascular function. These computational tools can directly accelerate the clinical translation of new medical technologies. 
 
 [Explore Translational Research →](/research/translation)  
