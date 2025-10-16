@@ -17,22 +17,46 @@ As a graduate student at *Stanford University* I began work on modeling the effe
 
 ### Selected Publications
 
-- **A Matched-pair Case Control Study Identifying Hemodynamic Predictors of Cerebral Aneurysm Growth Using Computational Fluid Dynamics** (2023)  
-  Applied patient-specific CFD to identify biomechanical predictors of aneurysm progression.  
-  [Link](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1300754)
+  **Schwarz, E. L.**, Kelly, J. M., Blum, K. M., Hor, K. N., Yates, A. R., Zbinden, J. C., Verma, A., Lindsey, S. E., Ramachandra, A. B., Szafron, J. M., Humphrey, J. D., Shin’oka, T., Marsden, A. L., & Breuer, C. K. (2021)  
+  *NPJ Regenerative Medicine*  
+  [Link](https://www.nature.com/articles/s41536-021-00148-w)
 
-- **Patient-specific Changes in Aortic Hemodynamics Associated with Thrombotic Risk After Fenestrated Endovascular Aneurysm Repair** (2022)  
-  Modeled large-diameter endografts to predict post-surgical thrombotic risk.  
-  [Link](https://www.sciencedirect.com/science/article/pii/S2666350322000098)
+- **Oversized Conduits Predict Stenosis in Tissue Engineered Vascular Grafts**  
+  Blum, K. M., Turner, M. E., **Schwarz, E. L.**, Best, C. A., Kelly, J. M., Yates, A. R., Hor, K. N., Matsuzaki, Y., Drews, J. D., Zakko, J., Shah, K., Shinoka, T., Humphrey, J. D., Marsden, A. L., & Breuer, C. K. (2025)  
+  *JACC: Basic to Translational Science*  
+  [Link](https://www.sciencedirect.com/science/article/pii/S2452302X25000658)
 
-- **Computational Modeling of Tissue-engineered Vascular Grafts** (2023, Ph.D. Thesis)  
-  Developed a framework for predicting growth, remodeling, and mechanical stability of vascular grafts.  
-  [Link](https://search.proquest.com/openview/6fd0b56d3551b51cbdb994571d712980/1?pq-origsite=gscholar&cbl=18750&diss=y)
+- **Tissue Engineered Vascular Grafts Are Resistant to the Formation of Dystrophic Calcification**  
+  Turner, M. E., Blum, K. M., Watanabe, T., **Schwarz, E. L.**, Nabavinia, M., Leland, J. T., Villarreal, D. J., Schwartzman, W. E., Chou, T., Baker, P. B., Matsumura, G., Krishnamurthy, R., Yates, A. R., Hor, K. N., Humphrey, J. D., Marsden, A. L., Stacy, M. R., Shinoka, T., & Breuer, C. K. (2024)  
+  *Nature communications*  
+  [Link](https://www.nature.com/articles/s41467-024-46431-4)
 
-- **Tissue Engineered Vascular Grafts Transform Into Autologous Neovessels Capable of Native Function and Growth** (2022)  
-  Demonstrated graft remodeling into functional aortic tissue.  
+- **Tissue Engineered Vascular Grafts Transform Into Autologous Neovessels Capable of Native Function and Growth**  
+  Blum, K. M., Zbinden, J. C., Ramachandra, A. B., Lindsey, S. E., Szafron, J. M., Reinhardt, J. W., Heitkemper, M., Best, C. A., Mirhaidari, G. J., Chang, Y., Ulziibayar, A., Kelly, J., Shah, K. V., Drews, J. D., Zakko, J., Miyamoto, S., Matsuzaki, Y., Iwaki, R., Ahmad, H., Daulton, R., Musgrave, D., Wiet, M. G., Heuer, E., Lawson, E., **Schwarz, E. L.**, McDermott, M. R., Krishnamurthy, R., Krishnamurthy, R., Hor, K., Armstrong, A. K., Boe, B. A., Berman, D. P., Trask, A. J., Humphrey, J. D., Marsden, A. L., Shinoka, T., & Breuer, C. K. (2022)  
+  *Communications medicine*  
   [Link](https://www.nature.com/articles/s43856-021-00063-7)
 
-- **Oversized Conduits Predict Stenosis in Tissue Engineered Vascular Grafts** (2025)  
-  Quantified structural and hemodynamic consequences of oversizing grafts.  
-  [Link](https://www.sciencedirect.com/science/article/pii/S2452302X25000658)
+- **Biodegradable External Wrapping Promotes Favorable Adaptation in an Ovine Vein Graft Model**  
+  Ramachandra, A. B., Wang, H., Wnorowski, A., **Schwarz, E. L.**, Pickering, J., Heiler, J. C., Lucian, H. J., Hironaka, C. E., Tran, N. A., Liu, Y., Khan, M. O., Obafemi, O., Tada, Y., Kahn, A. M., Sayed, N., Wu, J. C., Humphrey, J. D., Boyd, J. H., & Marsden, A. L. (2022)  
+  *Acta biomaterialia*  
+  [Link](https://www.sciencedirect.com/science/article/pii/S1742706122005049)
+
+- **Simulated Performance of a Bioprinted Pulsatile Fontan Conduit**  
+  Hu, Z., **Schwarz, E. L.**, Herrmann, J., Skylar-Scott, M., & Marsden, A. (2022)  
+  *Bulletin of the American Physical Society*  
+  [Link](https://meetings.aps.org/Meeting/DFD22/Session/S01.76)
+
+- **Patient-specific Changes in Aortic Hemodynamics Is Associated with Thrombotic Risk After Fenestrated Endovascular Aneurysm Repair with Large Diameter Endografts**  
+  Tran, K., Feliciano, K. B., Yang, W., **Schwarz, E. L.**, Marsden, A. L., Dalman, R. L., & Lee, J. T. (2022)  
+  *JVS-Vascular Science*  
+  [Link](https://www.sciencedirect.com/science/article/pii/S2666350322000098)
+
+- **A Matched-pair Case Control Study Identifying Hemodynamic Predictors of Cerebral Aneurysm Growth Using Computational Fluid Dynamics**  
+  Weiss, A. J., Panduro, A. O., **Schwarz, E. L.**, Sexton, Z. A., Lan, I. S., Geisbush, T. R., Marsden, A. L., & Telischak, N. A. (2023)  
+  *Frontiers in Physiology*  
+  [Link](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1300754/full)
+
+- **Feasibility of Using Patient-specific Models and the “minimum Cut” Algorithm to Predict Optimal Ablation Targets for Left Atrial Flutter**  
+  Zahid, S., Whyte, K. N., **Schwarz, E. L.**, III, R. C. B., Boyle, P. M., Chrispin, J., Prakosa, A., Ipek, E. G., Pashakhanloo, F., Halperin, H. R., Calkins, H., Berger, R. D., Nazarian, S., & Trayanova, N. A. (2016)  
+  *Heart rhythm*  
+  [Link](https://www.sciencedirect.com/science/article/pii/S1547527116302053)
