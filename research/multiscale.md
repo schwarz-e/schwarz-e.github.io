@@ -1,14 +1,15 @@
 ---
-title: Large Data & Computational Methods
+title: Multiscale
 layout: default
 ---
 
-# Large Data & Computational Methods
+# Multiscale Modeling and Machine Learning Integration
 
-### Theme
-Development of **computational, machine learning, and multiscale modeling tools** to study cardiovascular growth, remodeling, and prediction of disease progression.
+Artificial intelligence is increasingly ubiquitous in research and medicine. However, proper training and validation of these large-data models are critical for safe adoption in the clinical setting.  
 
-### Temporal Workflow
+I have used **multiscale physics-based simulations** based on interpretable biological and clinical findings to create high-fidelity data **for training neural operators**. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create rich, clinically-relevant datasets at a volume impossible to acquire in vivo. By bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of **data transparency, interpretability, and quality**.  
+
+### Research Pathway
 Research began with **robust FSG solvers and predictive frameworks** (2023–2024), then progressed to **machine learning-driven identification of cellular and biomechanical drivers** (2024–2025), enabling cross-scale prediction of cardiovascular outcomes.
 
 ### Selected Publications
