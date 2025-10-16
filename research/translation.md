@@ -17,6 +17,7 @@ As a graduate student at *Stanford University* I began work on modeling the effe
 
 ### Selected Publications
 
+- **Hemodynamic Performance of Tissue-engineered Vascular Grafts in Fontan Patients**  
   **Schwarz, E. L.**, Kelly, J. M., Blum, K. M., Hor, K. N., Yates, A. R., Zbinden, J. C., Verma, A., Lindsey, S. E., Ramachandra, A. B., Szafron, J. M., Humphrey, J. D., Shin’oka, T., Marsden, A. L., & Breuer, C. K. (2021)  
   *NPJ Regenerative Medicine*  
   [Link](https://www.nature.com/articles/s41536-021-00148-w)
@@ -56,7 +57,7 @@ As a graduate student at *Stanford University* I began work on modeling the effe
   *Frontiers in Physiology*  
   [Link](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1300754/full)
 
-- **Feasibility of Using Patient-specific Models and the “minimum Cut” Algorithm to Predict Optimal Ablation Targets for Left Atrial Flutter**  
+- **Feasibility of Using Patient-specific Models and the “Minimum Cut” Algorithm to Predict Optimal Ablation Targets for Left Atrial Flutter**  
   Zahid, S., Whyte, K. N., **Schwarz, E. L.**, III, R. C. B., Boyle, P. M., Chrispin, J., Prakosa, A., Ipek, E. G., Pashakhanloo, F., Halperin, H. R., Calkins, H., Berger, R. D., Nazarian, S., & Trayanova, N. A. (2016)  
   *Heart rhythm*  
   [Link](https://www.sciencedirect.com/science/article/pii/S1547527116302053)

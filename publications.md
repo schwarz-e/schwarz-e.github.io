@@ -96,7 +96,7 @@ layout: default
   *Cardiovascular research*  
   [Link](https://academic.oup.com/cardiovascres/article-abstract/110/3/443/1744836)
 
-- **Feasibility of Using Patient-specific Models and the “minimum Cut” Algorithm to Predict Optimal Ablation Targets for Left Atrial Flutter**  
+- **Feasibility of Using Patient-specific Models and the “Minimum Cut” Algorithm to Predict Optimal Ablation Targets for Left Atrial Flutter**  
   Zahid, S., Whyte, K. N., **Schwarz, E. L.**, III, R. C. B., Boyle, P. M., Chrispin, J., Prakosa, A., Ipek, E. G., Pashakhanloo, F., Halperin, H. R., Calkins, H., Berger, R. D., Nazarian, S., & Trayanova, N. A. (2016)  
   *Heart rhythm*  
   [Link](https://www.sciencedirect.com/science/article/pii/S1547527116302053)
