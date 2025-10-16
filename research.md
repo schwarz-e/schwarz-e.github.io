@@ -12,7 +12,7 @@ layout: default
 ## Multiphysics Modeling and Solver Development
 I have developed multiphysics solvers capable of simulating complex cardiovascular behavior. This includes integrating mathematical models of fluid dynamics and vascular solid mechanics into **finite-element** frameworks and designing novel **numerical methods** to improve accuracy and computational efficiency. The resulting solvers have been used for [translational research](/research/translation) and are available as open-source tools for the scientific community.  
 
-[Explore Multiphysics Solver Research →](/research/solver)  
+[Explore Multiphysics Research →](/research/solver)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/multiscale_diagram.jpg" target="_blank">
@@ -28,7 +28,7 @@ I have developed multiphysics solvers capable of simulating complex cardiovascul
 ## Predictive Modeling of Vascular Grafts and Clinical Translation
 I collaborate extensively with **multi-institutional teams** of clinicians and researchers to advance the development of **tissue-engineered vascular grafts**, using computational models of vascular behavior to predict surgical outcomes and define safety limits for cardiovascular function. These computational tools can directly accelerate the clinical translation of new medical technologies. 
 
-[Explore Clinical Translation Research →](/research/translation)  
+[Explore Translational Research →](/research/translation)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/tevg_modeling.jpg" target="_blank">
@@ -46,7 +46,7 @@ Artificial intelligence is increasingly ubiquitous in research and medicine. How
 
 I have used **multiscale physics-based simulations** based on interpretable biological and clinical findings to create high-fidelity data **for training neural operators**. Such simulations can be varied based on population distributions of vascular geometries, material properties, and hemodynamics to create a rich, clinically-relevant datasets at a volume that would be impossible to generate *in-vivo*. By bridging these biomechanical models with machine learning tools, we can greatly accelerate adoption of artificial intelligence for clinical prediction while maintaining robust standards of **data transparency and quality**.  
 
-[Explore Multiscale and Machine Learning Research →](/research/multiscale)  
+[Explore Multiscale Research →](/research/multiscale)  
 
 <figure style="max-width: 90%; margin: auto;">
   <a href="/assets/LNO_TB.svg" target="_blank">
