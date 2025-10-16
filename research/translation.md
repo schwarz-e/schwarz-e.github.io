@@ -1,12 +1,11 @@
 ---
-title: Aortic Research
+title: Translational Research
 layout: default
 ---
 
 # Aortic Research
 
-### Theme
-Studies of **thoracic and abdominal aortic aneurysms**, growth, remodeling, and patient-specific hemodynamics using computational frameworks and tissue-level models.
+I collaborate extensively with **multi-institutional teams** of clinicians and researchers to advance the development of **tissue-engineered vascular grafts**, using computational models of vascular behavior to predict surgical outcomes and define safety limits for cardiovascular function. These computational tools directly accelerate the clinical translation of new medical technologies. 
 
 ### Temporal Workflow
 Research progressed from **patient-specific CFD of aneurysms** (2022–2023) to **integrated vascular graft modeling** (2022–2025), highlighting translation from computational predictions to engineered tissue outcomes.
