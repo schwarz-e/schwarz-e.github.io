@@ -13,22 +13,16 @@ Research began with **robust FSG solvers and predictive frameworks** (2023–202
 
 ### Selected Publications
 
-- **FSGe: a Fast and Strongly-coupled 3D Fluid–Solid-Growth Interaction Method** (2024)  
-  Introduced a scalable computational framework for coupling hemodynamics, tissue mechanics, and growth.  
-  [Link](https://www.sciencedirect.com/science/article/pii/S0045782524005152)
-
-- **A Fluid–Solid-Growth Solver for Cardiovascular Modeling** (2023)  
-  Developed a solver enabling large parameter sweeps and patient-specific predictive simulations.  
-  [Link](https://www.sciencedirect.com/science/article/pii/S004578252300436X)
-
-- **Beyond CFD: Emerging Methodologies for Predictive Simulation in Cardiovascular Health and Disease** (2023)  
-  Reviewed computational strategies for multiscale prediction of cardiovascular outcomes.  
-  [Link](https://pubs.aip.org/aip/bpr/article/4/1/011301/2879057)
-
-- **VIP Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling with Supervised Learning** (2024)  
-  Applied machine learning to identify cellular drivers in tissue remodeling.  
-  [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
-
-- **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development** (2025)  
-  Integrated multiscale data to map immune cell contributions to vascular growth and remodeling.  
+- **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
+  Han, J., Kong, D., **Schwarz, E. L.**, Takaesu, F., Lee, S., Kim, C., Yang, E., Park, M., Kim, E., Kim, W., Ramachandra, A. B., Manning, E. P., Humphrey, J. D., Park, H., & Davis, M. (2025)  
+  *bioRxiv*  
   [Link](https://www.biorxiv.org/content/10.1101/2025.10.08.681286.abstract)
+
+- **Postnatal Pulmonary Artery Development From Transcript to Tissue**  
+  **Schwarz, E. L.**, Ramachandra, A. B., Yeung, N., Manning, E. P., Weiss, D., & Humphrey, J. D. (2025)  
+  *bioRxiv*  
+  [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
+
+- **VIP Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning**  
+  Han, J., Takaesu, F., **Schwarz, E. L.**, Humphrey, J., & Davis, M. (2024)  
+  [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
