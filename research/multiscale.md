@@ -23,7 +23,3 @@ Research began with **robust FSG solvers and predictive frameworks** (2023–202
   **Schwarz, E. L.**, Ramachandra, A. B., Yeung, N., Manning, E. P., Weiss, D., & Humphrey, J. D. (2025)  
   *bioRxiv*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
-
-- **VIP Cells: Screening Key Players and Calculating Their Contributions in Cardiovascular Tissue Remodeling and Regeneration with Supervised Learning**  
-  Han, J., Takaesu, F., **Schwarz, E. L.**, Humphrey, J., & Davis, M. (2024)  
-  [Link](https://scholar.google.com/scholar?cluster=8431695312055723732&hl=en&oi=scholarr)
