@@ -195,7 +195,11 @@ document.addEventListener('keydown', e => {
   }
 });
 
-drawMaze();
+
+// Initialize after loading images
+loadImages(() => {
+  drawMaze();
+});
 </script>
 </body>
 </html>
