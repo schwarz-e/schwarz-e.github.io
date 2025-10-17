@@ -31,15 +31,24 @@ layout: default
     font-size: 1.5em;  /* optional, adjust as needed */
   }
   #controls {
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+  }
+
   #controls button {
     font-size: 24px;
+    padding: 15px 20px;
     margin: 2px;
-    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 </style>
 </head>
@@ -50,10 +59,14 @@ layout: default
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="winMessage"> </div>
   <div id="controls">
-    <button onclick="movePlayer(0,-1)">↑</button><br>
-    <button onclick="movePlayer(-1,0)">←</button>
-    <button onclick="movePlayer(0,1)">↓</button>
-    <button onclick="movePlayer(1,0)">→</button>
+    <div class="row">
+      <button onclick="movePlayer(0,-1)">W</button>
+    </div>
+    <div class="row">
+      <button onclick="movePlayer(-1,0)">A</button>
+      <button onclick="movePlayer(0,1)">S</button>
+      <button onclick="movePlayer(1,0)">D</button>
+    </div>
   </div>
 </div>
 
