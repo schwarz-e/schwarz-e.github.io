@@ -8,9 +8,8 @@ layout: default
 I have developed multiphysics solvers capable of simulating complex cardiovascular behavior. This includes integrating mathematical models of fluid dynamics and vascular solid mechanics into **finite-element** frameworks and designing novel **numerical methods** to improve accuracy and computational efficiency. The resulting solvers have been used for [translational research](/research/translation) and are available as open-source tools for the scientific community.  
 
 ### Research Pathway
-After initial research using existing computational fluid dynamics and solid mechanics solvers, the limits of 
 
-Motivated by the need to not only calculate hemodynamic behavior at a certain timepoint, but to predict how changes in hemodynamic forces influenced growth and remodeling. As growth and remodeling of cardiovascular structures inevitably changes the hemodynamic forces, this is a tightly coupled problem, perticularly in cases where complex hemodynamic fields or rapid growth and remodeling are expected.
+Motivated by the need to not only calculate hemodynamic behavior at a certain time, but to predict how changes in hemodynamic forces influenced growth and remodeling. As growth and remodeling of cardiovascular structures inevitably changes the hemodynamic forces, this is a tightly coupled problem, perticularly in cases where complex hemodynamic fields or rapid growth and remodeling are expected.
 
 The **constrained mixture theory** of vascular growth and remodeling has become a highly useful framework for modeling cardiovascular evolution as it allows for consideration of individual constituent families that may independently turnover depending on biomechanical stimuli. However, its relatively complex and expensive implementation had previously made it prohibitive to use in 
 
