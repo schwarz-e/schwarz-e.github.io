@@ -72,12 +72,12 @@ Using the FSG framework, I generated **synthetic cohorts of aneurysm models** an
 As an assistant professor, I will pursue **NIH R21 and R01 grants** (NHLBI, NIBIB), and targeted funding from **AHA**, **Children’s Heart Foundation**, and **Marfan Foundation**.  
 I will also mentor students to pursue **NSF, AHA, HHMI, and NIH fellowships**.
 
----
+<!-----
 
 ## Collaborations
 At **UC Berkeley**, I will:
 - Collaborate with the **Berkeley Biomechanics Laboratory** (Dr. Shawn Shadden) on cardiovascular fluid dynamics and open-source modeling (SimVascular).  
-- Partner with clinicians at **UCSF’s Cardiovascular Research Institute** to validate computational predictions and enhance clinical translation.
+- Partner with clinicians at **UCSF’s Cardiovascular Research Institute** to validate computational predictions and enhance clinical translation.-->
 
 ---
 

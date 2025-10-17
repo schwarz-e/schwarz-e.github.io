@@ -29,7 +29,7 @@ Research began with **robust FSG solvers and predictive frameworks** (2023–202
 
 - **Neural Operators for Forecasting Thoracic Aortic Aneurysm Growth and Rupture**  
   **Schwarz, E. L.**, Li, D. S., C. W. Means, R., Assi, & Humphrey, J. D. (2025)  
-  *bioRxiv, Under Preperation*  
+  *bioRxiv, In Preperation*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
 
 - **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
