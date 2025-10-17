@@ -42,10 +42,10 @@ const maze = [
   [1,0,1,0,0,0,0,0,0,1],
   [1,0,1,0,1,1,1,1,0,1],
   [1,0,0,0,0,0,0,1,0,1],
-  [1,1,1,1,1,1,0,1,0,1],
+  [1,2,1,1,1,1,0,1,0,1],
   [1,0,0,0,0,1,0,0,0,1],
   [1,0,1,1,0,0,0,1,0,1],
-  [1,1,1,1,1,1,1,1,1,1],
+  [1,2,1,2,1,1,1,1,1,1],
 ];
 
 // Player
@@ -60,13 +60,20 @@ function drawMaze() {
   for(let y = 0; y < rows; y++){
     for(let x = 0; x < cols; x++){
       if(maze[y][x] === 1){
-        // Randomly choose tree 🌲 or rock 🪨
-        const icon = Math.random() < 0.5 ? "🌲" : "🪨";
+        const icon = "🌲";
         ctx.font = tileSize + "px Arial"; 
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(icon, x*tileSize + tileSize/2, y*tileSize + tileSize/2);
-      } else {
+      } else if(maze[y][x] === 2) {
+        const icon = "🪨";
+        ctx.font = tileSize + "px Arial"; 
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(icon, x*tileSize + tileSize/2, y*tileSize + tileSize/2);
+
+      } 
+      else {
         ctx.fillStyle = "#111";
         ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
       }
