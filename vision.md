@@ -3,11 +3,12 @@
 ---
 
 ## Vision
-Computational modeling has the potential to revolutionize cardiovascular healthcare.  
-However, current methods are limited in predicting long-term, patient-specific outcomes.  
-My research vision is to develop the next generation of **multiscale computational models** by integrating **mechanistic growth and remodeling (G&R)** into **computational fluid dynamics (CFD)** simulations of complex cardiovascular geometries.  
 
-My background in mechanical engineering, bioengineering, and computer science uniquely positions me to address these challenges, as demonstrated by my leadership in multi-disciplinary, multi-institutional collaborations.
+Cardiovascular disease is the leading cause of death in the United States. Many biomedical advancements have deepened our understanding of vascular biology, including the use of **RNA-sequencing** to identify changes in gene expression that both cause and are caused by disease. Despite this, translating these findings into clinically actionable models that can guide patient-specific treatment plans has yet to be accomplished. This gap exists because it remains difficult to bridge how cellular-level behavior translates to alteres tissue-level mechanics and affects whole-body cardiovascular performance. I will lead research that integrates multiscale data-- from molecular and cellular measurements to organ-scale mechanics-- into cardiovascular models that will generate **actionable predictions** of human-scale cardiovascular outcomes and provide new insights into the biomechanical drivers of disease.
+
+My research vision is to integrate nascent technologies, including **RNA-sequencing informed cell-signalling networks**, into physics-based simulations of **computational fluid dynamics (CFD)** and **growth and remodeling (G&R) frameworks** to capture both biochemical and hemodynamic drivers of vascular function. This will create predictive tools that clinicians can use **safely and reliably** in cardiovascular care. Such models will also provide **robust and interpretable** in silico datasets that can be used to train **artificial intelligence** frameworks, accelerating their validation and translation into the clinical setting.
+
+My background in mechanical engineering, bioengineering, and computer science strongly equips me to address these challenges, as demonstrated by my previous success in leading multi-disciplinary, multi-institutional projects.
 
 ---
 
