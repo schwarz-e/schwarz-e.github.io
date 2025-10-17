@@ -11,23 +11,25 @@ I have used **multiscale physics-based simulations** based on interpretable biol
 
 ### Research Pathway
 
+Marsden lab - uncertainty quanitfication/physics-based machine learning. Cell-signalling networks. Incorporating RNA sequencing and machine learning techniques.
+
 Research began with **robust FSG solvers and predictive frameworks** (2023–2024), then progressed to **machine learning-driven identification of cellular and biomechanical drivers** (2024–2025), enabling cross-scale prediction of cardiovascular outcomes.  
 
 ### Selected Publications
 
 - **Postnatal Pulmonary Artery Development From Transcript to Tissue**  
   **Schwarz, E. L.**, Ramachandra, A. B., Yeung, N., Manning, E. P., Weiss, D., & Humphrey, J. D. (2025)  
-  *bioRxiv*  
+  *bioRxiv, Under Review at JRSI*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
 
 - **Mechanisms Driving Thoracic Aortic Aneurysm Stability**  
   **Schwarz, E. L.**, Cao, Q., Li, D. S., Goswami, S., Means, C. W., Assi, R., Humphrey, J. D., & Karniadakis, G. T. (2025)  
-  *bioRxiv*  
+  *bioRxiv, Submitted to BMMB*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
 
 - **Neural Operators for Forecasting Thoracic Aortic Aneurysm Growth and Rupture**  
   **Schwarz, E. L.**, Li, D. S., C. W. Means, R., Assi, & Humphrey, J. D. (2025)  
-  *bioRxiv*  
+  *bioRxiv, Under Preperation*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
 
 - **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
