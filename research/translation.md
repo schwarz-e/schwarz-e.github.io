@@ -10,7 +10,7 @@ I collaborate extensively with **multi-institutional teams** of clinicians and r
 ### Research Pathway
 In 2012 the first U.S. clinical trial of **tissue-engineered vascular grafts (TEVGs)** began at Nationwide Children's Hospital in Columbus, Ohio. Previous studies in Japan had shown the efficacy of TEVGs to replace the synthetic grafts traditional used in patients undergoing the Fontan procedure. However, upon imaging the first four patients in the U.S. trial 6 months post-operation, clinicians narrowing (a.k.a. stenosis) in the grafts. The clinical trial was paused to answer the question **"how does narrowing of TEVGs impact cardiovascular health?"** and **what biomechanical factors drive the narrowing of TEVGs?**. To answer these questions, I created novel models of the post-operational Fontan cardiovascular system, including new quantification of pediatric exercise in single-ventricle patients and a [fluid-structure-growth multiphysics solver](/research/solver) capable of simulating changes in growth and remodeling in response to hemodynamic factors. These insights contributed to the **renewal of the TEVG clinical trial**, showing the ability of computational models to advance the development of medical technologies.
  
-My work in clinically translating computational models has since continued and expanded to include investigations of outcomes in aortic aneurysm, cerebral aneurysms, etc etc.
+My work in clinical translation of computational models has continued and expanded to include investigations of aortic aneurysms, cerebral aneurysms, and cardiovascular devices.
 
 ### Selected Publications
 
