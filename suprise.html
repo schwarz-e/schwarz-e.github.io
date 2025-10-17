@@ -2,60 +2,115 @@
 title: Surprise
 layout: default
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maze Game</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+  }
+  canvas {
+    border: 2px solid #fff;
+    background-color: #111;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
 
-<h2>Otters hold hands while sleeping so they don't float away from each other.</h2>
-<i class="fa-solid fa-otter fa-flip-horizontal"></i>
-<i class="fa-solid fa-otter"></i>
-
-<!-- Example: adding your game -->
-<canvas id="gameCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
-<div id="score">Score: 0</div>
-<button id="startBtn">Start Game</button>
+<h2>Maze Game: Reach the green square!</h2>
+<canvas id="mazeCanvas" width="400" height="400"></canvas>
 
 <script>
-const canvas = document.getElementById('gameCanvas');
+const canvas = document.getElementById('mazeCanvas');
 const ctx = canvas.getContext('2d');
-const scoreDisplay = document.getElementById('score');
-const startBtn = document.getElementById('startBtn');
 
-let box = { x: 50, y: 50, size: 50 };
-let score = 0;
-let gameInterval;
+const tileSize = 40;
+const rows = canvas.height / tileSize;
+const cols = canvas.width / tileSize;
 
-function drawBox() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = 'lime';
-  ctx.fillRect(box.x, box.y, box.size, box.size);
+// Simple maze: 0 = empty, 1 = wall
+const maze = [
+  [1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,1,0,0,1],
+  [1,0,1,1,1,0,1,0,1,1],
+  [1,0,1,0,0,0,0,0,0,1],
+  [1,0,1,0,1,1,1,1,0,1],
+  [1,0,0,0,0,0,0,1,0,1],
+  [1,1,1,1,1,1,0,1,0,1],
+  [1,0,0,0,0,1,0,0,0,1],
+  [1,0,1,1,0,0,0,1,0,1],
+  [1,1,1,1,1,1,1,1,1,1],
+];
+
+// Player
+let player = { x: 1, y: 1 };
+
+// Goal
+const goal = { x: 8, y: 8 };
+
+function drawMaze() {
+  for(let y=0; y<rows; y++){
+    for(let x=0; x<cols; x++){
+      if(maze[y][x] === 1){
+        ctx.fillStyle = 'gray';
+        ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
+      } else {
+        ctx.fillStyle = '#111';
+        ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
+      }
+    }
+  }
+  // Draw goal
+  ctx.fillStyle = 'green';
+  ctx.fillRect(goal.x*tileSize, goal.y*tileSize, tileSize, tileSize);
+
+  // Draw player
+  ctx.fillStyle = 'red';
+  ctx.fillRect(player.x*tileSize+5, player.y*tileSize+5, tileSize-10, tileSize-10);
 }
 
-function randomPosition() {
-  box.x = Math.floor(Math.random() * (canvas.width - box.size));
-  box.y = Math.floor(Math.random() * (canvas.height - box.size));
+function movePlayer(dx, dy){
+  const newX = player.x + dx;
+  const newY = player.y + dy;
+  if(maze[newY][newX] === 0){
+    player.x = newX;
+    player.y = newY;
+  }
+  drawMaze();
+  checkWin();
 }
 
-canvas.addEventListener('click', (e) => {
-  const rect = canvas.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
+function checkWin(){
+  if(player.x === goal.x && player.y === goal.y){
+    setTimeout(() => alert("You reached the goal!"), 10);
+  }
+}
 
-  if (mouseX >= box.x && mouseX <= box.x + box.size &&
-      mouseY >= box.y && mouseY <= box.y + box.size) {
-    score++;
-    scoreDisplay.textContent = "Score: " + score;
-    randomPosition();
-    drawBox();
+document.addEventListener('keydown', e => {
+  switch(e.key){
+    case 'ArrowUp':
+    case 'w': movePlayer(0, -1); break;
+    case 'ArrowDown':
+    case 's': movePlayer(0, 1); break;
+    case 'ArrowLeft':
+    case 'a': movePlayer(-1, 0); break;
+    case 'ArrowRight':
+    case 'd': movePlayer(1, 0); break;
   }
 });
 
-startBtn.addEventListener('click', () => {
-  score = 0;
-  scoreDisplay.textContent = "Score: 0";
-  randomPosition();
-  drawBox();
-  clearInterval(gameInterval);
-  gameInterval = setInterval(() => {
-    randomPosition();
-    drawBox();
-  }, 2000);
-});
+drawMaze();
 </script>
+</body>
+</html>
