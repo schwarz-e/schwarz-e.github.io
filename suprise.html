@@ -197,6 +197,9 @@ document.addEventListener('keydown', e => {
 
 // Tap-to-move controls
 document.addEventListener('click', e => {
+  // Ignore clicks on links or buttons
+  if (e.target.closest('a, button')) return;
+  
   const rect = canvas.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const clickY = e.clientY - rect.top;
