@@ -1,0 +1,61 @@
+---
+title: Surprise
+layout: default
+---
+
+<h2>Otters hold hands while sleeping so they don't float away from each other.</h2>
+<i class="fa-solid fa-otter fa-flip-horizontal"></i>
+<i class="fa-solid fa-otter"></i>
+
+<!-- Example: adding your game -->
+<canvas id="gameCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+<div id="score">Score: 0</div>
+<button id="startBtn">Start Game</button>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const scoreDisplay = document.getElementById('score');
+const startBtn = document.getElementById('startBtn');
+
+let box = { x: 50, y: 50, size: 50 };
+let score = 0;
+let gameInterval;
+
+function drawBox() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'lime';
+  ctx.fillRect(box.x, box.y, box.size, box.size);
+}
+
+function randomPosition() {
+  box.x = Math.floor(Math.random() * (canvas.width - box.size));
+  box.y = Math.floor(Math.random() * (canvas.height - box.size));
+}
+
+canvas.addEventListener('click', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  if (mouseX >= box.x && mouseX <= box.x + box.size &&
+      mouseY >= box.y && mouseY <= box.y + box.size) {
+    score++;
+    scoreDisplay.textContent = "Score: " + score;
+    randomPosition();
+    drawBox();
+  }
+});
+
+startBtn.addEventListener('click', () => {
+  score = 0;
+  scoreDisplay.textContent = "Score: 0";
+  randomPosition();
+  drawBox();
+  clearInterval(gameInterval);
+  gameInterval = setInterval(() => {
+    randomPosition();
+    drawBox();
+  }, 2000);
+});
+</script>

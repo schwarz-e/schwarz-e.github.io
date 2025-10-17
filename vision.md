@@ -6,15 +6,21 @@
 
 Cardiovascular disease is the leading cause of death in the United States. Many biomedical advancements have deepened our understanding of vascular biology, including the use of **RNA-sequencing** to identify changes in gene expression that both cause and are caused by disease. Despite this, translating these findings into clinically actionable models that can guide patient-specific treatment plans has yet to be accomplished. This gap exists because it is difficult to bridge how cellular-level behavior alters tissue-level mechanics and affects whole-body cardiovascular performance. I will lead research that integrates multiscale data-- from molecular and cellular measurements to organ-scale mechanics-- into cardiovascular models that will generate **actionable predictions** of human-scale cardiovascular outcomes and identify the biomechanical drivers of disease.
 
-My research vision is to integrate nascent technologies, including **RNA-sequencing informed cell-signalling networks**, into physics-based simulations of **computational fluid dynamics (CFD)** and **growth and remodeling (G&R) frameworks** to capture both biochemical and hemodynamic drivers of vascular function. This will create predictive tools that clinicians can use **safely and reliably** in cardiovascular care. Such models will also provide **robust and interpretable** in silico datasets that can be used to train **artificial intelligence** frameworks, accelerating their validation and translation into the clinical setting.
+My research vision is to integrate nascent technologies, such as **RNA-sequencing informed cell-signalling networks**, into physics-based simulations of **computational fluid dynamics (CFD)** and **soft tissue growth and remodeling (G&R)** to capture both biochemical and hemodynamic drivers of vascular function. This will create predictive tools that clinicians can **safely and reliably** use in cardiovascular care. Such models will also provide **robust and interpretable** in silico datasets that will be used to train **artificial intelligence** frameworks, accelerating their validation and translation into the clinical setting.
 
-My background in mechanical engineering, bioengineering, and computer science strongly equips me to address these challenges, as demonstrated by my previous success in leading multi-disciplinary, multi-institutional projects.
+My background in **mechanical engineering, bioengineering, and computer science** strongly equips me to address these challenges, as demonstrated by my previous success in leading multi-disciplinary, multi-institutional projects.
 
 ---
 
 ## Significance
-The **FDA** and other leading medical organizations have recognized computational modeling as key to accelerating medical innovation.  
+The **FDA** and other leading medical organizations have recognized computational modeling as key component of accelerating medical innovation. 
 Physics-based simulations of cardiovascular systems are now routinely used to model **hemodynamics, tissue mechanics, and physiology**, but multiscale models are needed to predict **long-term, clinically relevant outcomes** across complex disease states.
+
+Significance: The nascent role of computational modeling in accelerating medical innovation has been
+recognized by leading medical bodies such as the FDA.1 Physics-based computational models of the
+cardiovascular system have been increasingly used to simulate hemodynamics, tissue mechanics, and
+physiology in evolving healthy and diseased states, with documented roles in advancing clinical trials.2 Multiscale
+physical models are now needed to produce comprehensive, impactful predictions for complex clinical scenarios.
 
 ---
 
