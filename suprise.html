@@ -152,10 +152,10 @@ function drawMaze() {
     for (let x = 0; x < cols; x++) {
       if (maze[y][x] === 1) {
         ctx.drawImage(images[wallSprites[y][x]], x * tileSize, y * tileSize, tileSize, tileSize);
-      } else {
-        if (images.floor) ctx.drawImage(images.floor, x * tileSize, y * tileSize, tileSize, tileSize);
-        else ctx.clearRect(x * tileSize, y * tileSize, tileSize, tileSize);
-      }
+      } //else {
+        //if (images.floor) ctx.drawImage(images.floor, x * tileSize, y * tileSize, tileSize, tileSize);
+        //else ctx.clearRect(x * tileSize, y * tileSize, tileSize, tileSize);
+      //}
     }
   }
 
