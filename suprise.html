@@ -57,17 +57,17 @@ layout: default
 <div id="gameContainer">
   <h2>Reach the green square</h2>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
-  <div id="winMessage"> </div>
   <div id="controls">
     <div class="row">
-      <button onclick="movePlayer(0,-1)">W</button>
+      <button onclick="movePlayer(0,-1)"><i class="fas fa-arrow-up"></button>
     </div>
     <div class="row">
-      <button onclick="movePlayer(-1,0)">A</button>
-      <button onclick="movePlayer(0,1)">S</button>
-      <button onclick="movePlayer(1,0)">D</button>
+      <button onclick="movePlayer(-1,0)"><i class="fas fa-arrow-left"></i></button>
+      <button onclick="movePlayer(0,1)"><i class="fas fa-arrow-down"></i></button>
+      <button onclick="movePlayer(1,0)"><i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
+  <div id="winMessage"> </div>
 </div>
 
 <script>
