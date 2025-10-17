@@ -112,11 +112,11 @@ const goal = { x: 8, y: 8 };
 const images = {};
 function loadImages(callback) {
   const sources = {
-    tree: 'images/tree2.svg',
-    rock: 'images/rock.svg',
-    floor: 'images/floor.svg',
-    player: 'images/player.svg',
-    goal: 'images/goal.svg'
+    tree: '/images/tree2.svg',
+    rock: '/images/rock.svg',
+    floor: '/images/floor.svg',
+    player: '/images/player.svg',
+    goal: '/images/goal.svg'
   };
 
   let loaded = 0;
@@ -159,22 +159,20 @@ function drawMaze() {
     }
   }
 
-  // Draw goal & player
   ctx.drawImage(images.goal, goal.x * tileSize, goal.y * tileSize, tileSize, tileSize);
   ctx.drawImage(images.player, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
 }
 
-function movePlayer(dx, dy){
+function movePlayer(dx, dy) {
   const newX = player.x + dx;
   const newY = player.y + dy;
-  if(maze[newY][newX] === 0){
+  if (maze[newY][newX] === 0) {
     player.x = newX;
     player.y = newY;
   }
   drawMaze();
   checkWin();
 }
-
 function checkWin(){
   const messageDiv = document.getElementById('winMessage');
   if(player.x === goal.x && player.y === goal.y){
