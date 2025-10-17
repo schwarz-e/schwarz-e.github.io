@@ -14,7 +14,6 @@ layout: default
     align-items: center;
     justify-content: flex-start;
     margin: 0;
-    font-family: Arial, sans-serif;
     padding: 20px;
   }
   canvas {
@@ -56,17 +55,24 @@ let player = { x: 1, y: 1 };
 const goal = { x: 8, y: 8 };
 
 function drawMaze() {
-  for(let y=0; y<rows; y++){
-    for(let x=0; x<cols; x++){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for(let y = 0; y < rows; y++){
+    for(let x = 0; x < cols; x++){
       if(maze[y][x] === 1){
-        ctx.fillStyle = 'gray';
-        ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
+        // Randomly choose tree 🌲 or rock 🪨
+        const icon = Math.random() < 0.5 ? "🌲" : "🪨";
+        ctx.font = tileSize + "px Arial"; 
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(icon, x*tileSize + tileSize/2, y*tileSize + tileSize/2);
       } else {
-        ctx.fillStyle = '#111';
+        ctx.fillStyle = "#111";
         ctx.fillRect(x*tileSize, y*tileSize, tileSize, tileSize);
       }
     }
   }
+
   // Draw goal
   ctx.fillStyle = 'green';
   ctx.fillRect(goal.x*tileSize, goal.y*tileSize, tileSize, tileSize);
