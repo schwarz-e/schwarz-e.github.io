@@ -19,13 +19,21 @@ layout: default
   canvas {
     margin-top: 20px;
   }
+  gameContainer {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  margin-top: 20px;
+  }
 </style>
 </head>
 <body>
 
-<h2 style="text-align: center;">Reach the green square</h2>
-<canvas id="mazeCanvas" width="400" height="400"></canvas>
-<div id="winMessage" style="margin-top: 10px; font-size: 20px; color: green;"></div>
+<div id="gameContainer">
+  <h2>Reach the green square</h2>
+  <canvas id="mazeCanvas" width="400" height="400"></canvas>
+  <div id="winMessage"> </div>
+</div>
 
 <script>
 const canvas = document.getElementById('mazeCanvas');
