@@ -15,12 +15,22 @@ Research began with **robust FSG solvers and predictive frameworks** (2023–202
 
 ### Selected Publications
 
-- **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
-  Han, J., Kong, D., **Schwarz, E. L.**, Takaesu, F., Lee, S., Kim, C., Yang, E., Park, M., Kim, E., Kim, W., Ramachandra, A. B., Manning, E. P., Humphrey, J. D., Park, H., & Davis, M. (2025)  
-  *bioRxiv*  
-  [Link](https://www.biorxiv.org/content/10.1101/2025.10.08.681286.abstract)
-
 - **Postnatal Pulmonary Artery Development From Transcript to Tissue**  
   **Schwarz, E. L.**, Ramachandra, A. B., Yeung, N., Manning, E. P., Weiss, D., & Humphrey, J. D. (2025)  
   *bioRxiv*  
   [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
+
+- **Mechanisms Driving Thoracic Aortic Aneurysm Stability**  
+  **Schwarz, E. L.**, Cao, Q., Li, D. S., Goswami, S., Means, C. W., Assi, R., Humphrey, J. D., & Karniadakis, G. T. (2025)  
+  *bioRxiv*  
+  [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
+
+- **Neural Operators for Forecasting Thoracic Aortic Aneurysm Growth and Rupture**  
+  **Schwarz, E. L.**, Li, D. S., C. W. Means, R., Assi, & Humphrey, J. D. (2025)  
+  *bioRxiv*  
+  [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12157632/)
+
+- **A Cross-scale Causal Mapping Framework Pinpoints Macrophage Orchestrators of Balanced Arterial Development**  
+  Han, J., Kong, D., **Schwarz, E. L.**, Takaesu, F., Lee, S., Kim, C., Yang, E., Park, M., Kim, E., Kim, W., Ramachandra, A. B., Manning, E. P., Humphrey, J. D., Park, H., & Davis, M. (2025)  
+  *bioRxiv*  
+  [Link](https://www.biorxiv.org/content/10.1101/2025.10.08.681286.abstract)
