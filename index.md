@@ -1,5 +1,5 @@
 # Erica L. Schwarz, Ph.D.
-_Computational Mechanobiology • Vascular Growth & Remodeling • Neural Operators_
+_Computational Mechanobiology • Biomechanics • Vascular Growth & Remodeling • Neural Operators_
 
 Welcome! I’m a postdoctoral researcher at Yale University studying **vascular biomechanics** through **computational and data-driven models**.
 
