@@ -23,8 +23,9 @@ layout: default
 </head>
 <body>
 
-<h2>Maze Game: Reach the green square!</h2>
+<h2 style="text-align: center;">Reach the green square</h2>
 <canvas id="mazeCanvas" width="400" height="400"></canvas>
+<div id="winMessage" style="margin-top: 10px; font-size: 20px; color: green;"></div>
 
 <script>
 const canvas = document.getElementById('mazeCanvas');
@@ -101,8 +102,11 @@ function movePlayer(dx, dy){
 }
 
 function checkWin(){
+  const messageDiv = document.getElementById('winMessage');
   if(player.x === goal.x && player.y === goal.y){
-    setTimeout(() => alert("You reached the goal!"), 10);
+    messageDiv.textContent = "You reached the goal!";
+  } else {
+    messageDiv.textContent = ""; // clear message if player moves away
   }
 }
 
