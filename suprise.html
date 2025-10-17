@@ -195,11 +195,50 @@ document.addEventListener('keydown', e => {
   }
 });
 
+// Tap-to-move controls
+canvas.addEventListener('click', e => {
+  const rect = canvas.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const clickY = e.clientY - rect.top;
+
+  handleTap(clickX, clickY);
+});
+
+function handleTap(clickX, clickY) {
+  const playerCenterX = player.x * tileSize + tileSize / 2;
+  const playerCenterY = player.y * tileSize + tileSize / 2;
+
+  let dx = clickX - playerCenterX;
+  let dy = clickY - playerCenterY;
+
+  const absDx = Math.abs(dx);
+  const absDy = Math.abs(dy);
+
+  let moveOptions = [];
+
+  if (absDx > absDy) {
+    moveOptions.push(dx > 0 ? [1,0] : [-1,0]); // horizontal primary
+    moveOptions.push(dy > 0 ? [0,1] : [0,-1]); // vertical secondary
+  } else {
+    moveOptions.push(dy > 0 ? [0,1] : [0,-1]); // vertical primary
+    moveOptions.push(dx > 0 ? [1,0] : [-1,0]); // horizontal secondary
+  }
+
+  for (let [mx, my] of moveOptions) {
+    const newX = player.x + mx;
+    const newY = player.y + my;
+    if (maze[newY][newX] === 0) {
+      movePlayer(mx, my);
+      break;
+    }
+  }
+}
 
 // Initialize after loading images
 loadImages(() => {
   drawMaze();
 });
 </script>
+
 </body>
 </html>
