@@ -196,7 +196,7 @@ document.addEventListener('keydown', e => {
 });
 
 // Tap-to-move controls
-canvas.addEventListener('click', e => {
+document.addEventListener('click', e => {
   const rect = canvas.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const clickY = e.clientY - rect.top;
