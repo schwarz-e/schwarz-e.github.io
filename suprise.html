@@ -44,10 +44,18 @@ layout: default
   }
 
   #controls button {
-    font-size: 48px;
-    padding: 15px 15px;
-    margin: 2px;
-    cursor: pointer;
+    font-size: 36px;      /* adjust icon size */
+    padding: 10px;         /* optional spacing around the icon */
+    margin: 5px;
+    background: none;      /* remove background */
+    border: none;          /* remove border */
+    outline: none;         /* remove outline */
+    cursor: pointer;       /* pointer on hover */
+    color: #333;           /* icon color */
+  }
+
+  #controls button:active {
+    color: #555;           /* optional pressed effect */
   }
 </style>
 </head>
