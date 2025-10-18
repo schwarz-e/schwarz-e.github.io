@@ -604,10 +604,7 @@ document.querySelectorAll("#controls button").forEach(btn => {
 
 // --- KEYBOARD CONTROLS ---
 document.addEventListener("keydown", e => {
-  if (gameFrozen) return; // block input when dialogue active
-
-  // Prevent holding key from starting multiple intervals
-  if (moveInterval) return;
+  if (gameFrozen) return;
 
   let dx = 0, dy = 0;
   switch (e.key.toLowerCase()) {
@@ -618,13 +615,19 @@ document.addEventListener("keydown", e => {
     default: return; // ignore other keys
   }
 
-  // Prevent the browser's auto-repeat from stacking new intervals
   e.preventDefault();
+
+  // Clear existing movement immediately when direction changes
+  if (moveInterval) {
+    clearInterval(moveInterval);
+    moveInterval = null;
+  }
+
+  // Start moving in the new direction right away
   startMove(dx, dy, e);
 });
 
 document.addEventListener("keyup", e => {
-  // Stop movement when any directional key is released
   const keys = ["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d"];
   if (keys.includes(e.key.toLowerCase())) {
     stopMove();
