@@ -125,6 +125,7 @@ let player = {
   frameInterval: 12,
   animations: {}
 };
+
 const goal = { x: 18, y: 18 };
 let camera = { x: 0, y: 0 };
 
@@ -239,9 +240,15 @@ function animatePlayer() {
     player.frameTimer = 0;
     player.frame = (player.frame + 1) % player.frame % frames.length;
   }
+  
+  drawPlayer();  // this line does the drawing
 }
 
-
+function drawPlayer() {
+  const frame = player.currentFrame;
+  if (!frame) return; // skip if not ready
+  ctx.drawImage(frame, player.x, player.y, tileSize, tileSize);
+}
 
 // --- Bitmask-based tile selection ---
 function getEnvironmentSprite(x, y, maze) {
@@ -390,7 +397,6 @@ function gameLoop() {
   if (player.moving) animatePlayer();
   drawMaze();
   requestAnimationFrame(gameLoop);
-  console.log("Game loop.");
 }
 
 loadImages(() => {
