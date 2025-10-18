@@ -124,13 +124,13 @@ def pattern_for_shape(shape, color, size):
     # --- pattern logic ---
     if shape == "cross":
         mask = ((abs(x - cx) < half) | (abs(y - cy) < half))
-    elif "t_downopen" in shape:
+    elif "end_up" in shape:
         mask = ((abs(x - cx) < half) & (y > (cy - half)))
-    elif "t_upopen" in shape:
+    elif "end_down" in shape:
         mask = ((abs(x - cx) < half) & (y < (cy + half))) 
-    elif "t_rightopen" in shape:
+    elif "end_left" in shape:
         mask = ((abs(y - cy) < half) & (x > (cx - half))) 
-    elif "t_leftopen" in shape:
+    elif "end_right" in shape:
         mask = ((abs(y - cy) < half) & (x < (cx + half))) 
     elif "corner_ur" in shape:
         mask = ((((abs(x - cx) < half) & (y > cy) ) | ((abs(y - cy) < half) & (x < cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
@@ -144,13 +144,13 @@ def pattern_for_shape(shape, color, size):
         mask = (abs(x - cx) < half) 
     elif shape == "vertical":
         mask = (abs(y - cy) < half)
-    elif "end_down" in shape:
+    elif "t_upopen" in shape:
         mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
-    elif "end_up" in shape:
+    elif "t_downopen" in shape:
         mask = (((abs(x - cx) < half) & (y > cy) ) | (abs(y - cy) < half))
-    elif "end_right" in shape:
+    elif "t_leftopen" in shape:
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x < cx)))
-    elif "end_left" in shape:
+    elif "t_rightopen" in shape:
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x > cx)))
     else:  # isolated or other
         mask = x < 0
