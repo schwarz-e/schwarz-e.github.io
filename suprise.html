@@ -145,7 +145,7 @@ layout: default
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
+  <p id="winMessage">Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit. Enjoy! </p>
   <div id="dialogueChoices"></div>
   </div>
   <canvas id="mazeCanvas" width="380" height="380"></canvas>
@@ -565,7 +565,7 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    msg.textContent = "Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
+    msg.textContent = "Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
@@ -746,15 +746,15 @@ function gameLoop(timestamp) {
 loadImages(() => {
   // === Define player animations here ===
   player.animations = {
-    idleUp:    [images.player_idle_up_0, images.player_idle_up_1],
-    idleDown:  [images.player_idle_down_0, images.player_idle_down_1],
-    idleLeft:  [images.player_idle_left_0, images.player_idle_left_1],
-    idleRight: [images.player_idle_right_0, images.player_idle_right_1],
+    idleUp:    [images.player_idle_up_0, images.player_idle_up_1, images.player_idle_up_2, images.player_idle_up_3],
+    idleDown:  [images.player_idle_down_0, images.player_idle_down_1, images.player_idle_down_2, images.player_idle_down_3],
+    idleLeft:  [images.player_idle_left_0, images.player_idle_left_1, images.player_idle_left_2, images.player_idle_left_3],
+    idleRight: [images.player_idle_right_0, images.player_idle_right_1, images.player_idle_right_2, images.player_idle_right_3],
 
-    walkUp:    [images.player_walk_up_0, images.player_walk_up_1],
-    walkDown:  [images.player_walk_down_0, images.player_walk_down_1],
-    walkLeft:  [images.player_walk_left_0, images.player_walk_left_1],
-    walkRight: [images.player_walk_right_0, images.player_walk_right_1]
+    walkUp:    [images.player_walk_up_0, images.player_walk_up_1, images.player_walk_up_2, images.player_walk_up_3],
+    walkDown:  [images.player_walk_down_0, images.player_walk_down_1, images.player_walk_down_2, images.player_walk_down_3],
+    walkLeft:  [images.player_walk_left_0, images.player_walk_left_1, images.player_walk_left_2, images.player_walk_left_3],
+    walkRight: [images.player_walk_right_0, images.player_walk_right_1, images.player_walk_right_2, images.player_walk_right_3]
   };
 
   drawMaze();
