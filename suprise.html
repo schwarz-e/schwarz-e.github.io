@@ -246,11 +246,31 @@ function drawPlayer() {
   const animKey = player.moving
     ? 'walk' + capitalize(player.direction)
     : 'idle' + capitalize(player.direction);
+
+  console.log("drawPlayer() called");
+  console.log("Direction:", player.direction, "| Moving:", player.moving);
+  console.log("Animation key:", animKey);
+
   const frames = player.animations[animKey];
-  if (!frames) return;
-  const frame = frames[player.frame % frames.length];
-  if (!(frame instanceof Image)) return;
+  if (!frames) {
+    console.warn("No frames found for animation key:", animKey);
+    return;
+  }
+
+  const frameIndex = player.frame % frames.length;
+  const frame = frames[frameIndex];
+
+  console.log("Frame index:", frameIndex);
+  console.log("Frame type:", frame instanceof Image ? "Image object" : typeof frame);
+  console.log("Player position:", player.x, player.y);
+
+  if (!(frame instanceof Image)) {
+    console.error("Invalid frame for", animKey, "- expected Image, got:", frame);
+    return;
+  }
+
   ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
+  console.log("Player drawn successfully with frame", frameIndex, "for", animKey);
 }
 
 // --- Bitmask-based tile selection ---
@@ -396,8 +416,6 @@ function gameLoop() {
 }
 
 loadImages(() => {
-  
-  console.log("All images loaded.");
   // === Define player animations here ===
   player.animations = {
     idleUp:    [images.player_idle_up_0, images.player_idle_up_1],
@@ -411,8 +429,6 @@ loadImages(() => {
     walkRight: [images.player_walk_right_0, images.player_walk_right_1]
   };
 
-  
-  console.log("Player animations assigned.");
   drawMaze();
   drawPlayer();
   console.log("Player drawn.");
