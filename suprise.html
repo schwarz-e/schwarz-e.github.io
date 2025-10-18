@@ -71,9 +71,9 @@ layout: default
       <button onclick="movePlayer(0,-1)"><i class="fas fa-circle-up"></i></button>
     </div>
     <div class="row">
-      <button onclick="movePlayer(-1,0)"><i class="fas fa-circle-left"></i></button>
-      <button onclick="movePlayer(0,1)"><i class="fas fa-circle-down"></i></button>
-      <button onclick="movePlayer(1,0)"><i class="fas fa-circle-right"></i></button>
+      <button onpointerdown="movePlayer(-1,0)"><i class="fas fa-circle-left"></i></button>
+      <button onpointerdown="movePlayer(0,1)"><i class="fas fa-circle-down"></i></button>
+      <button onpointerdown="movePlayer(1,0)"><i class="fas fa-circle-right"></i></button>
     </div>
   </div>
 </div>
@@ -240,7 +240,7 @@ function animatePlayer() {
     player.frameTimer = 0;
     player.frame = (player.frame + 1) % player.frame % frames.length;
   }
-  
+
   drawPlayer();  // this line does the drawing
 }
 
@@ -396,6 +396,7 @@ function handleTap(clickX, clickY) {
 function gameLoop() {
   if (player.moving) animatePlayer();
   drawMaze();
+  dra
   requestAnimationFrame(gameLoop);
 }
 
