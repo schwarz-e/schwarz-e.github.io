@@ -460,19 +460,12 @@ function checkWin() {
   const msg = document.getElementById('winMessage');
   const choiceBox = document.getElementById('dialogueChoices');
 
-  // Debug: check current tile coordinates
-  console.log(`[checkWin] Player at (${player.gridX}, ${player.gridY}), Goal at (${goal.x}, ${goal.y})`);
-  console.log(`[checkWin] hasWon=${hasWon}, gameFrozen=${gameFrozen}`);
-
   // Check grid coords and prevent retrigger
   if (!hasWon && player.gridX === goal.x && player.gridY === goal.y) {
-    console.log("[checkWin] Goal reached! Triggering win condition.");
     hasWon = true;
     gameFrozen = true;
-    console.log("[checkWin] Game frozen and starting dialogue...");
 
     typeDialogue("You reached the castle!\nGo inside?", () => {
-      console.log("[checkWin] Dialogue finished typing. Showing choices...");
       choiceBox.innerHTML = `
         <button class="dialogue-btn" id="yesBtn">Yes</button>
         <button class="dialogue-btn" id="noBtn">No</button>
@@ -482,14 +475,11 @@ function checkWin() {
       const noBtn = document.getElementById("noBtn");
 
       yesBtn.onclick = () => {
-        console.log("[checkWin] Player chose YES — redirecting...");
-        window.location.href = "/castle.html";
+        window.location.href = "/";
       };
 
       noBtn.onclick = () => {
-        console.log("[checkWin] Player chose NO — typing exit message...");
         typeDialogue("You decide to stay outside.", () => {
-          console.log("[checkWin] Dialogue finished. Unfreezing game and resetting state.");
           choiceBox.innerHTML = "";
           gameFrozen = false;
           hasWon = false; // allow re-trigger
@@ -499,15 +489,8 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    if (msg.textContent !== "Find the castle") {
-      console.log("[checkWin] Player not at goal. Resetting dialogue box text.");
-    }
     msg.textContent = "Find the castle";
     choiceBox.innerHTML = "";
-  } 
-  else {
-    // Already triggered and still on goal
-    console.log("[checkWin] Goal already reached; skipping retrigger.");
   }
 }
 
