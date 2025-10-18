@@ -99,13 +99,37 @@ layout: default
   white-space: pre-line;
 }
 
+#dialogueChoices {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.dialogue-btn {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #333;
+  transition: all 0.1s ease-in-out;
+}
+
+.dialogue-btn:hover {
+  background: #dcdcdc;
+  transform: translateY(-2px);
+}
+
 </style>
 </head>
 <body>
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze</p>
+  <p id="winMessage">Find the castle</p>
+  <div id="dialogueChoices"></div>
   </div>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
@@ -401,9 +425,29 @@ function lerp(a, b, t) {
 
 function checkWin() {
   const msg = document.getElementById('winMessage');
-  msg.textContent = (Math.round(player.x) === Math.round(goal.x) && Math.round(player.y) === Math.round(goal.y))
-    ? "You reached the castle!"
-    : "Explore my website using this maze";
+  const choiceBox = document.getElementById('dialogueChoices');
+
+  if (player.x === goal.x && player.y === goal.y) {
+    msg.textContent = "You reached the castle!\nGo inside?";
+    choiceBox.innerHTML = `
+      <button class="dialogue-btn" id="yesBtn">Yes</button>
+      <button class="dialogue-btn" id="noBtn">No</button>
+    `;
+
+    // Handle button clicks
+    document.getElementById("yesBtn").onclick = () => {
+      window.location.href = "/";  // <-- redirect destination
+    };
+
+    document.getElementById("noBtn").onclick = () => {
+      msg.textContent = "You decide to stay outside.";
+      choiceBox.innerHTML = "";
+    };
+
+  } else {
+    msg.textContent = "Find the castle";
+    choiceBox.innerHTML = "";
+  }
 }
 
 // Movement speed (ms per step)
