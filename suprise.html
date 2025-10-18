@@ -212,15 +212,34 @@ function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = nu
     maze[0][j] = maze[rows - 1][j] = 1;
   }
 
-  // === Set end position ===
-  if (endX !== null && endY !== null) {
-    maze[endY][endX] = 0;  // Ensure it's open
+  // === Choose or assign goal ===
+  if (endX === null || endY === null) {
+    const openCells = [];
+    for (let y = 1; y < rows - 1; y++) {
+      for (let x = 1; x < cols - 1; x++) {
+        if (maze[y][x] === 0 && !(x === startX && y === startY)) {
+          openCells.push({ x, y });
+        }
+      }
+    }
+
+    const goal = openCells[Math.floor(Math.random() * openCells.length)];
+    endX = goal.x;
+    endY = goal.y;
   }
 
-  return { maze, start: { x: startX, y: startY }, end: { x: endX, y: endY } };
+  // Ensure goal tile is open
+  maze[endY][endX] = 0;
+
+  return {
+    maze,
+    start: { x: startX, y: startY },
+    end: { x: endX, y: endY }
+  };
 }
 
-const { maze, start, end } = generateMaze(21, 21, 1, 1, 19, 19);
+
+const { maze, start, end } = generateMaze(21, 21, 1, 1);
 const rows = maze.length;
 const cols = maze[0].length;
 
