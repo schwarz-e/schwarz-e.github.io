@@ -314,7 +314,6 @@ for (let y = 0; y < rows; y++) {
     }
   }
 }
-wallSprites[goal.y][goal.x] = 'goal';
 
 function updateCamera() {
   const targetX = player.x + tileSize / 2 - viewWidth / 2;
@@ -416,6 +415,10 @@ function drawMaze() {
       }
     }
   }
+  
+  const drawX = goal.x * tileSize - camera.x;
+  const drawY = goal.y * tileSize - camera.y;
+  ctx.drawImage(images['goal'], drawX, drawY, tileSize, tileSize);
 }
 
 function capitalize(s) {
