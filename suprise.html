@@ -390,6 +390,7 @@ function gameLoop() {
   if (player.moving) animatePlayer();
   drawMaze();
   requestAnimationFrame(gameLoop);
+  console.log("Game loop.");
 }
 
 loadImages(() => {
