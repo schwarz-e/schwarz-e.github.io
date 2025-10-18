@@ -393,6 +393,8 @@ function gameLoop() {
 }
 
 loadImages(() => {
+  
+  console.log("All images loaded.");
   // === Define player animations here ===
   player.animations = {
     idleUp:    [images.player_idle_up_0],
@@ -405,10 +407,10 @@ loadImages(() => {
     walkRight: [images.player_walk_right_0, images.player_walk_right_1]
   };
   
-  console.log("All images loaded.");
+  console.log("Player animations assigned.");
   drawMaze();
   console.log("Maze drawn.");
-  // gameLoop();
+  gameLoop();
 });
 
 </script>
