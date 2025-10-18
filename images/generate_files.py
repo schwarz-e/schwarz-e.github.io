@@ -5,7 +5,7 @@ import numpy as np
 
 # --- Configuration ---
 output_dir = "."
-tile_size = (32, 32)  # width, height
+tile_size = (64, 64)  # width, height
 
 # Base types and their placeholder colors (R, G, B, A)
 base_types = {
@@ -117,7 +117,7 @@ def pattern_for_shape(shape, color, size):
     mod = (x + y) % 8  # basic diagonal stripes
     overlay = np.zeros_like(arr[..., 0])
 
-    half = 16 // 2
+    half = 36 // 2
     overlay[(x * y) % 11 < 6] = 20
     cx, cy = w // 2, h // 2
 
