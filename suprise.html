@@ -68,12 +68,12 @@ layout: default
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
     <div class="row">
-      <button onclick="movePlayer(0,-1)"><i class="fas fa-circle-up"></i></button>
+      <button data-dir="up"><i class="fas fa-circle-up"></i></button>
     </div>
     <div class="row">
-      <button onpointerdown="movePlayer(-1,0)"><i class="fas fa-circle-left"></i></button>
-      <button onpointerdown="movePlayer(0,1)"><i class="fas fa-circle-down"></i></button>
-      <button onpointerdown="movePlayer(1,0)"><i class="fas fa-circle-right"></i></button>
+      <button data-dir="left"><i class="fas fa-circle-left"></i></button>
+      <button data-dir="down"><i class="fas fa-circle-down"></i></button>
+      <button data-dir="right"><i class="fas fa-circle-right"></i></button>
     </div>
   </div>
 </div>
@@ -334,31 +334,59 @@ function checkWin() {
     : "Reach the castle";
 }
 
-document.addEventListener('keydown', e => {
-  switch(e.key){
-    case 'ArrowUp': case 'w': startMove(0,-1); break;
-    case 'ArrowDown': case 's': startMove(0,1); break;
-    case 'ArrowLeft': case 'a': startMove(-1,0); break;
-    case 'ArrowRight': case 'd': startMove(1,0); break;
+// Movement speed (ms per step)
+const MOVE_INTERVAL = 150;
+let moveInterval = null;
+
+// Mapping of direction names to (dx, dy)
+const dirs = {
+  up: [0, -1],
+  down: [0, 1],
+  left: [-1, 0],
+  right: [1, 0]
+};
+
+// --- BUTTON CONTROLS ---
+document.querySelectorAll("#controls button").forEach(btn => {
+  const dir = btn.dataset.dir;
+  const [dx, dy] = dirs[dir];
+
+  // Start moving while pressed/touched
+  btn.addEventListener("pointerdown", e => startMove(dx, dy, e));
+  // Stop moving when released or finger lifted
+  btn.addEventListener("pointerup", stopMove);
+  btn.addEventListener("pointerleave", stopMove); // if you slide off
+});
+
+// --- KEYBOARD CONTROLS ---
+document.addEventListener("keydown", e => {
+  if (moveInterval) return; // prevent overlap
+  switch (e.key.toLowerCase()) {
+    case "arrowup": case "w": startMove(0, -1, e); break;
+    case "arrowdown": case "s": startMove(0, 1, e); break;
+    case "arrowleft": case "a": startMove(-1, 0, e); break;
+    case "arrowright": case "d": startMove(1, 0, e); break;
   }
 });
-document.addEventListener('keyup', stopMove);
 
-// Movement loop
-let moveInterval = null;
+document.addEventListener("keyup", stopMove);
+
+// --- MOVE HELPERS ---
 function startMove(dx, dy, event) {
   event.preventDefault();
   if (moveInterval) clearInterval(moveInterval);
+
   player.moving = true;
-  movePlayer(dx, dy);
-  moveInterval = setInterval(() => movePlayer(dx, dy), 150);
+  movePlayer(dx, dy); // move once immediately
+  moveInterval = setInterval(() => movePlayer(dx, dy), MOVE_INTERVAL);
 }
 
-function stopMove(event) {
-  if (event) event.preventDefault();
+function stopMove() {
   player.moving = false;
   clearInterval(moveInterval);
+  moveInterval = null;
 }
+
 
 // Game loop for animation
 function gameLoop() {
