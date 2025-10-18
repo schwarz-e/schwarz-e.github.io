@@ -580,30 +580,34 @@ document.addEventListener("keyup", e => {
   }
 });
 
-// --- TOUCH / TAP CONTROLS ---
-let touchInterval = null;
+// --- GLOBAL TOUCH / TAP MOVEMENT ---
+document.addEventListener("pointerdown", handlePageTouchStart);
+document.addEventListener("pointerup", handlePageTouchEnd);
+document.addEventListener("pointercancel", handlePageTouchEnd);
 
-canvas.addEventListener("pointerdown", handleTouchStart);
-canvas.addEventListener("pointerup", handleTouchEnd);
-canvas.addEventListener("pointercancel", handleTouchEnd);
+function handlePageTouchStart(e) {
+  // Ignore touches on buttons, links, or dialogue boxes
+  const target = e.target;
+  if (gameFrozen || target.closest("button") || target.closest("a") || target.closest("#dialogueBox")) return;
 
-function handleTouchStart(e) {
-  if (gameFrozen) return;
   e.preventDefault();
 
   const rect = canvas.getBoundingClientRect();
   const touchX = e.clientX - rect.left;
   const touchY = e.clientY - rect.top;
 
-  // Player position on screen (center of sprite)
+  // If tapped outside the canvas bounds, ignore
+  if (touchX < 0 || touchY < 0 || touchX > rect.width || touchY > rect.height) return;
+
+  // Compute player’s on-screen position (center of sprite)
   const playerScreenX = (player.x - camera.x) + tileSize / 2;
   const playerScreenY = (player.y - camera.y) + tileSize / 2;
 
-  // Vector from player to touch
+  // Vector from player to touch point
   const dx = touchX - playerScreenX;
   const dy = touchY - playerScreenY;
 
-  // Decide direction based on dominant axis
+  // Decide move direction (dominant axis)
   let moveX = 0, moveY = 0;
   if (Math.abs(dx) > Math.abs(dy)) {
     moveX = dx > 0 ? 1 : -1;
@@ -611,14 +615,14 @@ function handleTouchStart(e) {
     moveY = dy > 0 ? 1 : -1;
   }
 
-  // Perform first move immediately
+  // Move immediately
   startMove(moveX, moveY, e);
 
-  // Continue moving if held
-  touchInterval = setInterval(() => startMove(moveX, moveY, e), moveInterval);
+  // Keep moving if held
+  moveInterval = setInterval(() => movePlayer(moveX, moveY), MOVE_INTERVAL);
 }
 
-function handleTouchEnd(e) {
+function handlePageTouchEnd(e) {
   clearInterval(touchInterval);
   stopMove();
 }
