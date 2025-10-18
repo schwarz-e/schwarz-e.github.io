@@ -24,7 +24,7 @@ layout: default
     align-items: center;
     margin-top: 20px;
   }
-  
+
   #controls {
     margin-top: 15px;
     display: flex;
@@ -434,15 +434,16 @@ function checkWin() {
   const msg = document.getElementById('winMessage');
   const choiceBox = document.getElementById('dialogueChoices');
 
-  if (player.x === goal.x && player.y === goal.y) {
-    typeDialogue("You reached the castle!\nGo inside?", () => {
+  // Compare grid coordinates, not pixel positions
+  if (player.gridX === goal.x && player.gridY === goal.y) {
+    typeDialogue("Congratulations!\nGo inside?", () => {
       choiceBox.innerHTML = `
         <button class="dialogue-btn" id="yesBtn">Yes</button>
         <button class="dialogue-btn" id="noBtn">No</button>
       `;
 
       document.getElementById("yesBtn").onclick = () => {
-        window.location.href = "/castle.html";  // <-- destination page
+        window.location.href = "/castle.html"; // redirect
       };
 
       document.getElementById("noBtn").onclick = () => {
@@ -452,10 +453,11 @@ function checkWin() {
       };
     });
   } else {
-    msg.textContent = "Find the castle";
+    msg.textContent =  "Explore my website using this maze. Solving will take you to a random page on my site. The maze is randomly generated and will change each time you visit this page. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
+
 
 
 // Movement speed (ms per step)
