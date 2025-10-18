@@ -34,5 +34,7 @@ for row in range(grid_row_size):
         if col == 0:
             iio.imwrite(os.path.join(output_folder, f"player_idle_{filenames[row]}_0.png"), tile)
             iio.imwrite(os.path.join(output_folder, f"player_idle_{filenames[row]}_1.png"), tile)
-            
+            iio.imwrite(os.path.join(output_folder, f"player_idle_{filenames[row]}_3.png"), tile)
+            iio.imwrite(os.path.join(output_folder, f"player_idle_{filenames[row]}_4.png"), tile)
+
 print("Done! Tiles saved.")
