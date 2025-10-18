@@ -87,7 +87,7 @@ def pattern_for_player_shape(shape, color, size):
     cx, cy = w // 2, h // 2
 
     # --- pattern logic ---
-    elif "up" in shape:
+    if "up" in shape:
         mask = ((abs(x - cx) < half) & (y > (cy - half)))
     elif "down" in shape:
         mask = ((abs(x - cx) < half) & (y < (cy + half))) 
@@ -191,7 +191,7 @@ player_filenames = [
     'player_walk_right_1.png']
 
 for shape in player_shapes:
-    color = (100, 100, 100, 255)
+    color = (10, 10, 10, 255)
 
     filename = 'player_' + shape + '.png'
     filepath = os.path.join(output_dir, filename)
