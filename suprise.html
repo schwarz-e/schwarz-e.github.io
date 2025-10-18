@@ -430,7 +430,7 @@ function gameLoop(timestamp) {
     player.x = lerp(player.x, targetPX, MOVE_LERP);
     player.y = lerp(player.y, targetPY, MOVE_LERP);
 
-    if (abs(player.x - targetPX) < 0.5 && abs(player.y - targetPY) < 0.5) {
+    if (abs(player.x - targetPX) < 1 && abs(player.y - targetPY) < 1) {
       player.moving = false;
     }
 
