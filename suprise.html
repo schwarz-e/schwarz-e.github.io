@@ -327,11 +327,24 @@ function capitalize(s) {
 function movePlayer(dx, dy) {
   const newX = player.x + dx;
   const newY = player.y + dy;
-  if (maze[newY][newX] === 0) {
+
+  console.log(
+    "Attempt move:",
+    `from (${player.x}, ${player.y}) to (${newX}, ${newY}) |`,
+    "maze[newY][newX] =",
+    maze[newY] ? maze[newY][newX] : "undefined"
+  );
+
+  if (maze[newY] && maze[newY][newX] === 0) {
     player.x = newX;
     player.y = newY;
+    console.log("Move successful to:", player.x, player.y);
+  } else {
+    console.warn("Blocked by wall or out of bounds at:", newX, newY);
   }
-  player.direction = dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up';
+
+  player.direction =
+    dx > 0 ? "right" : dx < 0 ? "left" : dy > 0 ? "down" : "up";
   checkWin();
 }
 
