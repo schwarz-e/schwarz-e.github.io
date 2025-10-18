@@ -83,7 +83,7 @@ def pattern_for_shape(shape, color, size):
         overlay[(x * y) % 11 < 6] = 20
         cx, cy = w // 2, h // 2
         half = 36 // 2
-        mask = (((abs(x - cx) < half) & (y > cy) ) | (abs(y - cy) < half))
+        mask = ((abs(x - cx) < half) & (y < cy)) 
         overlay[mask] = 40
     elif "end_left" in shape:
         # Large centered cross: 48-pixel wide vertical + horizontal bars
@@ -141,8 +141,34 @@ def pattern_for_shape(shape, color, size):
         half = 36 // 2
         mask = (abs(y - cy) < half)
         overlay[mask] = 40
-    elif "t_" in shape:
-        overlay[(x ^ y) % 10 < 5] = 80
+    elif "t_upopen" in shape:
+        # Large centered cross: 48-pixel wide vertical + horizontal bars
+        overlay[(x * y) % 11 < 6] = 20
+        cx, cy = w // 2, h // 2
+        half = 36 // 2
+        mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
+        overlay[mask] = 40
+    elif "t_downopen" in shape:
+        # Large centered cross: 48-pixel wide vertical + horizontal bars
+        overlay[(x * y) % 11 < 6] = 20
+        cx, cy = w // 2, h // 2
+        half = 36 // 2
+        mask = (((abs(x - cx) < half) & (y > cy) ) | (abs(y - cy) < half))
+        overlay[mask] = 40
+    elif "t_leftopen" in shape:
+        # Large centered cross: 48-pixel wide vertical + horizontal bars
+        overlay[(x * y) % 11 < 6] = 20
+        cx, cy = w // 2, h // 2
+        half = 36 // 2
+        mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x < cx)))
+        overlay[mask] = 40
+    elif "t_rightopen" in shape:
+        # Large centered cross: 48-pixel wide vertical + horizontal bars
+        overlay[(x * y) % 11 < 6] = 20
+        cx, cy = w // 2, h // 2
+        half = 36 // 2
+        mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x > cx)))
+        overlay[mask] = 40
     else:  # isolated or other
         overlay[(x * y) % 11 < 6] = 30
 
