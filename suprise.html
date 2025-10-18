@@ -243,9 +243,16 @@ function animatePlayer() {
 }
 
 function drawPlayer() {
-  const frame = player.currentFrame;
-  if (!frame) return; // skip if not ready
-  ctx.drawImage(frame, player.x, player.y, tileSize, tileSize);
+  const anim = player.animations[
+    player.moving
+      ? 'walk' + capitalize(player.direction)
+      : 'idle' + capitalize(player.direction)
+  ];
+
+  if (!anim) return;
+
+  const frame = anim[player.frame % anim.length];
+  ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
 }
 
 // --- Bitmask-based tile selection ---
