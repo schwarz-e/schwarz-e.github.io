@@ -427,8 +427,33 @@ function movePlayer(dx, dy) {
     dx > 0 ? "right" : dx < 0 ? "left" : dy > 0 ? "down" : "up";
   checkWin();
 }
+
 function lerp(a, b, t) {
   return a + (b - a) * t;
+}
+
+function typeDialogue(text, callback) {
+  const msg = document.getElementById('winMessage');
+  const choiceBox = document.getElementById('dialogueChoices');
+  msg.textContent = "";
+  msg.classList.add("typing");
+  choiceBox.innerHTML = "";
+
+  let i = 0;
+  const speed = 35; // milliseconds per character
+
+  function typeNext() {
+    if (i < text.length) {
+      msg.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeNext, speed);
+    } else {
+      msg.classList.remove("typing");
+      if (callback) callback();
+    }
+  }
+
+  typeNext();
 }
 
 function checkWin() {
@@ -520,25 +545,32 @@ document.querySelectorAll("#controls button").forEach(btn => {
 
 // --- KEYBOARD CONTROLS ---
 document.addEventListener("keydown", e => {
-  if (gameFrozen) {
-    // Optional: Allow Enter to confirm "Yes" when frozen
-    if (e.key === "Enter" || e.key === " ") {
-      const yesBtn = document.getElementById("yesBtn");
-      if (yesBtn) yesBtn.click();
-    }
-    return; // block other movement input while frozen
+  if (gameFrozen) return; // block input when dialogue active
+
+  // Prevent holding key from starting multiple intervals
+  if (moveInterval) return;
+
+  let dx = 0, dy = 0;
+  switch (e.key.toLowerCase()) {
+    case "arrowup": case "w": dy = -1; break;
+    case "arrowdown": case "s": dy = 1; break;
+    case "arrowleft": case "a": dx = -1; break;
+    case "arrowright": case "d": dx = 1; break;
+    default: return; // ignore other keys
   }
 
-  if (moveInterval) return; // prevent overlap
-  switch (e.key.toLowerCase()) {
-    case "arrowup": case "w": startMove(0, -1, e); break;
-    case "arrowdown": case "s": startMove(0, 1, e); break;
-    case "arrowleft": case "a": startMove(-1, 0, e); break;
-    case "arrowright": case "d": startMove(1, 0, e); break;
-  }
+  // Prevent the browser's auto-repeat from stacking new intervals
+  e.preventDefault();
+  startMove(dx, dy, e);
 });
 
-document.addEventListener("keyup", stopMove);
+document.addEventListener("keyup", e => {
+  // Stop movement when any directional key is released
+  const keys = ["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d"];
+  if (keys.includes(e.key.toLowerCase())) {
+    stopMove();
+  }
+});
 
 // --- MOVE HELPERS ---
 function startMove(dx, dy, event) {
