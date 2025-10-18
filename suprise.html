@@ -56,7 +56,7 @@ layout: default
   }
 
   #dialogueBox {
-  width: 365px;
+  width: 345px;
   min-height: 120px;
   background-color: #f8f8f8;
   border: 4px solid #000;
@@ -145,10 +145,10 @@ layout: default
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze. Solving will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
+  <p id="winMessage">Explore my website using this maze. Finding the castle will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
   <div id="dialogueChoices"></div>
   </div>
-  <canvas id="mazeCanvas" width="400" height="400"></canvas>
+  <canvas id="mazeCanvas" width="380" height="380"></canvas>
   <div id="controls">
     <div class="row">
       <button data-dir="up"><i class="fas fa-circle-up"></i></button>
@@ -514,7 +514,7 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    msg.textContent = "Explore my website using this maze. Solving will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
+    msg.textContent = "Explore my website using this maze. Finding the castle will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
