@@ -305,12 +305,12 @@ function drawMaze() {
   const goalY = goal.y * tileSize - camera.y;
   ctx.drawImage(images.goal, goalX, goalY, tileSize, tileSize);
 
-  const animKey = (player.moving ? 'walk' : 'idle') + capitalize(player.direction);
-  const frames = player.animations[animKey];
-  const img = frames[player.frame % frames.length];
-  const px = player.x * tileSize - camera.x;
-  const py = player.y * tileSize - camera.y;
-  ctx.drawImage(img, px, py, tileSize, tileSize);
+  //const animKey = (player.moving ? 'walk' : 'idle') + capitalize(player.direction);
+  //const frames = player.animations[animKey];
+  //const img = frames[player.frame % frames.length];
+  //const px = player.x * tileSize - camera.x;
+  //const py = player.y * tileSize - camera.y;
+  //ctx.drawImage(img, px, py, tileSize, tileSize);
 }
 
 function capitalize(s) {
