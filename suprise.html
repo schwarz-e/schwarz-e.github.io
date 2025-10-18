@@ -606,33 +606,35 @@ document.querySelectorAll("#controls button").forEach(btn => {
 document.addEventListener("keydown", e => {
   if (gameFrozen) return;
 
+  // Ignore repeated keydown events (we manage hold manually)
+  if (e.repeat) return;
+
   let dx = 0, dy = 0;
   switch (e.key.toLowerCase()) {
     case "arrowup": case "w": dy = -1; break;
     case "arrowdown": case "s": dy = 1; break;
     case "arrowleft": case "a": dx = -1; break;
     case "arrowright": case "d": dx = 1; break;
-    default: return; // ignore other keys
+    default: return;
   }
 
   e.preventDefault();
 
-  // Clear existing movement immediately when direction changes
+  // Clear any existing movement to allow instant direction switch
   if (moveInterval) {
     clearInterval(moveInterval);
     moveInterval = null;
   }
 
-  // Start moving in the new direction right away
+  // Move immediately and start continuous movement
   startMove(dx, dy, e);
 });
 
 document.addEventListener("keyup", e => {
   const keys = ["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d"];
-  if (keys.includes(e.key.toLowerCase())) {
-    stopMove();
-  }
+  if (keys.includes(e.key.toLowerCase())) stopMove();
 });
+
 
 // --- GLOBAL TOUCH / TAP MOVEMENT ---
 let touchInterval = null;
@@ -643,47 +645,57 @@ document.addEventListener("pointerup", handlePageTouchEnd);
 document.addEventListener("pointercancel", handlePageTouchEnd);
 
 function handlePageTouchStart(e) {
-  // Ignore touches on buttons, links, or dialogue boxes
   const target = e.target;
   if (gameFrozen || target.closest("button") || target.closest("a") || target.closest("#dialogueBox")) return;
-
   e.preventDefault();
 
   const rect = canvas.getBoundingClientRect();
   const touchX = e.clientX - rect.left;
   const touchY = e.clientY - rect.top;
 
-  // If tapped outside the canvas bounds, ignore
+  // Ignore touches outside the canvas
   if (touchX < 0 || touchY < 0 || touchX > rect.width || touchY > rect.height) return;
 
-  // Compute player’s on-screen position (center of sprite)
-  const playerScreenX = (player.x - camera.x) + tileSize / 2;
-  const playerScreenY = (player.y - camera.y) + tileSize / 2;
+  handleTap(touchX, touchY);
 
-  // Vector from player to touch point
-  const dx = touchX - playerScreenX;
-  const dy = touchY - playerScreenY;
-
-  // Decide move direction (dominant axis)
-  let moveX = 0, moveY = 0;
-  if (Math.abs(dx) > Math.abs(dy)) {
-    moveX = dx > 0 ? 1 : -1;
-  } else {
-    moveY = dy > 0 ? 1 : -1;
-  }
-
-  // Move immediately
-  startMove(moveX, moveY, e);
-
-  // Keep moving if held
-  touchInterval = setInterval(() => startMove(moveX, moveY, e), tapMoveInterval);
+  // Tap-and-hold movement (repeat)
+  moveInterval = setInterval(() => handleTap(touchX, touchY), MOVE_INTERVAL);
 }
 
 function handlePageTouchEnd(e) {
-  clearInterval(touchInterval);
   stopMove();
 }
 
+function handleTap(clickX, clickY) {
+  // Player center on screen
+  const playerCenterX = (player.x - camera.x) + tileSize / 2;
+  const playerCenterY = (player.y - camera.y) + tileSize / 2;
+
+  let dx = clickX - playerCenterX;
+  let dy = clickY - playerCenterY;
+
+  const absDx = Math.abs(dx);
+  const absDy = Math.abs(dy);
+
+  let moveOptions = [];
+
+  if (absDx > absDy) {
+    moveOptions.push([dx > 0 ? 1 : -1, 0]);  // horizontal primary
+    moveOptions.push([0, dy > 0 ? 1 : -1]);  // vertical secondary
+  } else {
+    moveOptions.push([0, dy > 0 ? 1 : -1]);  // vertical primary
+    moveOptions.push([dx > 0 ? 1 : -1, 0]);  // horizontal secondary
+  }
+
+  for (let [mx, my] of moveOptions) {
+    const newX = player.gridX + mx;
+    const newY = player.gridY + my;
+    if (maze[newY] && maze[newY][newX] === 0) {
+      movePlayer(mx, my);
+      break;
+    }
+  }
+}
 
 // --- MOVE HELPERS ---
 function startMove(dx, dy, event) {
