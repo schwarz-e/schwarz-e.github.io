@@ -24,6 +24,25 @@ shapes = [
     "cross"
 ]
 
+player_shapes = [
+    "idle_down_0",
+    "idle_down_1",
+    "idle_up_0",
+    "idle_up_1",
+    "idle_left_0",
+    "idle_left_1",
+    "idle_right_0",
+    "idle_right_1",
+    "walk_down_0",
+    "walk_down_1",
+    "walk_up_0",
+    "walk_up_1",
+    "walk_left_0",
+    "walk_left_1",
+    "walk_right_0",
+    "walk_right_1"
+]
+
 # --- PNG helper functions ---
 def png_chunk(chunk_type, data):
     """Build a PNG chunk."""
@@ -47,6 +66,41 @@ def array_to_png_bytes(arr):
     png += png_chunk(b"IDAT", compressed)
     png += png_chunk(b"IEND", b"")
     return png
+
+# --- Pattern generation helpers ---
+def pattern_for_player_shape(shape, color, size):
+    """Return a (H, W, 4) NumPy RGBA array with a simple overlay pattern."""
+    w, h = size
+    arr = np.zeros((h, w, 4), dtype=np.uint8)
+    arr[..., 0] = color[0]
+    arr[..., 1] = color[1]
+    arr[..., 2] = color[2]
+    arr[..., 3] = color[3]
+
+    # simple repeating pattern logic
+    y, x = np.indices((h, w))
+    mod = (x + y) % 8  # basic diagonal stripes
+    overlay = np.zeros_like(arr[..., 0])
+
+    half = 36 // 2
+    overlay[(x * y) % 11 < 6] = 20
+    cx, cy = w // 2, h // 2
+
+    # --- pattern logic ---
+    elif "up" in shape:
+        mask = ((abs(x - cx) < half) & (y > (cy - half)))
+    elif "down" in shape:
+        mask = ((abs(x - cx) < half) & (y < (cy + half))) 
+    elif "left" in shape:
+        mask = ((abs(y - cy) < half) & (x > (cx - half))) 
+    elif "right" in shape:
+        mask = ((abs(y - cy) < half) & (x < (cx + half))) 
+
+    overlay[mask] = 40
+
+    # Apply overlay (lighten color)
+    arr[..., :3] = np.clip(arr[..., :3] + overlay[..., None], 0, 255)
+    return arr
 
 # --- Pattern generation helpers ---
 def pattern_for_shape(shape, color, size):
@@ -121,5 +175,33 @@ for base, color in base_types.items():
         with open(filepath, "wb") as f:
             f.write(png_bytes)
         print(f"Created {filepath}")
+
+player_filenames = [
+    'player_idle_down_0.png',
+    'player_idle_up_0.png',
+    'player_idle_left_0.png',
+    'player_idle_right_0.png',
+    'player_walk_down_0.png',
+    'player_walk_down_1.png',
+    'player_walk_up_0.png',
+    'player_walk_up_1.png',
+    'player_walk_left_0.png',
+    'player_walk_left_1.png',
+    'player_walk_right_0.png',
+    'player_walk_right_1.png']
+
+for shape in player_shapes:
+    color = (100, 100, 100, 255)
+
+    filename = 'player_' + shape + '.png'
+    filepath = os.path.join(output_dir, filename)
+
+    arr = pattern_for_player_shape(shape, color, tile_size)
+    png_bytes = array_to_png_bytes(arr)
+
+    with open(filepath, "wb") as f:
+        f.write(png_bytes)
+    print(f"Created {filepath}")
+
 
 print("\nAll patterned PNGs created successfully!")
