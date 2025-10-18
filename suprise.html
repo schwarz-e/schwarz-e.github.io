@@ -653,13 +653,9 @@ function handlePageTouchStart(e) {
   const touchX = e.clientX - rect.left;
   const touchY = e.clientY - rect.top;
 
-  // Ignore touches outside the canvas
   if (touchX < 0 || touchY < 0 || touchX > rect.width || touchY > rect.height) return;
 
   handleTap(touchX, touchY);
-
-  // Tap-and-hold movement (repeat)
-  moveInterval = setInterval(() => handleTap(touchX, touchY), MOVE_INTERVAL);
 }
 
 function handlePageTouchEnd(e) {
@@ -678,7 +674,7 @@ function handleTap(clickX, clickY) {
   const absDy = Math.abs(dy);
 
   if (absDx < tileSize * 0.2 && absDy < tileSize * 0.2) return;
-  
+
   let moveOptions = [];
 
   if (absDx > absDy) {
@@ -693,7 +689,7 @@ function handleTap(clickX, clickY) {
     const newX = player.gridX + mx;
     const newY = player.gridY + my;
     if (maze[newY] && maze[newY][newX] === 0) {
-      movePlayer(mx, my);
+      startMove(mx, my, e);
       break;
     }
   }
