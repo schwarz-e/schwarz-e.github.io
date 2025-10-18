@@ -277,7 +277,7 @@ function getEnvironmentSprite(x, y, maze) {
   let mask = 0;
   for (let {dx, dy, bit} of dirs) {
     const nx = x + dx, ny = y + dy;
-    if (maze[ny] && (maze[ny][nx] === 1 || maze[ny][nx] === 2)) mask |= bit;
+    if (maze[ny] && (maze[ny][nx] > 0)) mask |= bit;
   }
 
   const mapping = {
@@ -360,7 +360,7 @@ function checkWin() {
 }
 
 // Movement speed (ms per step)
-const MOVE_INTERVAL = 150;
+const MOVE_INTERVAL = 300;
 let moveInterval = null;
 
 // Mapping of direction names to (dx, dy)
