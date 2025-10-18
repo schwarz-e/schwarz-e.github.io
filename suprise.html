@@ -677,6 +677,8 @@ function handleTap(clickX, clickY) {
   const absDx = Math.abs(dx);
   const absDy = Math.abs(dy);
 
+  if (absDx < tileSize * 0.2 && absDy < tileSize * 0.2) return;
+  
   let moveOptions = [];
 
   if (absDx > absDy) {
