@@ -6,7 +6,6 @@ layout: default
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Maze Game</title>
 <style>
   body {
     display: flex;
@@ -24,7 +23,6 @@ layout: default
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    box-shadow: 4px 4px 0 #333;
   }
   #winMessage {
     margin-top: 10px;
@@ -51,20 +49,17 @@ layout: default
     outline: none;         /* remove outline */
     cursor: pointer;       /* pointer on hover */
     color: #555;           /* icon color */
-    box-shadow: 4px 4px 0 #222;
   }
 
   #controls button:active {
     color: #333;           /* optional pressed effect */
-    box-shadow: 4px 4px 0 #222;
   }
   #controls button:hover {
     color: #333;           /* optional pressed effect */
-    box-shadow: 4px 4px 0 #222;
   }
 
   #dialogueBox {
-  width: 340px;
+  width: 400px;
   min-height: 80px;
   background-color: #f8f8f8;
   border: 4px solid #000;
@@ -72,7 +67,7 @@ layout: default
   padding: 10px 16px;
   margin-top: 20px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
+  font-size: 24px;
   line-height: 1.5;
   color: #000;
   box-shadow: 4px 4px 0 #333;
@@ -90,6 +85,13 @@ layout: default
   height: 4px;
   background: #000;
   border-radius: 2px;
+}
+
+#mazeCanvas {
+  border: 4px solid #000;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #333;
+  background-color: #dcdcdc; /* subtle background to match Game Boy vibe */
 }
 
 #winMessage {
