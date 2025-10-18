@@ -253,13 +253,16 @@ function drawPlayer() {
     ? 'walk' + capitalize(player.direction)
     : 'idle' + capitalize(player.direction);
   const frames = player.animations[animKey];
-  if (!frames) {
-    console.warn("No frames found for animation key:", animKey);
-    return;
-  }
+  if (!frames) return;
+
   const frameIndex = player.frame % frames.length;
   const frame = frames[frameIndex];
-  ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
+
+  // Offset player position by camera coordinates
+  const drawX = player.x * tileSize - camera.x;
+  const drawY = player.y * tileSize - camera.y;
+
+  ctx.drawImage(frame, drawX, drawY, tileSize, tileSize);
 }
 
 // --- Bitmask-based tile selection ---
