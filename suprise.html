@@ -394,17 +394,17 @@ function gameLoop() {
 
 loadImages(() => {
   // === Define player animations here ===
-  //player.animations = {
-  //  idleUp:    [images.player_idle_up_0],
-  //  idleDown:  [images.player_idle_down_0],
-  //  idleLeft:  [images.player_idle_left_0],
-  //  idleRight: [images.player_idle_right_0],
-
-  //  walkUp:    [images.player_walk_up_0, images.player_walk_up_1],
-  //  walkDown:  [images.player_walk_down_0, images.player_walk_down_1],
-  //  walkLeft:  [images.player_walk_left_0, images.player_walk_left_1],
-  //  walkRight: [images.player_walk_right_0, images.player_walk_right_1]
-  //};
+  player.animations = {
+    idleUp:    [images.player_idle_up_0],
+    idleDown:  [images.player_idle_down_0],
+    idleLeft:  [images.player_idle_left_0],
+    idleRight: [images.player_idle_right_0],
+    walkUp:    [images.player_walk_up_0, images.player_walk_up_1],
+    walkDown:  [images.player_walk_down_0, images.player_walk_down_1],
+    walkLeft:  [images.player_walk_left_0, images.player_walk_left_1],
+    walkRight: [images.player_walk_right_0, images.player_walk_right_1]
+  };
+  
   console.log("All images loaded.");
   drawMaze();
   console.log("Maze drawn.");
