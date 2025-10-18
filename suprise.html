@@ -291,29 +291,20 @@ function loadImages(callback) {
     'cross'
   ];
 
-  const extras = [
-    // Game objects
-    'goal.png',
-    // Player idle frames
-    'player_idle_down_0.png',
-    'player_idle_up_0.png',
-    'player_idle_left_0.png',
-    'player_idle_right_0.png',
-    'player_idle_down_1.png',
-    'player_idle_up_1.png',
-    'player_idle_left_1.png',
-    'player_idle_right_1.png',
-    // Player walking frames
-    'player_walk_down_0.png',
-    'player_walk_down_1.png',
-    'player_walk_up_0.png',
-    'player_walk_up_1.png',
-    'player_walk_left_0.png',
-    'player_walk_left_1.png',
-    'player_walk_right_0.png',
-    'player_walk_right_1.png'
-  ];
+  const actions = ['idle', 'walk'];
+  const directions = ['up', 'down', 'left', 'right'];
+  const frameCount = 4; // 0–3
 
+  const extras = ['goal.png'];
+
+  // Generate all player image filenames automatically
+  for (const action of actions) {
+    for (const dir of directions) {
+      for (let i = 0; i < frameCount; i++) {
+        extras.push(`player_${action}_${dir}_${i}.png`);
+      }
+    }
+  }
   // Build file list
   const allPaths = [];
 
@@ -745,17 +736,22 @@ function gameLoop(timestamp) {
 
 loadImages(() => {
   // === Define player animations here ===
-  player.animations = {
-    idleUp:    [images.player_idle_up_0, images.player_idle_up_1, images.player_idle_up_2, images.player_idle_up_3],
-    idleDown:  [images.player_idle_down_0, images.player_idle_down_1, images.player_idle_down_2, images.player_idle_down_3],
-    idleLeft:  [images.player_idle_left_0, images.player_idle_left_1, images.player_idle_left_2, images.player_idle_left_3],
-    idleRight: [images.player_idle_right_0, images.player_idle_right_1, images.player_idle_right_2, images.player_idle_right_3],
+  const directions = ["up", "down", "left", "right"];
+  const actions = ["idle", "walk"];
 
-    walkUp:    [images.player_walk_up_0, images.player_walk_up_1, images.player_walk_up_2, images.player_walk_up_3],
-    walkDown:  [images.player_walk_down_0, images.player_walk_down_1, images.player_walk_down_2, images.player_walk_down_3],
-    walkLeft:  [images.player_walk_left_0, images.player_walk_left_1, images.player_walk_left_2, images.player_walk_left_3],
-    walkRight: [images.player_walk_right_0, images.player_walk_right_1, images.player_walk_right_2, images.player_walk_right_3]
-  };
+  player.animations = {};
+
+  for (const action of actions) {
+    for (const dir of directions) {
+      const key = `${action}${dir.charAt(0).toUpperCase() + dir.slice(1)}`; // e.g. walkUp
+      player.animations[key] = [];
+
+      for (let i = 0; i < frameCount; i++) {
+        const name = `player_${action}_${dir}_${i}`;
+        player.animations[key].push(images[name]);
+      }
+    }
+  }
 
   drawMaze();
   drawPlayer();
