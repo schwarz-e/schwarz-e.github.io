@@ -128,9 +128,9 @@ def pattern_for_shape(shape, color, size):
         mask = ((abs(x - cx) < half) & (y > (cy - half)))
     elif "t_downopen" in shape:
         mask = ((abs(x - cx) < half) & (y < (cy + half))) 
-    elif "t_leftopen" in shape:
-        mask = ((abs(y - cy) < half) & (x > (cx - half))) 
     elif "t_rightopen" in shape:
+        mask = ((abs(y - cy) < half) & (x > (cx - half))) 
+    elif "t_leftopen" in shape:
         mask = ((abs(y - cy) < half) & (x < (cx + half))) 
     elif "corner_ur" in shape:
         mask = ((((abs(x - cx) < half) & (y > cy) ) | ((abs(y - cy) < half) & (x < cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
