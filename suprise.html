@@ -145,7 +145,7 @@ layout: default
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze. Solving will take you to a random page on my site. The maze is randomly generated and will change each time you visit this page. Enjoy! </p>
+  <p id="winMessage">Explore my website using this maze. Solving will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
   <div id="dialogueChoices"></div>
   </div>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
@@ -466,6 +466,7 @@ function typeDialogue(text, callback) {
   typeNext();
 }
 
+
 function checkWin() {
   const msg = document.getElementById('winMessage');
   const choiceBox = document.getElementById('dialogueChoices');
@@ -485,7 +486,21 @@ function checkWin() {
       const noBtn = document.getElementById("noBtn");
 
       yesBtn.onclick = () => {
-        window.location.href = "/";
+        const sitePages = [
+          "/research/solver",
+          "/research/translation",
+          "/research/multiscale",
+          "/publications",
+          "/vision",
+          "/teaching",
+          "/cv",
+          "/contact"
+        ];
+        // Pick a random page from the list
+        const randomIndex = Math.floor(Math.random() * sitePages.length);
+        const randomPage = sitePages[randomIndex];
+        console.log(`[checkWin] Redirecting to random page: ${randomPage}`);
+        window.location.href = randomPage;
       };
 
       noBtn.onclick = () => {
@@ -499,7 +514,7 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    msg.textContent = "Explore my website using this maze. Solving will take you to a random page on my site. The maze is randomly generated and will change each time you visit this page. Enjoy!";
+    msg.textContent = "Explore my website using this maze. Solving will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
