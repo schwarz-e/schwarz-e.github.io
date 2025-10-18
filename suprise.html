@@ -217,11 +217,11 @@ for (let y = 0; y < rows; y++) {
     if (maze[y][x] === 1 || maze[y][x] === 2) {
       // WALL TILE
       const baseType = maze[y][x] === 1 ? 'tree' : 'rock';
-      const shape = getEnvironmentSprite(x, y, maze, false);
+      const shape = getEnvironmentSprite(x, y, maze, true);
       wallSprites[y][x] = `${baseType}_${shape}`;
     } else if (maze[y][x] === 0) {
       // FLOOR TILE
-      const shape = getEnvironmentSprite(x, y, maze, true);
+      const shape = getEnvironmentSprite(x, y, maze, false);
       wallSprites[y][x] = `floor_${shape}`;
     }
   }
@@ -267,7 +267,7 @@ function drawPlayer() {
 }
 
 // --- Bitmask-based tile selection ---
-function getEnvironmentSprite(x, y, maze , isFloor = false) {
+function getEnvironmentSprite(x, y, maze , isFloor = true) {
   const dirs = [
     { dx: 0, dy: -1, bit: 1 }, // up
     { dx: 1, dy: 0, bit: 2 },  // right
