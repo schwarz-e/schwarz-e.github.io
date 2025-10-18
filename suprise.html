@@ -157,13 +157,11 @@ function loadImages(callback) {
   const extras = [
     // Game objects
     'goal.svg',
-
     // Player idle frames
     'player_idle_down_0.png',
     'player_idle_up_0.png',
     'player_idle_left_0.png',
     'player_idle_right_0.png',
-
     // Player walking frames
     'player_walk_down_0.png',
     'player_walk_down_1.png',
@@ -416,8 +414,9 @@ loadImages(() => {
   
   console.log("Player animations assigned.");
   drawMaze();
-  console.log("Maze drawn.");
-  gameLoop();
+  drawPlayer();
+  console.log("Player drawn.");
+  //gameLoop();
 });
 
 </script>
