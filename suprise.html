@@ -57,7 +57,7 @@ layout: default
 
   #dialogueBox {
   width: 360px;
-  min-height: 80px;
+  min-height: 120px;
   background-color: #f8f8f8;
   border: 4px solid #000;
   border-radius: 8px;
@@ -413,6 +413,8 @@ function capitalize(s) {
 }
 
 function movePlayer(dx, dy) {
+  if (gameFrozen) return; // stop movement when frozen
+
   const newX = player.gridX + dx;
   const newY = player.gridY + dy;
 
@@ -425,7 +427,6 @@ function movePlayer(dx, dy) {
     dx > 0 ? "right" : dx < 0 ? "left" : dy > 0 ? "down" : "up";
   checkWin();
 }
-
 function lerp(a, b, t) {
   return a + (b - a) * t;
 }
@@ -434,27 +435,54 @@ function checkWin() {
   const msg = document.getElementById('winMessage');
   const choiceBox = document.getElementById('dialogueChoices');
 
-  // Compare grid coordinates, not pixel positions
-  if (player.gridX === goal.x && player.gridY === goal.y) {
-    typeDialogue("Congratulations!\nGo inside?", () => {
+  // Debug: check current tile coordinates
+  console.log(`[checkWin] Player at (${player.gridX}, ${player.gridY}), Goal at (${goal.x}, ${goal.y})`);
+  console.log(`[checkWin] hasWon=${hasWon}, gameFrozen=${gameFrozen}`);
+
+  // Check grid coords and prevent retrigger
+  if (!hasWon && player.gridX === goal.x && player.gridY === goal.y) {
+    console.log("[checkWin] Goal reached! Triggering win condition.");
+    hasWon = true;
+    gameFrozen = true;
+    console.log("[checkWin] Game frozen and starting dialogue...");
+
+    typeDialogue("You reached the castle!\nGo inside?", () => {
+      console.log("[checkWin] Dialogue finished typing. Showing choices...");
       choiceBox.innerHTML = `
         <button class="dialogue-btn" id="yesBtn">Yes</button>
         <button class="dialogue-btn" id="noBtn">No</button>
       `;
 
-      document.getElementById("yesBtn").onclick = () => {
-        window.location.href = "/castle.html"; // redirect
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+
+      yesBtn.onclick = () => {
+        console.log("[checkWin] Player chose YES — redirecting...");
+        window.location.href = "/castle.html";
       };
 
-      document.getElementById("noBtn").onclick = () => {
+      noBtn.onclick = () => {
+        console.log("[checkWin] Player chose NO — typing exit message...");
         typeDialogue("You decide to stay outside.", () => {
+          console.log("[checkWin] Dialogue finished. Unfreezing game and resetting state.");
           choiceBox.innerHTML = "";
+          gameFrozen = false;
+          hasWon = false; // allow re-trigger
         });
       };
     });
-  } else {
-    msg.textContent =  "Explore my website using this maze. Solving will take you to a random page on my site. The maze is randomly generated and will change each time you visit this page. Enjoy!";
+  } 
+  else if (!hasWon) {
+    // Only log when not at goal
+    if (msg.textContent !== "Find the castle") {
+      console.log("[checkWin] Player not at goal. Resetting dialogue box text.");
+    }
+    msg.textContent = "Find the castle";
     choiceBox.innerHTML = "";
+  } 
+  else {
+    // Already triggered and still on goal
+    console.log("[checkWin] Goal already reached; skipping retrigger.");
   }
 }
 
@@ -463,6 +491,7 @@ function checkWin() {
 // Movement speed (ms per step)
 const MOVE_INTERVAL = 200;
 let moveInterval = null;
+let gameFrozen = false;
 
 // Mapping of direction names to (dx, dy)
 const dirs = {
@@ -478,7 +507,11 @@ document.querySelectorAll("#controls button").forEach(btn => {
   const [dx, dy] = dirs[dir];
 
   // Start moving while pressed/touched
-  btn.addEventListener("pointerdown", e => startMove(dx, dy, e));
+  btn.addEventListener("pointerdown", e => {
+    if (gameFrozen) return; // block input while dialogue active
+    startMove(dx, dy, e);
+  });
+
   // Stop moving when released or finger lifted
   btn.addEventListener("pointerup", stopMove);
   btn.addEventListener("pointerleave", stopMove); // if you slide off
@@ -486,6 +519,15 @@ document.querySelectorAll("#controls button").forEach(btn => {
 
 // --- KEYBOARD CONTROLS ---
 document.addEventListener("keydown", e => {
+  if (gameFrozen) {
+    // Optional: Allow Enter to confirm "Yes" when frozen
+    if (e.key === "Enter" || e.key === " ") {
+      const yesBtn = document.getElementById("yesBtn");
+      if (yesBtn) yesBtn.click();
+    }
+    return; // block other movement input while frozen
+  }
+
   if (moveInterval) return; // prevent overlap
   switch (e.key.toLowerCase()) {
     case "arrowup": case "w": startMove(0, -1, e); break;
