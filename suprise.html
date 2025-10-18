@@ -27,7 +27,7 @@ layout: default
   }
   #winMessage {
     margin-top: 10px;
-    text-align: center; /* center the text */
+    text-align: center;
   }
   #controls {
     margin-top: 15px;
@@ -35,45 +35,38 @@ layout: default
     flex-direction: column;
     align-items: center;
   }
-
   .row {
     display: flex;
     justify-content: center;
     margin: 2px 0;
   }
-
   #controls button {
-    font-size: 48px;      /* adjust icon size */
+    font-size: 48px;
     margin: 1px;
-    background: none;      /* remove background */
-    border: none;          /* remove border */
-    outline: none;         /* remove outline */
-    cursor: pointer;       /* pointer on hover */
-    color: #555;           /* icon color */
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #555;
   }
-
-  #controls button:active {
-    color: #333;           /* optional pressed effect */
-  }
+  #controls button:active,
   #controls button:hover {
-    color: #333;           /* optional pressed effect */
+    color: #333;
   }
-
 </style>
 </head>
 <body>
-
 <div id="gameContainer">
   <h2 id="winMessage">Reach the castle</h2>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
     <div class="row">
-      <button onclick="movePlayer(0,-1)"><i class="fas fa-circle-up"></i></button>
+      <button onmousedown="startMove(0,-1)" onmouseup="stopMove()" ontouchstart="startMove(0,-1)" ontouchend="stopMove()">⬆️</button>
     </div>
     <div class="row">
-      <button onclick="movePlayer(-1,0)"><i class="fas fa-circle-left"></i></button>
-      <button onclick="movePlayer(0,1)"><i class="fas fa-circle-down"></i></button>
-      <button onclick="movePlayer(1,0)"><i class="fas fa-circle-right"></i></button>
+      <button onmousedown="startMove(-1,0)" onmouseup="stopMove()" ontouchstart="startMove(-1,0)" ontouchend="stopMove()">⬅️</button>
+      <button onmousedown="startMove(0,1)" onmouseup="stopMove()" ontouchstart="startMove(0,1)" ontouchend="stopMove()">⬇️</button>
+      <button onmousedown="startMove(1,0)" onmouseup="stopMove()" ontouchstart="startMove(1,0)" ontouchend="stopMove()">➡️</button>
     </div>
   </div>
 </div>
@@ -88,76 +81,180 @@ const viewHeight = canvas.height;
 const viewCols = viewWidth / tileSize;
 const viewRows = viewHeight / tileSize;
 
-// Bigger maze: 20x20
 const maze = [
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
-  [1,0,1,1,1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
-  [1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
-  [1,0,1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,1],
-  [1,1,1,1,1,1,0,1,0,1,1,0,1,0,0,1,0,1,0,1],
-  [1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1],
-  [1,0,1,1,0,0,0,1,0,1,1,1,0,1,1,0,0,1,0,1],
-  [1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1],
-  [1,0,1,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1],
-  [1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1],
+  [2,2,2,2,1,2,1,1,1,2,2,2,2,1,2,1,1,1,2,2],
+  [1,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,2],
+  [2,0,2,1,2,0,1,2,1,2,0,2,0,1,2,1,2,0,2,2],
+  [1,0,2,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,2],
+  [2,0,1,0,2,2,2,2,0,2,2,2,2,2,0,2,2,1,0,2],
+  [2,0,0,0,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,1],
+  [1,2,1,1,2,2,0,2,0,2,2,0,2,0,0,1,0,2,0,1],
+  [2,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,1,0,2],
+  [1,0,2,1,0,0,0,2,0,1,2,2,0,2,2,0,0,2,0,2],
+  [2,0,0,0,0,1,0,2,0,0,0,2,0,0,0,1,0,0,0,1],
+  [2,1,2,2,0,1,0,2,2,1,0,2,1,2,0,2,1,2,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,1,0,2],
+  [2,0,2,2,1,1,2,1,1,2,0,2,0,2,2,1,0,2,0,2],
+  [1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,1,0,0,0,2],
+  [2,1,0,1,2,1,0,1,2,2,0,2,2,1,0,2,2,0,2,1],
   [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-  [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+  [2,0,2,2,1,1,2,2,1,2,2,2,1,2,2,2,2,2,0,2],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+  [1,0,0,0,2,1,2,1,1,2,2,1,1,2,1,2,2,1,0,2],
+  [2,2,2,1,2,1,2,2,1,1,2,1,2,2,2,1,2,2,1,1]
 ];
 
 const rows = maze.length;
 const cols = maze[0].length;
 
-// Player and goal
-let player = { x: 1, y: 1 };
+// Player state
+let player = {
+  x: 1,
+  y: 1,
+  direction: 'down',
+  moving: false,
+  frame: 0,
+  frameTimer: 0,
+  frameInterval: 12,
+  animations: {}
+};
 const goal = { x: 18, y: 18 };
-
-// Camera offset
 let camera = { x: 0, y: 0 };
 
-// Load images
-const images = {};
-function loadImages(callback) {
-  const sources = {
-    tree: '/images/tree2.svg',
-    rock: '/images/rock.svg',
-    floor: '/images/floor.svg',
-    player: '/images/player.svg',
-    goal: '/images/goal.svg'
-  };
-  let loaded = 0, total = Object.keys(sources).length;
-  for (let key in sources) {
-    images[key] = new Image();
-    images[key].src = sources[key];
-    images[key].onload = () => { if (++loaded === total) callback(); };
+// Load animation frames
+function loadFrames(prefix, count) {
+  const frames = [];
+  for (let i = 0; i < count; i++) {
+    const img = new Image();
+    img.src = `/images/${prefix}_${i}.svg`;
+    frames.push(img);
   }
+  return frames;
 }
 
-// Random wall sprites
-const wallSprites = Array.from({ length: rows }, () => Array.from({ length: cols }, () => ''));
+// --- Auto-load all sprite images dynamically ---
+function loadImages(callback) {
+  const images = {};
+
+  const baseTypes = ['tree', 'rock', 'floor'];
+  const shapes = [
+    'isolated',
+    'end_up', 'end_right', 'end_down', 'end_left',
+    'corner_ur', 'corner_rd', 'corner_dl', 'corner_lu',
+    'vertical', 'horizontal',
+    't_leftopen', 't_upopen', 't_rightopen', 't_downopen',
+    'cross'
+  ];
+
+  const extras = [
+    'goal.svg'
+    // add 'player_idle_down_0.png', etc. here if you want them auto-loaded too
+  ];
+
+  // Build file list
+  const allPaths = [];
+
+  baseTypes.forEach(type => {
+    shapes.forEach(shape => {
+      allPaths.push(`${type}_${shape}.svg`);
+    });
+  });
+
+  allPaths.push(...extras);
+
+  let loaded = 0;
+  const total = allPaths.length;
+
+  allPaths.forEach(name => {
+    const img = new Image();
+    img.src = `/images/${name}`;
+    img.onload = () => {
+      loaded++;
+      if (loaded === total) callback();
+    };
+    const key = name.replace(/\.(svg|png)$/i, ''); // e.g. tree_corner_rd
+    images[key] = img;
+  });
+
+  // expose images globally so drawMaze can use it
+  window.images = images;
+}
+
+const images = {};
+
+// --- Build wall sprite map with random wall types ---
+const wallSprites = Array.from({ length: rows }, () =>
+  Array.from({ length: cols }, () => '')
+);
+
+// After randomization, assign proper sprite per tile
 for (let y = 0; y < rows; y++) {
   for (let x = 0; x < cols; x++) {
-    if (maze[y][x] === 1) wallSprites[y][x] = Math.random() < 0.5 ? 'tree' : 'rock';
+    if (maze[y][x] === 1 || maze[y][x] === 2) {
+      // WALL TILE
+      const baseType = maze[y][x] === 1 ? 'tree' : 'rock';
+      const shape = getEnvironmentSprite(x, y, maze);
+      wallSprites[y][x] = `${baseType}_${shape}`;
+    } else if (maze[y][x] === 0) {
+      // FLOOR TILE
+      const shape = getEnvironmentSprite(x, y, maze);
+      wallSprites[y][x] = `floor_${shape}`;
+    }
   }
 }
 
-// Update camera so player stays centered (unless near edge)
 function updateCamera() {
   const maxX = cols * tileSize - viewWidth;
   const maxY = rows * tileSize - viewHeight;
-
   camera.x = player.x * tileSize + tileSize / 2 - viewWidth / 2;
   camera.y = player.y * tileSize + tileSize / 2 - viewHeight / 2;
-
   camera.x = Math.max(0, Math.min(camera.x, maxX));
   camera.y = Math.max(0, Math.min(camera.y, maxY));
+}
+
+function animatePlayer() {
+  player.frameTimer++;
+  if (player.frameTimer >= player.frameInterval) {
+    player.frameTimer = 0;
+    player.frame = (player.frame + 1) % 4;
+  }
+}
+
+
+
+// --- Bitmask-based tile selection ---
+function getEnvironmentSprite(x, y, maze) {
+  const dirs = [
+    { dx: 0, dy: -1, bit: 1 }, // up
+    { dx: 1, dy: 0, bit: 2 },  // right
+    { dx: 0, dy: 1, bit: 4 },  // down
+    { dx: -1, dy: 0, bit: 8 }  // left
+  ];
+  let mask = 0;
+  for (let {dx, dy, bit} of dirs) {
+    const nx = x + dx, ny = y + dy;
+    if (maze[ny] && (maze[ny][nx] === 1 || maze[ny][nx] === 2)) mask |= bit;
+  }
+
+  const mapping = {
+    0:  'isolated',
+    1:  'end_down',
+    2:  'end_left',
+    4:  'end_up',
+    8:  'end_right',
+    3:  'corner_ur',
+    6:  'corner_rd',
+    12: 'corner_dl',
+    9:  'corner_lu',
+    5:  'vertical',
+    10: 'horizontal',
+    7:  't_leftopen',
+    11: 't_upopen',
+    13: 't_rightopen',
+    14: 't_downopen',
+    15: 'cross'
+  };
+  return mapping[mask] || 'isolated';
 }
 
 function drawMaze() {
@@ -168,31 +265,40 @@ function drawMaze() {
   const endCol = Math.ceil((camera.x + viewWidth) / tileSize);
   const startRow = Math.floor(camera.y / tileSize);
   const endRow = Math.ceil((camera.y + viewHeight) / tileSize);
-
   const offsetX = -camera.x + startCol * tileSize;
   const offsetY = -camera.y + startRow * tileSize;
 
   for (let y = startRow; y < endRow; y++) {
     for (let x = startCol; x < endCol; x++) {
-      if (maze[y] && maze[y][x] !== undefined) {
-        const drawX = (x - startCol) * tileSize + offsetX;
-        const drawY = (y - startRow) * tileSize + offsetY;
-
-        if (maze[y][x] === 1) {
-          ctx.drawImage(images[wallSprites[y][x]], drawX, drawY, tileSize, tileSize);
-        }
+      if (maze[y][x] === 1) {
+        ctx.drawImage(images[wallSprites[y][x]], drawX, drawY, tileSize, tileSize);
+      }
+      else {
+        for (let y = 0; y < maze.length; y++) {
+          for (let x = 0; x < maze[0].length; x++) {
+            if (maze[y][x] === 1) {
+              wallSprites[y][x] = getWallSprite(x, y, maze);
+            }
+          }
+        };
       }
     }
   }
 
-  // Draw goal and player
-  const goalScreenX = goal.x * tileSize - camera.x;
-  const goalScreenY = goal.y * tileSize - camera.y;
-  const playerScreenX = player.x * tileSize - camera.x;
-  const playerScreenY = player.y * tileSize - camera.y;
+  const goalX = goal.x * tileSize - camera.x;
+  const goalY = goal.y * tileSize - camera.y;
+  ctx.drawImage(images.goal, goalX, goalY, tileSize, tileSize);
 
-  ctx.drawImage(images.goal, goalScreenX, goalScreenY, tileSize, tileSize);
-  ctx.drawImage(images.player, playerScreenX, playerScreenY, tileSize, tileSize);
+  const animKey = (player.moving ? 'walk' : 'idle') + capitalize(player.direction);
+  const frames = player.animations[animKey];
+  const img = frames[player.frame % frames.length];
+  const px = player.x * tileSize - camera.x;
+  const py = player.y * tileSize - camera.y;
+  ctx.drawImage(img, px, py, tileSize, tileSize);
+}
+
+function capitalize(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 function movePlayer(dx, dy) {
@@ -202,6 +308,7 @@ function movePlayer(dx, dy) {
     player.x = newX;
     player.y = newY;
   }
+  player.direction = dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up';
   drawMaze();
   checkWin();
 }
@@ -215,14 +322,28 @@ function checkWin() {
 
 document.addEventListener('keydown', e => {
   switch(e.key){
-    case 'ArrowUp': case 'w': movePlayer(0, -1); break;
-    case 'ArrowDown': case 's': movePlayer(0, 1); break;
-    case 'ArrowLeft': case 'a': movePlayer(-1, 0); break;
-    case 'ArrowRight': case 'd': movePlayer(1, 0); break;
+    case 'ArrowUp': case 'w': startMove(0,-1); break;
+    case 'ArrowDown': case 's': startMove(0,1); break;
+    case 'ArrowLeft': case 'a': startMove(-1,0); break;
+    case 'ArrowRight': case 'd': startMove(1,0); break;
   }
 });
+document.addEventListener('keyup', stopMove);
 
-// Tap-to-move support
+// Movement loop
+let moveInterval = null;
+function startMove(dx, dy) {
+  if (moveInterval) clearInterval(moveInterval);
+  player.moving = true;
+  movePlayer(dx, dy);
+  moveInterval = setInterval(() => movePlayer(dx, dy), 150);
+}
+function stopMove() {
+  player.moving = false;
+  clearInterval(moveInterval);
+}
+
+// Tap movement
 document.addEventListener('click', e => {
   if (e.target.closest('a, button')) return;
   const rect = canvas.getBoundingClientRect();
@@ -241,27 +362,34 @@ function handleTap(clickX, clickY) {
 
   if (absDx > absDy) {
     moveOptions.push(dx > 0 ? [1,0] : [-1,0]);
-    moveOptions.push(dy > 0 ? [0,1] : [0,-1]);
   } else {
     moveOptions.push(dy > 0 ? [0,1] : [0,-1]);
-    moveOptions.push(dx > 0 ? [1,0] : [-1,0]);
   }
 
   for (let [mx, my] of moveOptions) {
     const newX = player.x + mx;
     const newY = player.y + my;
     if (maze[newY][newX] === 0) {
+      player.moving = true;
       movePlayer(mx, my);
+      setTimeout(() => player.moving = false, 250);
       break;
     }
   }
 }
 
+// Game loop for animation
+function gameLoop() {
+  if (player.moving) animatePlayer();
+  drawMaze();
+  requestAnimationFrame(gameLoop);
+}
+
 loadImages(() => {
   drawMaze();
+  gameLoop();
 });
+
 </script>
-
-
 </body>
 </html>
