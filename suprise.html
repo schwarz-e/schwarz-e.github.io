@@ -58,13 +58,49 @@ layout: default
   #controls button:hover {
     color: #333;           /* optional pressed effect */
   }
+  
+  #dialogueBox {
+  width: 340px;
+  min-height: 80px;
+  background-color: #f8f8f8;
+  border: 4px solid #000;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #000;
+  box-shadow: 4px 4px 0 #333;
+  text-align: left;
+  position: relative;
+}
+
+#dialogueBox::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: #000;
+  border-radius: 2px;
+}
+
+#winMessage {
+  margin: 0;
+  white-space: pre-line;
+}
 
 </style>
 </head>
 <body>
 
 <div id="gameContainer">
-  <h2 id="winMessage">Find the castle</h2>
+  <div id="dialogueBox">
+  <p id="winMessage">Find the castle</p>
+  </div>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
     <div class="row">
@@ -412,6 +448,7 @@ function startMove(dx, dy, event) {
 }
 
 function stopMove() {
+  player.moving = false;
   clearInterval(moveInterval);
   moveInterval = null;
 }
@@ -429,10 +466,6 @@ function gameLoop(timestamp) {
     const targetPY = player.gridY * tileSize;
     player.x = lerp(player.x, targetPX, MOVE_LERP);
     player.y = lerp(player.y, targetPY, MOVE_LERP);
-
-    if (Math.abs(player.x - targetPX) < 0.5 && Math.abs(player.y - targetPY) < 0.5) {
-      player.moving = false;
-    }
 
     // Smooth camera in sync with player
     const targetCamX = targetPX + tileSize / 2 - viewWidth / 2;
