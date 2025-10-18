@@ -284,11 +284,6 @@ function drawPlayer() {
   console.log("Frame object type:", frame instanceof Image ? "Image" : typeof frame);
   console.log("Player position:", player.x, player.y);
 
-  if (!(frame instanceof Image)) {
-    console.error("Invalid frame for", animKey, "- expected Image, got:", frame);
-    return;
-  }
-
   ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
   console.log("Player drawn successfully at frame", frameIndex, "for", animKey);
   console.log("==============================");
