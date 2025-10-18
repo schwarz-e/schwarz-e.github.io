@@ -581,6 +581,9 @@ document.addEventListener("keyup", e => {
 });
 
 // --- GLOBAL TOUCH / TAP MOVEMENT ---
+let touchInterval = null;
+const tapMoveInterval = moveInterval; // ms between repeated moves when holding
+
 document.addEventListener("pointerdown", handlePageTouchStart);
 document.addEventListener("pointerup", handlePageTouchEnd);
 document.addEventListener("pointercancel", handlePageTouchEnd);
@@ -619,13 +622,14 @@ function handlePageTouchStart(e) {
   startMove(moveX, moveY, e);
 
   // Keep moving if held
-  moveInterval = setInterval(() => movePlayer(moveX, moveY), MOVE_INTERVAL);
+  touchInterval = setInterval(() => startMove(moveX, moveY, e), tapMoveInterval);
 }
 
 function handlePageTouchEnd(e) {
   clearInterval(touchInterval);
   stopMove();
 }
+
 
 // --- MOVE HELPERS ---
 function startMove(dx, dy, event) {
