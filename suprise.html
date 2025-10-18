@@ -98,7 +98,17 @@ layout: default
 }
 
 .typing {
-  border-right: 2px solid #000;
+  position: relative;
+}
+
+.typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #000;
+  vertical-align: text-bottom;
+  margin-left: 2px;
   animation: blinkCursor 0.8s steps(2, start) infinite;
 }
 
@@ -118,7 +128,7 @@ layout: default
   border-radius: 4px;
   padding: 4px 10px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   box-shadow: 2px 2px 0 #333;
   transition: all 0.1s ease-in-out;
