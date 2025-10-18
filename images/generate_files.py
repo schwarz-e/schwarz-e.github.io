@@ -144,9 +144,9 @@ def pattern_for_shape(shape, color, size):
         mask = (abs(x - cx) < half) 
     elif shape == "vertical":
         mask = (abs(y - cy) < half)
-    elif "end_up" in shape:
-        mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
     elif "end_down" in shape:
+        mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
+    elif "end_up" in shape:
         mask = (((abs(x - cx) < half) & (y > cy) ) | (abs(y - cy) < half))
     elif "end_left" in shape:
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x < cx)))
