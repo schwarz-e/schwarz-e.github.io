@@ -359,7 +359,7 @@ function lerp(a, b, t) {
 
 function checkWin() {
   const msg = document.getElementById('winMessage');
-  msg.textContent = (int(player.x) === int(goal.x) && int(player.y) === int(goal.y))
+  msg.textContent = (Math.round(player.x) === Math.round(goal.x) && Math.round(player.y) === Math.round(goal.y))
     ? "You reached the castle!"
     : "Find the castle";
 }
