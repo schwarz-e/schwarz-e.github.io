@@ -122,7 +122,7 @@ def pattern_for_shape(shape, color, size):
     cx, cy = w // 2, h // 2
 
     # --- pattern logic ---
-    if shape == "isolated":
+    if shape == "cross":
         mask = ((abs(x - cx) < half) | (abs(y - cy) < half))
     elif "t_upopen" in shape:
         mask = ((abs(x - cx) < half) & (y > (cy - half)))
