@@ -279,6 +279,7 @@ function drawPlayer() {
   const frameIndex = player.frame % frames.length;
   const frame = frames[frameIndex];
 
+  console.log("Frames length:", frames.length);
   console.log("Frame index:", frameIndex);
   console.log("Frame object type:", frame instanceof Image ? "Image" : typeof frame);
   console.log("Player position:", player.x, player.y);
