@@ -174,14 +174,15 @@ const PLAYER_LERP = 0.8;  // between 0.3–0.6 makes motion snappier
 const CAMERA_LERP = 0.2;  // higher = snappier camera follow
 const MOVE_LERP = 0.6;  // higher = snappier camera follow
 
+function randOdd(max) {
+  let r = Math.floor(Math.random() * (max / 2)) * 2 + 1;
+  return Math.min(r, max - 2);
+}
+  
 // === Random Maze Generation ===
 function generateMaze(rows, cols) {
   const maze = Array.from({ length: rows }, () => Array(cols).fill(1));
 
-  function randOdd(max) {
-    let r = Math.floor(Math.random() * (max / 2)) * 2 + 1;
-    return Math.min(r, max - 2);
-  }
 
   let startX = 1;
   let startY = 1;
