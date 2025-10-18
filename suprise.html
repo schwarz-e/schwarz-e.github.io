@@ -145,7 +145,7 @@ layout: default
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze. Finding the castle will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
+  <p id="winMessage">Explore my website using this maze. Solving the maze will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
   <div id="dialogueChoices"></div>
   </div>
   <canvas id="mazeCanvas" width="380" height="380"></canvas>
@@ -476,7 +476,7 @@ function checkWin() {
     hasWon = true;
     gameFrozen = true;
 
-    typeDialogue("You reached the castle!\nGo inside?", () => {
+    typeDialogue("You solved the maze!\nExplore my website?", () => {
       choiceBox.innerHTML = `
         <button class="dialogue-btn" id="yesBtn">Yes</button>
         <button class="dialogue-btn" id="noBtn">No</button>
@@ -499,12 +499,11 @@ function checkWin() {
         // Pick a random page from the list
         const randomIndex = Math.floor(Math.random() * sitePages.length);
         const randomPage = sitePages[randomIndex];
-        console.log(`[checkWin] Redirecting to random page: ${randomPage}`);
         window.location.href = randomPage;
       };
 
       noBtn.onclick = () => {
-        typeDialogue("You decide to stay outside.", () => {
+        typeDialogue("You decide to keep exploring the maze.", () => {
           choiceBox.innerHTML = "";
           gameFrozen = false;
           hasWon = false; // allow re-trigger
@@ -514,7 +513,7 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    msg.textContent = "Explore my website using this maze. Finding the castle will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
+    msg.textContent = "Explore my website using this maze. Solving the maze will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
@@ -522,7 +521,7 @@ function checkWin() {
 
 
 // Movement speed (ms per step)
-const MOVE_INTERVAL = 200;
+const MOVE_INTERVAL = 300;
 let moveInterval = null;
 let gameFrozen = false;
 let hasWon = false;
