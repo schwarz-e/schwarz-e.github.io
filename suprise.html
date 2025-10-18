@@ -87,8 +87,8 @@ const viewWidth = canvas.width;
 const viewHeight = canvas.height;
 const viewCols = viewWidth / tileSize;
 const viewRows = viewHeight / tileSize;
-const PLAYER_LERP = 0.4;  // between 0.3–0.6 makes motion snappier
-const CAMERA_LERP = 0.2;  // higher = snappier camera follow
+const PLAYER_LERP = 0.8;  // between 0.3–0.6 makes motion snappier
+const CAMERA_LERP = 0.4;  // higher = snappier camera follow
 const maze = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
@@ -125,7 +125,7 @@ let player = {
   moving: false,
   frame: 0,
   frameTimer: 0,
-  frameInterval: 12,
+  frameInterval: 24,
   animations: {}
 };
 
@@ -417,7 +417,7 @@ function stopMove() {
 
 
 let lastFrameTime = 0;
-const FRAME_INTERVAL = 1000 / 45; // ~45 FPS target
+const FRAME_INTERVAL = 1000 / 24; // ~45 FPS target
 
 function gameLoop(timestamp) {
   if (timestamp - lastFrameTime >= FRAME_INTERVAL) {
