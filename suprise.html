@@ -233,21 +233,40 @@ function updateCamera() {
 }
 
 function animatePlayer() {
+  console.log("=== animatePlayer() called ===");
+  console.log("Frame timer:", player.frameTimer, "/", player.frameInterval);
+
   player.frameTimer++;
   if (player.frameTimer >= player.frameInterval) {
     player.frameTimer = 0;
-    player.frame = (player.frame + 1) % player.frame % frames.length;
+
+    // Determine which animation set to use
+    const animKey = player.moving
+      ? 'walk' + capitalize(player.direction)
+      : 'idle' + capitalize(player.direction);
+    const frames = player.animations[animKey];
+
+    if (!frames) {
+      console.warn("No frames found for animation key:", animKey);
+      return;
+    }
+
+    // Increment frame safely
+    player.frame = (player.frame + 1) % frames.length;
+    console.log("Advancing animation frame:", player.frame, "of", frames.length, "for", animKey);
   }
 
-  drawPlayer();  // this line does the drawing
+  drawPlayer();
 }
 
+
 function drawPlayer() {
+  console.log("--- drawPlayer() called ---");
+
   const animKey = player.moving
     ? 'walk' + capitalize(player.direction)
     : 'idle' + capitalize(player.direction);
 
-  console.log("drawPlayer() called");
   console.log("Direction:", player.direction, "| Moving:", player.moving);
   console.log("Animation key:", animKey);
 
@@ -261,7 +280,7 @@ function drawPlayer() {
   const frame = frames[frameIndex];
 
   console.log("Frame index:", frameIndex);
-  console.log("Frame type:", frame instanceof Image ? "Image object" : typeof frame);
+  console.log("Frame object type:", frame instanceof Image ? "Image" : typeof frame);
   console.log("Player position:", player.x, player.y);
 
   if (!(frame instanceof Image)) {
@@ -270,7 +289,8 @@ function drawPlayer() {
   }
 
   ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
-  console.log("Player drawn successfully with frame", frameIndex, "for", animKey);
+  console.log("Player drawn successfully at frame", frameIndex, "for", animKey);
+  console.log("==============================");
 }
 
 // --- Bitmask-based tile selection ---
