@@ -430,19 +430,9 @@ function gameLoop(timestamp) {
     player.x = lerp(player.x, targetPX, MOVE_LERP);
     player.y = lerp(player.y, targetPY, MOVE_LERP);
 
-    // --- Smooth player pixel movement ---
-    const targetPX = player.gridX * tileSize;
-    const targetPY = player.gridY * tileSize;
-    player.x = lerp(player.x, targetPX, MOVE_LERP);
-    player.y = lerp(player.y, targetPY, MOVE_LERP);
-
-    // --- Determine if player is still moving toward target ---
-    const dx = targetPX - player.x;
-    const dy = targetPY - player.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    // If not yet close to target, keep walk animation active
-    player.moving = distance > 0.5;
+    if ((player.x - targetPX) < 0.5 && (player.y - targetPY) < 0.5) {
+      player.moving = false;
+    }
 
     // Smooth camera in sync with player
     const targetCamX = targetPX + tileSize / 2 - viewWidth / 2;
