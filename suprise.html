@@ -1,5 +1,6 @@
 ---
 title: Surprise
+layout: default
 ---
 
 <!DOCTYPE html>
@@ -61,12 +62,12 @@ title: Surprise
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
     <div class="row">
-      <button onmousedown="startMove(0,-1)" onmouseup="stopMove()" ontouchstart="startMove(0,-1)" ontouchend="stopMove()">⬆️</button>
+      <button onpointerdown="startMove(0,-1,event)" onpointerup="stopMove()">⬆️</button>
     </div>
     <div class="row">
-      <button onmousedown="startMove(-1,0)" onmouseup="stopMove()" ontouchstart="startMove(-1,0)" ontouchend="stopMove()">⬅️</button>
-      <button onmousedown="startMove(0,1)" onmouseup="stopMove()" ontouchstart="startMove(0,1)" ontouchend="stopMove()">⬇️</button>
-      <button onmousedown="startMove(1,0)" onmouseup="stopMove()" ontouchstart="startMove(1,0)" ontouchend="stopMove()">➡️</button>
+      <button onpointerdown="startMove(-1,0,event)" onpointerup="stopMove()">⬅️</button>
+      <button onpointerdown="startMove(0,1,event)" onpointerup="stopMove()">⬇️</button>
+      <button onpointerdown="startMove(1,0,event)" onpointerup="stopMove()">➡️</button>
     </div>
   </div>
 </div>
@@ -341,13 +342,16 @@ document.addEventListener('keyup', stopMove);
 
 // Movement loop
 let moveInterval = null;
-function startMove(dx, dy) {
+function startMove(dx, dy, event) {
+  event.preventDefault();
   if (moveInterval) clearInterval(moveInterval);
   player.moving = true;
   movePlayer(dx, dy);
   moveInterval = setInterval(() => movePlayer(dx, dy), 150);
 }
-function stopMove() {
+
+function stopMove(event) {
+  if (event) event.preventDefault();
   player.moving = false;
   clearInterval(moveInterval);
 }
