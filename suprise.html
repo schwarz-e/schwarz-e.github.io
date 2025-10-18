@@ -430,8 +430,8 @@ function stopMove() {
 
 // Game loop for animation
 function gameLoop() {
-  animatePlayer();
   drawMaze();
+  animatePlayer();
   requestAnimationFrame(gameLoop);
 }
 
