@@ -217,11 +217,11 @@ for (let y = 0; y < rows; y++) {
     if (maze[y][x] === 1 || maze[y][x] === 2) {
       // WALL TILE
       const baseType = maze[y][x] === 1 ? 'tree' : 'rock';
-      const shape = getEnvironmentSprite(x, y, maze);
+      const shape = getEnvironmentSprite(x, y, maze, false);
       wallSprites[y][x] = `${baseType}_${shape}`;
     } else if (maze[y][x] === 0) {
       // FLOOR TILE
-      const shape = getEnvironmentSprite(x, y, maze);
+      const shape = getEnvironmentSprite(x, y, maze, true);
       wallSprites[y][x] = `floor_${shape}`;
     }
   }
@@ -267,17 +267,23 @@ function drawPlayer() {
 }
 
 // --- Bitmask-based tile selection ---
-function getEnvironmentSprite(x, y, maze) {
+function getEnvironmentSprite(x, y, maze , isFloor = false) {
   const dirs = [
     { dx: 0, dy: -1, bit: 1 }, // up
     { dx: 1, dy: 0, bit: 2 },  // right
     { dx: 0, dy: 1, bit: 4 },  // down
     { dx: -1, dy: 0, bit: 8 }  // left
   ];
+
   let mask = 0;
-  for (let {dx, dy, bit} of dirs) {
+  for (let { dx, dy, bit } of dirs) {
     const nx = x + dx, ny = y + dy;
-    if (maze[ny] && (maze[ny][nx] > 0)) mask |= bit;
+    const neighborIsWall = maze[ny] && maze[ny][nx] > 0;
+
+    // If it's a floor tile, invert the logic
+    if (isFloor ? !neighborIsWall : neighborIsWall) {
+      mask |= bit;
+    }
   }
 
   const mapping = {
