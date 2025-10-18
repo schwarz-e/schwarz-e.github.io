@@ -63,114 +63,45 @@ def pattern_for_shape(shape, color, size):
     mod = (x + y) % 8  # basic diagonal stripes
     overlay = np.zeros_like(arr[..., 0])
 
+    half = 36 // 2
+    overlay[(x * y) % 11 < 6] = 20
+    cx, cy = w // 2, h // 2
+
     # --- pattern logic ---
     if shape == "cross":
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((abs(x - cx) < half) | (abs(y - cy) < half))
-        overlay[mask] = 40
     elif "end_up" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
-        mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
-        overlay[mask] = 40
+        mask = ((abs(x - cx) < half) & (y > (cy - half)))
     elif "end_down" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
-        mask = ((abs(x - cx) < half) & (y < cy)) 
-        overlay[mask] = 40
+        mask = ((abs(x - cx) < half) & (y < (cy + half))) 
     elif "end_left" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
-        mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x < cx)))
-        overlay[mask] = 40
+        mask = ((abs(y - cy) < half) & (x > (cx - half))) 
     elif "end_right" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
-        mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x > cx)))
-        overlay[mask] = 40
+        mask = ((abs(y - cy) < half) & (x < (cx + half))) 
     elif "corner_ur" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((((abs(x - cx) < half) & (y > cy) ) | ((abs(y - cy) < half) & (x < cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
-        overlay[mask] = 40
     elif "corner_lu" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((((abs(x - cx) < half) & (y > cy) ) | ((abs(y - cy) < half) & (x > cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
-        overlay[mask] = 40
     elif "corner_rd" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((((abs(x - cx) < half) & (y < cy) ) | ((abs(y - cy) < half) & (x < cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
-        overlay[mask] = 40
     elif "corner_dl" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((((abs(x - cx) < half) & (y < cy) ) | ((abs(y - cy) < half) & (x > cx))) | ((abs(x - cx) < half) & (abs(y - cy) < half)))
-        overlay[mask] = 40
     elif shape == "vertical":
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = (abs(x - cx) < half) 
-        overlay[mask] = 40
     elif shape == "horizontal":
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = (abs(y - cy) < half)
-        overlay[mask] = 40
     elif "t_upopen" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = (((abs(x - cx) < half) & (y < cy) ) | (abs(y - cy) < half))
-        overlay[mask] = 40
     elif "t_downopen" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = (((abs(x - cx) < half) & (y > cy) ) | (abs(y - cy) < half))
-        overlay[mask] = 40
     elif "t_leftopen" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x < cx)))
-        overlay[mask] = 40
     elif "t_rightopen" in shape:
-        # Large centered cross: 48-pixel wide vertical + horizontal bars
-        overlay[(x * y) % 11 < 6] = 20
-        cx, cy = w // 2, h // 2
-        half = 36 // 2
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x > cx)))
-        overlay[mask] = 40
     else:  # isolated or other
-        overlay[(x * y) % 11 < 6] = 30
+        mask = x < 0
+
+    overlay[mask] = 40
 
     # Apply overlay (lighten color)
     arr[..., :3] = np.clip(arr[..., :3] + overlay[..., None], 0, 255)
