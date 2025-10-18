@@ -88,7 +88,8 @@ const viewHeight = canvas.height;
 const viewCols = viewWidth / tileSize;
 const viewRows = viewHeight / tileSize;
 const PLAYER_LERP = 0.8;  // between 0.3–0.6 makes motion snappier
-const CAMERA_LERP = 0.4;  // higher = snappier camera follow
+const CAMERA_LERP = 0.8;  // higher = snappier camera follow
+
 const maze = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
@@ -107,7 +108,7 @@ const maze = [
   [1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1],
   [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
   [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1],
   [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
@@ -125,7 +126,7 @@ let player = {
   moving: false,
   frame: 0,
   frameTimer: 0,
-  frameInterval: 24,
+  frameInterval: 8,
   animations: {}
 };
 
