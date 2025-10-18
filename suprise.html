@@ -180,11 +180,18 @@ function randOdd(max) {
 }
 
 // === Random Maze Generation ===
-function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = null) {
+function generateMaze(rows, cols, startX = null, startY = null, endX = null, endY = null) {
   const maze = Array.from({ length: rows }, () => Array(cols).fill(1));
+
+  // === Randomize start position if not provided ===
+  if (startX === null || startY === null) {
+    startX = Math.floor(Math.random() * ((cols - 2) / 2)) * 2 + 1; // odd positions for better carving
+    startY = Math.floor(Math.random() * ((rows - 2) / 2)) * 2 + 1;
+  }
 
   maze[startY][startX] = 0;
 
+  // === Depth-First Carving ===
   function carve(x, y) {
     const dirs = [
       [0, -2], [2, 0], [0, 2], [-2, 0]
@@ -204,7 +211,7 @@ function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = nu
 
   carve(startX, startY);
 
-  // Keep outer walls solid
+  // === Keep outer walls solid ===
   for (let i = 0; i < rows; i++) {
     maze[i][0] = maze[i][cols - 1] = 1;
   }
@@ -212,7 +219,7 @@ function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = nu
     maze[0][j] = maze[rows - 1][j] = 1;
   }
 
-  // === Choose or assign goal ===
+  // === Randomize or assign goal ===
   if (endX === null || endY === null) {
     const openCells = [];
     for (let y = 1; y < rows - 1; y++) {
@@ -222,7 +229,6 @@ function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = nu
         }
       }
     }
-
     const goal = openCells[Math.floor(Math.random() * openCells.length)];
     endX = goal.x;
     endY = goal.y;
@@ -239,16 +245,15 @@ function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = nu
 }
 
 
-const { maze, start, end } = generateMaze(21, 21, 1, 1);
+const { maze, start, end } = generateMaze(21, 21);
 const rows = maze.length;
 const cols = maze[0].length;
-
 const goal = end;
 
 // === Player setup ===
 let player = {
-  gridX: 1,
-  gridY: 1,
+  gridX: start.x,
+  gridY: start.y,
   x: 1 * tileSize,
   y: 1 * tileSize,
   direction: 'down',
