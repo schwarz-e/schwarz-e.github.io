@@ -116,8 +116,10 @@ const cols = maze[0].length;
 
 // Player state
 let player = {
-  x: 1,
-  y: 1,
+  gridX: 1,
+  gridY: 1,
+  x: 1 * tileSize,
+  y: 1 * tileSize,
   direction: 'down',
   moving: false,
   frame: 0,
@@ -229,12 +231,14 @@ for (let y = 0; y < rows; y++) {
 wallSprites[goal.y][goal.x] = 'goal';
 
 function updateCamera() {
+  const targetX = player.x + tileSize / 2 - viewWidth / 2;
+  const targetY = player.y + tileSize / 2 - viewHeight / 2;
   const maxX = cols * tileSize - viewWidth;
   const maxY = rows * tileSize - viewHeight;
-  camera.x = player.x * tileSize + tileSize / 2 - viewWidth / 2;
-  camera.y = player.y * tileSize + tileSize / 2 - viewHeight / 2;
-  camera.x = Math.max(0, Math.min(camera.x, maxX));
-  camera.y = Math.max(0, Math.min(camera.y, maxY));
+
+  // Smooth follow
+  camera.x = lerp(camera.x, Math.max(0, Math.min(targetX, maxX)), 0.1);
+  camera.y = lerp(camera.y, Math.max(0, Math.min(targetY, maxY)), 0.1);
 }
 
 function animatePlayer() {
@@ -259,10 +263,8 @@ function drawPlayer() {
   const frameIndex = player.frame % frames.length;
   const frame = frames[frameIndex];
 
-  // Offset player position by camera coordinates
-  const drawX = player.x * tileSize - camera.x;
-  const drawY = player.y * tileSize - camera.y;
-
+  const drawX = player.x - camera.x;
+  const drawY = player.y - camera.y;
   ctx.drawImage(frame, drawX, drawY, tileSize, tileSize);
 }
 
@@ -335,17 +337,21 @@ function capitalize(s) {
 }
 
 function movePlayer(dx, dy) {
-  const newX = player.x + dx;
-  const newY = player.y + dy;
+  const newX = player.gridX + dx;
+  const newY = player.gridY + dy;
 
   if (maze[newY] && maze[newY][newX] === 0) {
-    player.x = newX;
-    player.y = newY;
+    player.gridX = newX;
+    player.gridY = newY;
   }
 
   player.direction =
     dx > 0 ? "right" : dx < 0 ? "left" : dy > 0 ? "down" : "up";
   checkWin();
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
 }
 
 function checkWin() {
@@ -411,6 +417,10 @@ function stopMove() {
 
 // Game loop for animation
 function gameLoop() {
+  const targetPX = player.gridX * tileSize;
+  const targetPY = player.gridY * tileSize;
+  player.x = lerp(player.x, targetPX, 0.2);
+  player.y = lerp(player.y, targetPY, 0.2);
   animatePlayer();
   drawMaze();
   drawPlayer();
