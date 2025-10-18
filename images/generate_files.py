@@ -153,7 +153,7 @@ def pattern_for_shape(shape, color, size):
     elif "end_right" in shape:
         mask = ((abs(x - cx) < half) | ((abs(y - cy) < half) & (x > cx)))
     else:  # isolated or other
-        mask = x < 0
+        mask = ((abs(x - cx) < half) & (abs(y - cy) < half))
 
     overlay[mask] = 40
 
