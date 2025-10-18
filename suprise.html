@@ -83,30 +83,46 @@ const canvas = document.getElementById('mazeCanvas');
 const ctx = canvas.getContext('2d');
 
 const tileSize = 40;
-const rows = canvas.height / tileSize;
-const cols = canvas.width / tileSize;
+const viewWidth = canvas.width;
+const viewHeight = canvas.height;
+const viewCols = viewWidth / tileSize;
+const viewRows = viewHeight / tileSize;
 
-// Simple maze: 0 = empty, 1 = wall
+// Bigger maze: 20x20
 const maze = [
-  [1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,0,0,1,0,0,1],
-  [1,0,1,1,1,0,1,0,1,1],
-  [1,0,1,0,0,0,0,0,0,1],
-  [1,0,1,0,1,1,1,1,0,1],
-  [1,0,0,0,0,0,0,1,0,1],
-  [1,1,1,1,1,1,0,1,0,1],
-  [1,0,0,0,0,1,0,0,0,1],
-  [1,0,1,1,0,0,0,1,0,1],
-  [1,1,1,1,1,1,1,1,1,1]
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,1,1,1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
+  [1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,1],
+  [1,1,1,1,1,1,0,1,0,1,1,0,1,0,0,1,0,1,0,1],
+  [1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1],
+  [1,0,1,1,0,0,0,1,0,1,1,1,0,1,1,0,0,1,0,1],
+  [1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1],
+  [1,0,1,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1],
+  [1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
-// Player
+const rows = maze.length;
+const cols = maze[0].length;
+
+// Player and goal
 let player = { x: 1, y: 1 };
+const goal = { x: 18, y: 18 };
 
-// Goal
-const goal = { x: 8, y: 8 };
+// Camera offset
+let camera = { x: 0, y: 0 };
 
-// Preload sprite images
+// Load images
 const images = {};
 function loadImages(callback) {
   const sources = {
@@ -116,49 +132,67 @@ function loadImages(callback) {
     player: '/images/player.svg',
     goal: '/images/goal.svg'
   };
-
-  let loaded = 0;
-  const total = Object.keys(sources).length;
-
+  let loaded = 0, total = Object.keys(sources).length;
   for (let key in sources) {
     images[key] = new Image();
     images[key].src = sources[key];
-    images[key].onload = () => {
-      loaded++;
-      if (loaded === total) callback();
-    };
+    images[key].onload = () => { if (++loaded === total) callback(); };
   }
 }
 
-// Assign wall sprites randomly
-const wallSprites = [];
+// Random wall sprites
+const wallSprites = Array.from({ length: rows }, () => Array.from({ length: cols }, () => ''));
 for (let y = 0; y < rows; y++) {
-  wallSprites[y] = [];
   for (let x = 0; x < cols; x++) {
-    if (maze[y][x] === 1) {
-      wallSprites[y][x] = Math.random() < 0.5 ? 'tree' : 'rock';
-    } else {
-      wallSprites[y][x] = '';
-    }
+    if (maze[y][x] === 1) wallSprites[y][x] = Math.random() < 0.5 ? 'tree' : 'rock';
   }
+}
+
+// Update camera so player stays centered (unless near edge)
+function updateCamera() {
+  const maxX = cols * tileSize - viewWidth;
+  const maxY = rows * tileSize - viewHeight;
+
+  camera.x = player.x * tileSize + tileSize / 2 - viewWidth / 2;
+  camera.y = player.y * tileSize + tileSize / 2 - viewHeight / 2;
+
+  camera.x = Math.max(0, Math.min(camera.x, maxX));
+  camera.y = Math.max(0, Math.min(camera.y, maxY));
 }
 
 function drawMaze() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  updateCamera();
 
-  for (let y = 0; y < rows; y++) {
-    for (let x = 0; x < cols; x++) {
-      if (maze[y][x] === 1) {
-        ctx.drawImage(images[wallSprites[y][x]], x * tileSize, y * tileSize, tileSize, tileSize);
-      } //else {
-        //if (images.floor) ctx.drawImage(images.floor, x * tileSize, y * tileSize, tileSize, tileSize);
-        //else ctx.clearRect(x * tileSize, y * tileSize, tileSize, tileSize);
-      //}
+  const startCol = Math.floor(camera.x / tileSize);
+  const endCol = Math.ceil((camera.x + viewWidth) / tileSize);
+  const startRow = Math.floor(camera.y / tileSize);
+  const endRow = Math.ceil((camera.y + viewHeight) / tileSize);
+
+  const offsetX = -camera.x + startCol * tileSize;
+  const offsetY = -camera.y + startRow * tileSize;
+
+  for (let y = startRow; y < endRow; y++) {
+    for (let x = startCol; x < endCol; x++) {
+      if (maze[y] && maze[y][x] !== undefined) {
+        const drawX = (x - startCol) * tileSize + offsetX;
+        const drawY = (y - startRow) * tileSize + offsetY;
+
+        if (maze[y][x] === 1) {
+          ctx.drawImage(images[wallSprites[y][x]], drawX, drawY, tileSize, tileSize);
+        }
+      }
     }
   }
 
-  ctx.drawImage(images.goal, goal.x * tileSize, goal.y * tileSize, tileSize, tileSize);
-  ctx.drawImage(images.player, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
+  // Draw goal and player
+  const goalScreenX = goal.x * tileSize - camera.x;
+  const goalScreenY = goal.y * tileSize - camera.y;
+  const playerScreenX = player.x * tileSize - camera.x;
+  const playerScreenY = player.y * tileSize - camera.y;
+
+  ctx.drawImage(images.goal, goalScreenX, goalScreenY, tileSize, tileSize);
+  ctx.drawImage(images.player, playerScreenX, playerScreenY, tileSize, tileSize);
 }
 
 function movePlayer(dx, dy) {
@@ -171,58 +205,46 @@ function movePlayer(dx, dy) {
   drawMaze();
   checkWin();
 }
-function checkWin(){
-  const messageDiv = document.getElementById('winMessage');
-  if(player.x === goal.x && player.y === goal.y){
-    messageDiv.textContent = "You reached the castle!";
-  } else {
-    messageDiv.textContent = "Reach the castle"; // clear message if player moves away
-  }
+
+function checkWin() {
+  const msg = document.getElementById('winMessage');
+  msg.textContent = (player.x === goal.x && player.y === goal.y)
+    ? "You reached the castle!"
+    : "Reach the castle";
 }
 
 document.addEventListener('keydown', e => {
   switch(e.key){
-    case 'ArrowUp':
-    case 'w': movePlayer(0, -1); break;
-    case 'ArrowDown':
-    case 's': movePlayer(0, 1); break;
-    case 'ArrowLeft':
-    case 'a': movePlayer(-1, 0); break;
-    case 'ArrowRight':
-    case 'd': movePlayer(1, 0); break;
+    case 'ArrowUp': case 'w': movePlayer(0, -1); break;
+    case 'ArrowDown': case 's': movePlayer(0, 1); break;
+    case 'ArrowLeft': case 'a': movePlayer(-1, 0); break;
+    case 'ArrowRight': case 'd': movePlayer(1, 0); break;
   }
 });
 
-// Tap-to-move controls
+// Tap-to-move support
 document.addEventListener('click', e => {
-  // Ignore clicks on links or buttons
   if (e.target.closest('a, button')) return;
-
   const rect = canvas.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const clickY = e.clientY - rect.top;
-
   handleTap(clickX, clickY);
 });
 
 function handleTap(clickX, clickY) {
-  const playerCenterX = player.x * tileSize + tileSize / 2;
-  const playerCenterY = player.y * tileSize + tileSize / 2;
-
+  const playerCenterX = canvas.width / 2;
+  const playerCenterY = canvas.height / 2;
   let dx = clickX - playerCenterX;
   let dy = clickY - playerCenterY;
-
-  const absDx = Math.abs(dx);
-  const absDy = Math.abs(dy);
-
+  const absDx = Math.abs(dx), absDy = Math.abs(dy);
   let moveOptions = [];
 
   if (absDx > absDy) {
-    moveOptions.push(dx > 0 ? [1,0] : [-1,0]); // horizontal primary
-    moveOptions.push(dy > 0 ? [0,1] : [0,-1]); // vertical secondary
+    moveOptions.push(dx > 0 ? [1,0] : [-1,0]);
+    moveOptions.push(dy > 0 ? [0,1] : [0,-1]);
   } else {
-    moveOptions.push(dy > 0 ? [0,1] : [0,-1]); // vertical primary
-    moveOptions.push(dx > 0 ? [1,0] : [-1,0]); // horizontal secondary
+    moveOptions.push(dy > 0 ? [0,1] : [0,-1]);
+    moveOptions.push(dx > 0 ? [1,0] : [-1,0]);
   }
 
   for (let [mx, my] of moveOptions) {
@@ -235,11 +257,11 @@ function handleTap(clickX, clickY) {
   }
 }
 
-// Initialize after loading images
 loadImages(() => {
   drawMaze();
 });
 </script>
+
 
 </body>
 </html>
