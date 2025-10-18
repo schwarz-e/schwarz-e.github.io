@@ -289,28 +289,16 @@ function drawMaze() {
   const offsetX = -camera.x + startCol * tileSize;
   const offsetY = -camera.y + startRow * tileSize;
 
-  const drawX = (x - startCol) * tileSize + offsetX;
-  const drawY = (y - startRow) * tileSize + offsetY;
-
   for (let y = startRow; y < endRow; y++) {
     for (let x = startCol; x < endCol; x++) {
       const key = wallSprites[y]?.[x];
       if (key && images[key]) {
+        const drawX = (x - startCol) * tileSize + offsetX;
+        const drawY = (y - startRow) * tileSize + offsetY;
         ctx.drawImage(images[key], drawX, drawY, tileSize, tileSize);
       }
     }
   }
-
-  const goalX = goal.x * tileSize - camera.x;
-  const goalY = goal.y * tileSize - camera.y;
-  ctx.drawImage(images.goal, goalX, goalY, tileSize, tileSize);
-
-  //const animKey = (player.moving ? 'walk' : 'idle') + capitalize(player.direction);
-  //const frames = player.animations[animKey];
-  //const img = frames[player.frame % frames.length];
-  //const px = player.x * tileSize - camera.x;
-  //const py = player.y * tileSize - camera.y;
-  //ctx.drawImage(img, px, py, tileSize, tileSize);
 }
 
 function capitalize(s) {
