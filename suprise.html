@@ -174,33 +174,86 @@ const PLAYER_LERP = 0.8;  // between 0.3–0.6 makes motion snappier
 const CAMERA_LERP = 0.2;  // higher = snappier camera follow
 const MOVE_LERP = 0.6;  // higher = snappier camera follow
 
-const maze = [
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
-  [1,0,1,1,1,0,1,1,1,1,0,1,0,1,1,1,1,0,1,1],
-  [1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
-  [1,0,1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,1],
-  [1,1,1,1,1,1,0,1,0,1,1,0,1,0,0,1,0,1,0,1],
-  [1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1],
-  [1,0,1,1,0,0,0,1,0,1,1,1,0,1,1,0,0,1,0,1],
-  [1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1],
-  [1,0,1,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1],
-  [1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1],
-  [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-];
+// === Random Maze Generation ===
+function generateMaze(rows, cols) {
+  const maze = Array.from({ length: rows }, () => Array(cols).fill(1));
 
+  function randOdd(max) {
+    let r = Math.floor(Math.random() * (max / 2)) * 2 + 1;
+    return Math.min(r, max - 2);
+  }
+
+  let startX = 1;
+  let startY = 1;
+  maze[startY][startX] = 0;
+
+  function carve(x, y) {
+    const dirs = [
+      [0, -2], [2, 0], [0, 2], [-2, 0]
+    ];
+    dirs.sort(() => Math.random() - 0.5);
+
+    for (const [dx, dy] of dirs) {
+      const nx = x + dx;
+      const ny = y + dy;
+      if (ny > 0 && ny < rows - 1 && nx > 0 && nx < cols - 1 && maze[ny][nx] === 1) {
+        maze[y + dy / 2][x + dx / 2] = 0;
+        maze[ny][nx] = 0;
+        carve(nx, ny);
+      }
+    }
+  }
+
+  carve(startX, startY);
+
+  // Keep outer walls solid
+  for (let i = 0; i < rows; i++) {
+    maze[i][0] = maze[i][cols - 1] = 1;
+  }
+  for (let j = 0; j < cols; j++) {
+    maze[0][j] = maze[rows - 1][j] = 1;
+  }
+
+  return maze;
+}
+
+const maze = generateMaze(20, 20);
 const rows = maze.length;
 const cols = maze[0].length;
 
-// Player state
+// === Choose a random border goal ===
+function randomBorderGoal(maze) {
+  const borderCells = [];
+
+  // Collect all open border cells
+  for (let x = 0; x < cols; x++) {
+    if (maze[0][x] === 0) borderCells.push({ x, y: 0 });
+    if (maze[rows - 1][x] === 0) borderCells.push({ x, y: rows - 1 });
+  }
+  for (let y = 0; y < rows; y++) {
+    if (maze[y][0] === 0) borderCells.push({ x: 0, y });
+    if (maze[y][cols - 1] === 0) borderCells.push({ x: cols - 1, y });
+  }
+
+  // If no open border, open one manually
+  if (borderCells.length === 0) {
+    const side = Math.floor(Math.random() * 4);
+    let gx, gy;
+    if (side === 0) { gx = randOdd(cols - 1); gy = 0; }
+    else if (side === 1) { gx = cols - 1; gy = randOdd(rows - 1); }
+    else if (side === 2) { gx = randOdd(cols - 1); gy = rows - 1; }
+    else { gx = 0; gy = randOdd(rows - 1); }
+    maze[gy][gx] = 0;
+    return { x: gx, y: gy };
+  }
+
+  // Pick random from open borders
+  return borderCells[Math.floor(Math.random() * borderCells.length)];
+}
+
+const goal = randomBorderGoal(maze);
+
+// === Player setup ===
 let player = {
   gridX: 1,
   gridY: 1,
@@ -214,7 +267,6 @@ let player = {
   animations: {}
 };
 
-const goal = { x: 18, y: 18 };
 let camera = { x: 0, y: 0 };
 
 // Load animation frames
@@ -415,7 +467,7 @@ function drawMaze() {
       }
     }
   }
-  
+
   const drawX = goal.x * tileSize - camera.x;
   const drawY = goal.y * tileSize - camera.y;
   ctx.drawImage(images['goal'], drawX, drawY, tileSize, tileSize);
