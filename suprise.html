@@ -190,12 +190,24 @@ function loadImages(callback) {
   allPaths.forEach(name => {
     const img = new Image();
     img.src = `/images/${name}`;
-    img.onload = () => {
-      loaded++;
-      if (loaded === total) callback();
-    };
+
     const key = name.replace(/\.(svg|png)$/i, ''); // e.g. tree_corner_rd
     images[key] = img;
+
+    console.log("Assigning image:", name, "→ key:", key);
+
+    img.onload = () => {
+      loaded++;
+      console.log("Loaded:", name, `(${loaded}/${total})`);
+      if (loaded === total) {
+        console.log("All images loaded successfully.");
+        callback();
+      }
+    };
+
+    img.onerror = () => {
+      console.error("Failed to load image:", name);
+    };
   });
 
   // expose images globally so drawMaze can use it
