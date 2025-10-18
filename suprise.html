@@ -410,7 +410,7 @@ function stopMove() {
 
 // Game loop for animation
 function gameLoop() {
-  if (player.moving) animatePlayer();
+  animatePlayer();
   drawMaze();
   requestAnimationFrame(gameLoop);
 }
@@ -432,7 +432,7 @@ loadImages(() => {
   drawMaze();
   drawPlayer();
   console.log("Player drawn.");
-  //gameLoop();
+  gameLoop();
 });
 
 </script>
