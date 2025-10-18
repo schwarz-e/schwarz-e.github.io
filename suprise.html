@@ -87,7 +87,8 @@ const viewWidth = canvas.width;
 const viewHeight = canvas.height;
 const viewCols = viewWidth / tileSize;
 const viewRows = viewHeight / tileSize;
-
+const PLAYER_LERP = 0.4;  // between 0.3–0.6 makes motion snappier
+const CAMERA_LERP = 0.2;  // higher = snappier camera follow
 const maze = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
@@ -237,8 +238,8 @@ function updateCamera() {
   const maxY = rows * tileSize - viewHeight;
 
   // Smooth follow
-  camera.x = lerp(camera.x, Math.max(0, Math.min(targetX, maxX)), 0.1);
-  camera.y = lerp(camera.y, Math.max(0, Math.min(targetY, maxY)), 0.1);
+  camera.x = lerp(camera.x, Math.max(0, Math.min(targetX, maxX)), CAMERA_LERP);
+  camera.y = lerp(camera.y, Math.max(0, Math.min(targetY, maxY)), CAMERA_LERP);
 }
 
 function animatePlayer() {
@@ -415,15 +416,19 @@ function stopMove() {
 }
 
 
-// Game loop for animation
-function gameLoop() {
-  const targetPX = player.gridX * tileSize;
-  const targetPY = player.gridY * tileSize;
-  player.x = lerp(player.x, targetPX, 0.2);
-  player.y = lerp(player.y, targetPY, 0.2);
-  animatePlayer();
-  drawMaze();
-  drawPlayer();
+let lastFrameTime = 0;
+const FRAME_INTERVAL = 1000 / 45; // ~45 FPS target
+
+function gameLoop(timestamp) {
+  if (timestamp - lastFrameTime >= FRAME_INTERVAL) {
+    lastFrameTime = timestamp;
+    // Smooth player pixel movement
+    player.x = lerp(player.x, player.gridX * tileSize, PLAYER_LERP);
+    player.y = lerp(player.y, player.gridY * tileSize, PLAYER_LERP);
+    animatePlayer();
+    drawMaze();
+    drawPlayer();
+  }
   requestAnimationFrame(gameLoop);
 }
 
