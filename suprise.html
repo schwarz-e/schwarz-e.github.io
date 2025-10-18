@@ -580,6 +580,49 @@ document.addEventListener("keyup", e => {
   }
 });
 
+// --- TOUCH / TAP CONTROLS ---
+let touchInterval = null;
+
+canvas.addEventListener("pointerdown", handleTouchStart);
+canvas.addEventListener("pointerup", handleTouchEnd);
+canvas.addEventListener("pointercancel", handleTouchEnd);
+
+function handleTouchStart(e) {
+  if (gameFrozen) return;
+  e.preventDefault();
+
+  const rect = canvas.getBoundingClientRect();
+  const touchX = e.clientX - rect.left;
+  const touchY = e.clientY - rect.top;
+
+  // Player position on screen (center of sprite)
+  const playerScreenX = (player.x - camera.x) + tileSize / 2;
+  const playerScreenY = (player.y - camera.y) + tileSize / 2;
+
+  // Vector from player to touch
+  const dx = touchX - playerScreenX;
+  const dy = touchY - playerScreenY;
+
+  // Decide direction based on dominant axis
+  let moveX = 0, moveY = 0;
+  if (Math.abs(dx) > Math.abs(dy)) {
+    moveX = dx > 0 ? 1 : -1;
+  } else {
+    moveY = dy > 0 ? 1 : -1;
+  }
+
+  // Perform first move immediately
+  startMove(moveX, moveY, e);
+
+  // Continue moving if held
+  touchInterval = setInterval(() => startMove(moveX, moveY, e), moveInterval);
+}
+
+function handleTouchEnd(e) {
+  clearInterval(touchInterval);
+  stopMove();
+}
+
 // --- MOVE HELPERS ---
 function startMove(dx, dy, event) {
   event.preventDefault();
