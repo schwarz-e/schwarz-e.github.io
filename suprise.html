@@ -145,7 +145,7 @@ layout: default
 
 <div id="gameContainer">
   <div id="dialogueBox">
-  <p id="winMessage">Explore my website using this maze. Solving the maze will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
+  <p id="winMessage">Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit this page. Enjoy! </p>
   <div id="dialogueChoices"></div>
   </div>
   <canvas id="mazeCanvas" width="380" height="380"></canvas>
@@ -178,14 +178,11 @@ function randOdd(max) {
   let r = Math.floor(Math.random() * (max / 2)) * 2 + 1;
   return Math.min(r, max - 2);
 }
-  
+
 // === Random Maze Generation ===
-function generateMaze(rows, cols) {
+function generateMaze(rows, cols, startX = 1, startY = 1, endX = null, endY = null) {
   const maze = Array.from({ length: rows }, () => Array(cols).fill(1));
 
-
-  let startX = 1;
-  let startY = 1;
   maze[startY][startX] = 0;
 
   function carve(x, y) {
@@ -215,44 +212,19 @@ function generateMaze(rows, cols) {
     maze[0][j] = maze[rows - 1][j] = 1;
   }
 
-  return maze;
+  // === Set end position ===
+  if (endX !== null && endY !== null) {
+    maze[endY][endX] = 0;  // Ensure it's open
+  }
+
+  return { maze, start: { x: startX, y: startY }, end: { x: endX, y: endY } };
 }
 
-const maze = generateMaze(20, 20);
+const { maze, start, end } = generateMaze(21, 21, 1, 1, 19, 19);
 const rows = maze.length;
 const cols = maze[0].length;
 
-// === Choose a random border goal ===
-function randomBorderGoal(maze) {
-  const borderCells = [];
-
-  // Collect all open border cells
-  for (let x = 0; x < cols; x++) {
-    if (maze[0][x] === 0) borderCells.push({ x, y: 0 });
-    if (maze[rows - 1][x] === 0) borderCells.push({ x, y: rows - 1 });
-  }
-  for (let y = 0; y < rows; y++) {
-    if (maze[y][0] === 0) borderCells.push({ x: 0, y });
-    if (maze[y][cols - 1] === 0) borderCells.push({ x: cols - 1, y });
-  }
-
-  // If no open border, open one manually
-  if (borderCells.length === 0) {
-    const side = Math.floor(Math.random() * 4);
-    let gx, gy;
-    if (side === 0) { gx = randOdd(cols - 1); gy = 0; }
-    else if (side === 1) { gx = cols - 1; gy = randOdd(rows - 1); }
-    else if (side === 2) { gx = randOdd(cols - 1); gy = rows - 1; }
-    else { gx = 0; gy = randOdd(rows - 1); }
-    maze[gy][gx] = 0;
-    return { x: gx, y: gy };
-  }
-
-  // Pick random from open borders
-  return borderCells[Math.floor(Math.random() * borderCells.length)];
-}
-
-const goal = randomBorderGoal(maze);
+const goal = end;
 
 // === Player setup ===
 let player = {
@@ -569,7 +541,7 @@ function checkWin() {
   } 
   else if (!hasWon) {
     // Only log when not at goal
-    msg.textContent = "Explore my website using this maze. Solving the maze will take you to a random page on my site. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
+    msg.textContent = "Explore my website using this maze. Solving the maze will take you to a random page. The maze is procedurally generated and will change each time you visit this page. Enjoy!";
     choiceBox.innerHTML = "";
   }
 }
