@@ -582,7 +582,7 @@ document.addEventListener("keyup", e => {
 
 // --- GLOBAL TOUCH / TAP MOVEMENT ---
 let touchInterval = null;
-const tapMoveInterval = moveInterval; // ms between repeated moves when holding
+const tapMoveInterval = 300; // ms between repeated moves when holding
 
 document.addEventListener("pointerdown", handlePageTouchStart);
 document.addEventListener("pointerup", handlePageTouchEnd);
