@@ -243,15 +243,13 @@ function animatePlayer() {
 }
 
 function drawPlayer() {
-  const anim = player.animations[
-    player.moving
-      ? 'walk' + capitalize(player.direction)
-      : 'idle' + capitalize(player.direction)
-  ];
-
-  if (!anim) return;
-
-  const frame = anim[player.frame % anim.length];
+  const animKey = player.moving
+    ? 'walk' + capitalize(player.direction)
+    : 'idle' + capitalize(player.direction);
+  const frames = player.animations[animKey];
+  if (!frames) return;
+  const frame = frames[player.frame % frames.length];
+  if (!(frame instanceof Image)) return;
   ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
 }
 
@@ -362,41 +360,6 @@ function stopMove(event) {
   clearInterval(moveInterval);
 }
 
-// Tap movement
-document.addEventListener('click', e => {
-  if (e.target.closest('a, button')) return;
-  const rect = canvas.getBoundingClientRect();
-  const clickX = e.clientX - rect.left;
-  const clickY = e.clientY - rect.top;
-  handleTap(clickX, clickY);
-});
-
-function handleTap(clickX, clickY) {
-  const playerCenterX = canvas.width / 2;
-  const playerCenterY = canvas.height / 2;
-  let dx = clickX - playerCenterX;
-  let dy = clickY - playerCenterY;
-  const absDx = Math.abs(dx), absDy = Math.abs(dy);
-  let moveOptions = [];
-
-  if (absDx > absDy) {
-    moveOptions.push(dx > 0 ? [1,0] : [-1,0]);
-  } else {
-    moveOptions.push(dy > 0 ? [0,1] : [0,-1]);
-  }
-
-  for (let [mx, my] of moveOptions) {
-    const newX = player.x + mx;
-    const newY = player.y + my;
-    if (maze[newY][newX] === 0) {
-      player.moving = true;
-      movePlayer(mx, my);
-      setTimeout(() => player.moving = false, 250);
-      break;
-    }
-  }
-}
-
 // Game loop for animation
 function gameLoop() {
   if (player.moving) animatePlayer();
@@ -409,18 +372,21 @@ loadImages(() => {
   console.log("All images loaded.");
   // === Define player animations here ===
   player.animations = {
-    idleUp:    [images.player_idle_up_0],
-    idleDown:  [images.player_idle_down_0],
-    idleLeft:  [images.player_idle_left_0],
-    idleRight: [images.player_idle_right_0],
+    idleUp:    [images.player_idle_up_0, images.player_idle_up_1],
+    idleDown:  [images.player_idle_down_0, images.player_idle_down_1],
+    idleLeft:  [images.player_idle_left_0, images.player_idle_left_1],
+    idleRight: [images.player_idle_right_0, images.player_idle_right_1],
+
     walkUp:    [images.player_walk_up_0, images.player_walk_up_1],
     walkDown:  [images.player_walk_down_0, images.player_walk_down_1],
     walkLeft:  [images.player_walk_left_0, images.player_walk_left_1],
     walkRight: [images.player_walk_right_0, images.player_walk_right_1]
   };
+
   
   console.log("Player animations assigned.");
   drawMaze();
+  drawPlayer();
   console.log("Player drawn.");
   gameLoop();
 });
