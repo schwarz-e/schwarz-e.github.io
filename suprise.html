@@ -237,60 +237,29 @@ function updateCamera() {
 }
 
 function animatePlayer() {
-  console.log("=== animatePlayer() called ===");
-  console.log("Frame timer:", player.frameTimer, "/", player.frameInterval);
-
   player.frameTimer++;
   if (player.frameTimer >= player.frameInterval) {
     player.frameTimer = 0;
-
-    // Determine which animation set to use
     const animKey = player.moving
       ? 'walk' + capitalize(player.direction)
       : 'idle' + capitalize(player.direction);
     const frames = player.animations[animKey];
-
-    if (!frames) {
-      console.warn("No frames found for animation key:", animKey);
-      return;
-    }
-
-    // Increment frame safely
-    player.frame = (player.frame + 1) % frames.length;
-    console.log("Advancing animation frame:", player.frame, "of", frames.length, "for", animKey);
+    if (frames) player.frame = (player.frame + 1) % frames.length;
   }
-
-  drawPlayer();
 }
 
-
 function drawPlayer() {
-  console.log("--- drawPlayer() called ---");
-
   const animKey = player.moving
     ? 'walk' + capitalize(player.direction)
     : 'idle' + capitalize(player.direction);
-
-  console.log("Direction:", player.direction, "| Moving:", player.moving);
-  console.log("Animation key:", animKey);
-
   const frames = player.animations[animKey];
   if (!frames) {
     console.warn("No frames found for animation key:", animKey);
     return;
   }
-
   const frameIndex = player.frame % frames.length;
   const frame = frames[frameIndex];
-
-  console.log("Frames length:", frames.length);
-  console.log("Frame index:", frameIndex);
-  console.log("Frame object type:", frame instanceof Image ? "Image" : typeof frame);
-  console.log("Player position:", player.x, player.y);
-
   ctx.drawImage(frame, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
-  console.log("Player drawn successfully at frame", frameIndex, "for", animKey);
-  console.log("==============================");
 }
 
 // --- Bitmask-based tile selection ---
@@ -363,7 +332,6 @@ function movePlayer(dx, dy) {
     player.y = newY;
   }
   player.direction = dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up';
-  drawMaze();
   checkWin();
 }
 
@@ -430,8 +398,9 @@ function stopMove() {
 
 // Game loop for animation
 function gameLoop() {
-  drawMaze();
   animatePlayer();
+  drawMaze();
+  drawPlayer();
   requestAnimationFrame(gameLoop);
 }
 
@@ -451,7 +420,6 @@ loadImages(() => {
 
   drawMaze();
   drawPlayer();
-  console.log("Player drawn.");
   gameLoop();
 });
 
