@@ -2,18 +2,78 @@
 title: Surprise
 layout: default
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maze Game</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 20px;
+  }
+  canvas {
+    margin-top: 40px;
+  }
+  #gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  #winMessage {
+    margin-top: 10px;
+    text-align: center; /* center the text */
+  }
+  #controls {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+  }
+
+  #controls button {
+    font-size: 48px;      /* adjust icon size */
+    margin: 1px;
+    background: none;      /* remove background */
+    border: none;          /* remove border */
+    outline: none;         /* remove outline */
+    cursor: pointer;       /* pointer on hover */
+    color: #555;           /* icon color */
+  }
+
+  #controls button:active {
+    color: #333;           /* optional pressed effect */
+  }
+  #controls button:hover {
+    color: #333;           /* optional pressed effect */
+  }
+
+</style>
+</head>
+<body>
 
 <div id="gameContainer">
   <h2 id="winMessage">Reach the castle</h2>
   <canvas id="mazeCanvas" width="400" height="400"></canvas>
   <div id="controls">
     <div class="row">
-      <button onpointerdown="startMove(0,-1,event)" onpointerup="stopMove()">⬆️</button>
+      <button onclick="movePlayer(0,-1)"><i class="fas fa-circle-up"></i></button>
     </div>
     <div class="row">
-      <button onpointerdown="startMove(-1,0,event)" onpointerup="stopMove()">⬅️</button>
-      <button onpointerdown="startMove(0,1,event)" onpointerup="stopMove()">⬇️</button>
-      <button onpointerdown="startMove(1,0,event)" onpointerup="stopMove()">➡️</button>
+      <button onclick="movePlayer(-1,0)"><i class="fas fa-circle-left"></i></button>
+      <button onclick="movePlayer(0,1)"><i class="fas fa-circle-down"></i></button>
+      <button onclick="movePlayer(1,0)"><i class="fas fa-circle-right"></i></button>
     </div>
   </div>
 </div>
@@ -362,3 +422,6 @@ loadImages(() => {
 });
 
 </script>
+
+</body>
+</html>
