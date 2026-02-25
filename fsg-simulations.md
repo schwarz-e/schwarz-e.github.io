@@ -10,7 +10,7 @@ permalink: /fsg-simulations/
 This page explains how to run FSG simulations. There are two necessary components of running FSG simulations:
 
 - **Solver code** (the FEBio-FSG repository)
-- **Plugin code** (the FEFSG repository)
+- **Plugin code** (the FEFSG_Plugin repository)
 
 This is a critical distinction:  
 **The plugin must be compiled with this specific fork of the FEBio solver source code.**
@@ -45,9 +45,9 @@ If you compile a plugin against a different FEBio version, it may:
 
 ---
 
-## Plugin Code (FEFSG)
+## Plugin Code (FEFSG_Plugin)
 
-A plugin is a dynamically loaded shared library (`.so`) that extends the solver and is typically used to add new constitutive material models. The plugins do **not** replace solver and do **not** do any actual simulation. It is simply an extra dictionary for the solver to use to look up newly created materials. To reiterate **plugins do not solve any actual code, but need to be used with their solver counterpart**.
+A plugin is a dynamically loaded shared library (`.so`) that extends the solver and is typically used to add new constitutive material models. The plugins do **not** replace solver and does **not** do any actual simulation. It is simply an extra dictionary for the solver to use to look up newly created materials. To reiterate **plugins do not solve any actual code, but need to be used with their solver counterpart**.
 
 ---
 
@@ -112,8 +112,8 @@ Move to your project directory:
 
 ```bash
 cd <my-project>
-git clone https://github.com/yale-humphrey-lab/FEFSG.git
-cd FEFSG
+git clone https://github.com/yale-humphrey-lab/FEFSG_Plugin.git
+cd FEFSG_Plugin
 ```
 
 # 5. Compile the Plugin
