@@ -25,7 +25,6 @@ The solver source code is the full executable that performs:
 - Finite element assembly
 - Nonlinear solves
 - Time stepping
-- Fluid–solid–growth coupling
 - Core mechanics infrastructure
 
 It is the engine that actually runs simulations. In this workflow, we use the **official FEBio fork maintained by University of Utah and Columbia University.**:
