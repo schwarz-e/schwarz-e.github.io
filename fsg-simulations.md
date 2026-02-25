@@ -56,7 +56,7 @@ A plugin is a dynamically loaded shared library (`.so`) that extends the solver 
 Move to your home directory:
 
 ```bash
-cd my-home
+cd <my-home>
 ```
 
 *Note: It is typical to use your home directory to compile source code. Typically, the shortcut for moving to your home directory is `cd ~`.*
@@ -78,7 +78,7 @@ git clone https://github.com/yale-humphrey-lab/FEBio-FSG.git
 Always build in a clean directory!
 
 ```bash
-cd my-home/FEBio-FSG
+cd <my-home>/FEBio-FSG
 mkdir -p build
 cd build
 ```
@@ -103,7 +103,7 @@ make -j
 After successful build, the solver executable and libraries will be in:
 
 ```bash
-my-home/FEBio-FSG/build/
+<my-home>/FEBio-FSG/build/
 ```
 
 # 4. Clone the Plugin
@@ -111,7 +111,7 @@ my-home/FEBio-FSG/build/
 Move to your project directory:
 
 ```bash
-cd my-project
+cd <my-project>
 git clone https://github.com/yale-humphrey-lab/FEFSG.git
 cd FEFSG
 ```
@@ -126,8 +126,8 @@ Example build command:
 g++ -fPIC -shared FEFSG.cpp dllmain.cpp \
     -o FEFSG.so \
     -std=c++11 \
-    -I/home/<username>/FEBio-FSG/ \
-    -L/home/<username>/FEBio-FSG/build/lib \
+    -I/<my-home>/FEBio-FSG/ \
+    -L/<my-home>/FEBio-FSG/build/lib \
     -lfebiomech -lfecore
 ```
 
@@ -156,24 +156,24 @@ After the sovler is built and the plugin is compiled, you should be able to run 
 Typical run command:
 
 ```bash
-my-home/FEBio-FSG/build/bin/febio4 -i input.feb
+<my-home>/FEBio-FSG/build/bin/febio4 -i input.feb
 ```
 
 If on a cluster, use a scheduling script [TODO: Add tutorial for SLURM scheduling]
 
 # 7. Making New Branches
 
-If you plan on modifying the source code, create a new branch for development (i.e., Taylor's Version):
+If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version"):
 
 ```bash
 git branch -a
-git checkout -b taylors-version
+git checkout -b <taylors-version>
 ```
 
 After editing:
 
 ```bash
 git add <files>
-git commit -m "Short summary: what/why"
-git push -u origin taylors-version
+git commit -m "Short summary of changes"
+git push -u origin <taylors-version>
 ```
