@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:description" content="{{ page.description | default: site.description | escape }}" />
+    <meta property="og:image" content="{{ site.url }}/assets/headshot_2024_high_contrast_square.png" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ page.title | escape }}" />
+    <meta name="twitter:description" content="{{ page.description | default: site.description | escape }}" />
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/preview.jpg" />
+    
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+
+
+        <nav class="nav-tree">
+          <ul>
+            <li>
+                <div class="nav-parent">
+                  <a href="#" class="toggle-top" onclick="toggleTopNav(event)">
+                    <span class="menu-icon">☰</span> Menu
+                  </a>
+                </div>
+              <ul class="subnav" id="top-nav">
+                {% for item in site.navigation %}
+                  <li>
+                    <div class="nav-parent">
+                      <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+                      {% if item.children %}
+                        <a href="#" class="toggle" onclick="toggleSubnav(event)">▾</a>
+                      {% endif %}
+                    </div>
+                    {% if item.children %}
+                      <ul class="subnav">
+                        {% for child in item.children %}
+                          <li><a href="{{ child.link | relative_url }}">{{ child.name }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <br>
+
+        <script>
+        function toggleSubnav(event) {
+          event.preventDefault();
+          event.stopPropagation();
+          const toggle = event.currentTarget;
+          const subnav = toggle.closest('li').querySelector('.subnav');
+          subnav.classList.toggle('expanded');
+          toggle.textContent = subnav.classList.contains('expanded') ? '▴' : '▾';
+        }
+
+
+        // Toggle the top-level "Menu" navigation
+        function toggleTopNav(event) {
+          event.preventDefault();
+          const topNav = document.getElementById('top-nav');
+          const isExpanded = topNav.classList.toggle('expanded');
+
+          const toggle = event.currentTarget;
+          const icon = toggle.querySelector('.menu-icon');
+
+          // Change the icon between ☰ (hamburger) and ✕ (close)
+          icon.textContent = isExpanded ? '✕' : '☰';
+        }
+
+        // Expand by default if on index page
+        document.addEventListener("DOMContentLoaded", function() {
+          if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
+            const topNav = document.getElementById('top-nav');
+            const toggle = document.querySelector('.toggle-top');
+            const icon = toggle.querySelector('.menu-icon');
+
+            topNav.classList.add('expanded');
+            icon.textContent = '✕'; // Show close icon
+          }
+        });
+        </script>
+
+        <style>
+        .nav-tree ul {
+          list-style: none;
+          padding-left: 0;
+          margin: 0;
+        }
+
+        .nav-tree li {
+          margin: 0.2em 0;
+        }
+
+        .nav-tree .nav-parent {
+          display: flex;
+          align-items: center;
+          gap: 0.1em;
+          font-size: 1.1em;
+        }
+
+        .nav-tree .toggle,
+        .nav-tree .toggle-top {
+          text-decoration: none;
+          border: none;
+          background: none;
+          cursor: pointer;
+          font-size: 1.0em;
+          line-height: 1;
+        }
+
+        /* Child links font size increase */
+        .nav-tree .subnav a {
+          font-size: 0.9em; /* adjust as desired */
+          text-decoration: none;
+        }
+
+        .nav-tree .subnav {
+          display: none;
+          margin-left: 0.0em;
+          border-left: 1px solid #ccc;
+          padding-left: 0.75em;
+        }
+
+        .nav-tree .subnav.expanded {
+          display: block;
+        }
+
+        </style>
+
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+        {% if page.url == "/" or page.url == "/index.html" %}
+          {% if site.logo %}
+            <img src="{{ site.logo | relative_url }}" alt="Logo" />
+            <p>{{ site.description | default: site.github.project_tagline }}</p>
+          {% endif %}
+        {% endif %}
+
+        {% if site.github.is_project_page %}
+        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
+        {% endif %}
+
+        <!--{% if site.github.is_user_page %}
+        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
+        {% endif %}-->
+
+        {% if site.show_downloads %}
+        <ul class="downloads">
+          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
+          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+        </ul>
+        {% endif %}
+
+        {% if site.social_links %}
+          <div class="social-links" style="display:flex; gap:0.8em; justify-content:center; margin:1em 0; font-size:0.9em;">
+            {% if site.social_links.github %}
+              <a href="https://github.com/{{ site.social_links.github }}" target="_blank" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-github" style="font-size:1.5em;"></i>
+                <span>GitHub</span>
+              </a>
+            {% endif %}
+            {% if site.social_links.linkedin %}
+              <a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" target="_blank" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-linkedin" style="font-size:1.5em;"></i>
+                <span>LinkedIn</span>
+              </a>
+            {% endif %}
+            {% if site.social_links.scholar %}
+              <a href="{{ site.social_links.scholar }}" target="_blank" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fas fa-graduation-cap" style="font-size:1.5em;"></i>
+                <span>Google Scholar</span>
+              </a>
+            {% endif %}
+            {% if site.social_links.orcid %}
+              <a href="{{ site.social_links.orcid }}" target="_blank" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:inherit;">
+                <i class="fab fa-orcid" style="font-size:1.5em;"></i>
+                <span>ORCID</span>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+  
+      </header>
+      <section>
+
+      {{ content }}
+
+      </section>
+      <footer>
+        {% if site.github.is_project_page %}
+        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+</html>

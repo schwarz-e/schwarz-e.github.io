@@ -60,10 +60,10 @@ git add .
 git commit -m "Initial Jekyll site"
 ```
 
-```bash
 Add Remote and Push
+```bash
 git branch -M main
-git remote add origin https://github.com/<username>/<repo>.git
+git remote add origin git@github.com:<username>.<username>.github.io.git
 git push -u origin main
 ```
 
@@ -75,17 +75,17 @@ In your GitHub repository:
 2. Click Pages
 3. Under Build and deployment
 * Source: Deploy from a branch
-* Branch: main
-* Folder: /
+* Branch: `main`
+* Folder: `/(root)`
 
 GitHub will display the published site URL once deployed!
 
 
-# Step 5 — Make It GitHub Pages Compatible
+# Step 11 — Make It GitHub Pages Compatible
 
 GitHub Pages runs specific gem versions. To match them locally:
 
-## 5.1 Edit the Gemfile
+## 11.1 Edit the Gemfile
 
 In file named `Gemfile` replace the contents with:
 
@@ -95,14 +95,14 @@ source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 ```
 
-## 5.2 Install Dependencies
+## 11.2 Install Dependencies
 In your terminal:
 
 ```bash
 bundle install
 ```
 
-# Step 6 — Launch the Site Locally
+# Step 12 — Launch the Site Locally
 
 Start the local server:
 
@@ -115,6 +115,21 @@ Then open:
 ```bash
 http://127.0.0.1:4000
 ```
+
+
+# Step 13 — Jekyll Structure
+
+Common files and folders:
+
+```
+_config.yml        # Site configuration
+_layouts/          # Page templates
+_includes/         # Reusable components
+_posts/            # Blog posts
+assets/            # CSS, images, JS
+index.md           # Homepage
+```
+
 
 ## Useful Options
 
@@ -135,16 +150,3 @@ Stop server with:
 ```bash
 Ctrl + C
 ```
-
-# Step 7 — Jekyll Structure
-
-Common files and folders:
-
-```_config.yml        # Site configuration
-_layouts/          # Page templates
-_includes/         # Reusable components
-_posts/            # Blog posts
-assets/            # CSS, images, JS
-index.md           # Homepage
-```
-
