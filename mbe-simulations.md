@@ -4,7 +4,7 @@ title: MBE Simulations
 permalink: /mbe-simulations/
 ---
 
-# Running Simulations on Expanse
+# Running MBE Simulations
 
 This page explains how to run MBE simulations. There are two necessary components of running MBE simulations:
 

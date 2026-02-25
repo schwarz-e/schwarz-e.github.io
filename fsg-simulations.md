@@ -5,7 +5,7 @@ permalink: /fsg-simulations/
 ---
 
 
-# Running Simulations
+# Running FSG Simulations
 
 This page explains how to run FSG simulations. There are two necessary components of running FSG simulations:
 
