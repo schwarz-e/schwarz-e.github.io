@@ -5,7 +5,7 @@ permalink: /fsg-simulations/
 ---
 
 
-# Running Simulations on Expanse
+# Running Simulations
 
 This page explains how to run FSG simulations. There are two necessary components of running FSG simulations:
 
@@ -36,7 +36,7 @@ yale-humphrey-lab/FEBio-FSG
 ```
 
 This fork includes modifications that are **not present in the official FEBio release**.  
-Your plugin must be built against this exact version to ensure ABI compatibility.
+Your plugin must be built against this exact version to ensure compatibility.
 
 If you compile a plugin against a different FEBio version, it may:
 - Fail to load
@@ -156,14 +156,16 @@ After the sovler is built and the plugin is compiled, you should be able to run 
 Typical run command:
 
 ```bash
-<my-home>/FEBio-FSG/build/bin/febio4 -i input.feb
+<my-home>/FEBio-FSG/build/bin/febio4 -i input.feb -import FEFSG.o
 ```
+
+**Important: the `-import FEFSG.o` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an FSG input file**
 
 If on a cluster, use a scheduling script [TODO: Add tutorial for SLURM scheduling]
 
 # 7. Making New Branches
 
-If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version"):
+If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version", so to speak):
 
 ```bash
 git branch -a
