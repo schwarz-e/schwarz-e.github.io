@@ -86,18 +86,6 @@
           // Change the icon between ☰ (hamburger) and ✕ (close)
           icon.textContent = isExpanded ? '✕' : '☰';
         }
-
-        // Expand by default if on index page
-        document.addEventListener("DOMContentLoaded", function() {
-          if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
-            const topNav = document.getElementById('top-nav');
-            const toggle = document.querySelector('.toggle-top');
-            const icon = toggle.querySelector('.menu-icon');
-
-            topNav.classList.add('expanded');
-            icon.textContent = '✕'; // Show close icon
-          }
-        });
         </script>
 
         <style>
@@ -149,12 +137,9 @@
 
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if page.url == "/" or page.url == "/index.html" %}
-          {% if site.logo %}
-            <img src="{{ site.logo | relative_url }}" alt="Logo" />
-            <p>{{ site.description | default: site.github.project_tagline }}</p>
-          {% endif %}
-        {% endif %}
+
+        <img src="{{ site.logo | relative_url }}" alt="Logo" />
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
