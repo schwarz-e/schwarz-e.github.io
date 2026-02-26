@@ -72,7 +72,7 @@ Alternatively, if SSH is not configured:
 git clone https://github.com/yale-humphrey-lab/FEBio-FSG.git
 ```
 
-# 4. Build the Solver (CMake-Based Build)
+# 3. Build the Solver (CMake-Based Build)
 
 Always build in a clean directory!
 
