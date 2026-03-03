@@ -155,14 +155,59 @@ After the sovler is built and the plugin is compiled, you should be able to run 
 Typical run command:
 
 ```bash
-<my-home>/FEBio-FSG/build/bin/febio4 -i input.feb -import FEFSG.o
+<my-home>/FEBio-FSG/build/bin/febio4 -i input.feb -import ./FEFSG.so
 ```
 
-**Important: the `-import FEFSG.o` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an FSG input file**
+**Important: the `-import ./FEFSG.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an FSG input file**
 
 If on a cluster, use a scheduling script [TODO: Add tutorial for SLURM scheduling]
 
-# 7. Making New Branches
+# 7. Configuring Simulations
+
+The `<Material>` section of the .feb file specifies that you are using the FSG material, which is implemented through the FEBio-FSG solver (not standard FEBio).
+
+```xml
+<Material>
+  <material id="1" name="Material1" type="FSG">
+    <density>1</density>
+    <k>1000.0</k>
+    <e_r type="math"> X/sqrt(X^2 + Y^2), Y/sqrt(X^2 + Y^2), 0 </e_r>
+    <e_t type="math"> -Y/sqrt(X^2 + Y^2), X/sqrt(X^2 + Y^2), 0 </e_t>
+    <e_z type="math"> 0, 0, 1 </e_z>
+  </material>
+</Material>
+```
+
+`type="FSG` tells FEBio to use the Fluid–Solid–Growth material model implemented in the FEBio-FSG fork of the solver.
+
+This material:
+
+* Reads additional biological parameters from configuration.txt
+* Uses internal mixture constituents
+* Evolves mass fractions and stresses over time
+* Couples mechanical deformation with growth and remodeling
+
+In this input, `e_r`, `e_t`, and `e_z` mathematically define the radial, circumferential, and axial directions, respectively
+
+The configuration.txt is the file that defines the growth and remodeling constituents. While the .feb file defines geometry and coordinate frame, **the vascular properties are defined in configuration.txt**.
+
+The first line defines simulation-level parameters in the following order:
+
+```
+timestep_size rho_hat_h bar_tauw_h sigma_inv_h K_delta_tauw K_delta_sigma 
+```
+
+Each subsequent line is an individual constituent (up to six total) with properties ordered as follows:
+
+```
+m_degradable m_inflammatory m_active m_polymer c1_alpha_h c2_alpha_h eta_alpha_h g_alpha_h g_alpha_r g_alpha_theta g_alpha_z phi_alpha k_alpha_h K_tauw_p_alpha_h K_sigma_p_alpha_h K_tauw_d_alpha_h K_sigma_d_alpha_h
+```
+
+# 8. Benchmark Example
+
+The FSG_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a murine thoracic aorta subjected to a 1.4-fold increase in pressure. If the solver and plugin are built and linked correctly, this file should produce results where the wall thickens to return the intramural stress toward its homeostatic value over time. This example serves as a basic validation test of the solver build, plugin registration, and proper reading of the configuration.txt file. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
+
+# Appendix A. Making New Branches
 
 If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version", so to speak):
 

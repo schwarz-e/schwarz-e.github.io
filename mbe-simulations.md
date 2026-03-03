@@ -71,7 +71,7 @@ Alternatively, if SSH is not configured:
 git clone https://github.com/febiosoftware/FEBio.git
 ```
 
-# 4. Build the Solver (CMake-Based Build)
+# 3. Build the Solver (CMake-Based Build)
 
 Always build in a clean directory!
 
@@ -154,14 +154,39 @@ After the sovler is built and the plugin is compiled, you should be able to run 
 Typical run command:
 
 ```bash
-<my-home>/FEBio/build/bin/febio4 -i input.feb -import FEMbeCmm.o
+<my-home>/FEBio/build/bin/febio4 -i <input>.feb -import ./FEMbeCmm.so
 ```
 
-**Important: the `-import FEMbeCmm.o` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file**
+**Important: the `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file**
 
 MBE simultions can typically be run on a local machine.
 
-# 7. Making New Branches
+# 7. Configuring Simulations
+
+The `<Material>` section of the .feb file specifies that you are using the MBE material, which is implemented through the FEBio solver.
+
+```xml
+<Material>
+    <material id="1" name="Material1" type="mbe_cmm">
+        <density>1</density>
+        <e_r type="math"> X/sqrt(X^2 + Y^2), Y/sqrt(X^2 + Y^2), 0 </e_r>
+        <e_t type="math"> -Y/sqrt(X^2 + Y^2), X/sqrt(X^2 + Y^2), 0 </e_t>
+        <e_z type="math"> 0, 0, 1 </e_z>
+    </material>
+</Material>
+```
+
+`type="mbe_cmm` tells FEBio to use the mechanobiologically equilibrated material model.
+
+In this input, `e_r`, `e_t`, and `e_z` mathematically define the radial, circumferential, and axial directions, respectively.
+
+Unlike in the FSG plugin, the vascular constituent materials are defined directly in the plugin code, `FEMbeCmm.cpp`. If you wish to change the material behavior, you must edit the `FEMbeCmm.cpp` directly and the recompile the plugin (Step 5 on this page).
+
+# 8. Benchmark Example
+
+[TODO: Add benchmark example to repository] The FEMBE_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a murine thoracic aorta.  If the solver and plugin are built and linked correctly, at each timestep the solver will find the homeostatic configuration of the vessel as it ramps from its original pressure (1.0-fold) to a hypertensive pressure (1.4-fold). This example serves as a basic validation test of the solver build and plugin registration. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
+
+# Appendix A. Making New Branches
 
 If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version", so to speak):
 
