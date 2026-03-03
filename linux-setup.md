@@ -143,23 +143,23 @@ Clusters provide scalable computational power for large simulations, parameteric
 
 1. Connect via SSH:
 
-```bash
-ssh username@cluster.address.edu
-```
+  ```bash
+  ssh username@cluster.address.edu
+  ```
 
 2. Load required modules:
 
-```bash
-module load gcc
-module load cmake
-module load mpi
-```
+  ```bash
+  module load gcc
+  module load cmake
+  module load mpi
+  ```
 
 3. Compile or run simulations (specifics under simulation tutorials), first on debug node and then submitted through scheduler (e.g., SLURM):
 
-```bash
-sbatch run_simulation.sh
-```
+  ```bash
+  sbatch run_simulation.sh
+  ```
 
 ## Advantages
 
