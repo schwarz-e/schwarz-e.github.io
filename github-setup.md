@@ -18,7 +18,7 @@ This section walks through creating a GitHub account, installing Git locally, an
 4. Verify your email address when prompted.
 5. Enable two-factor authentication (2FA) in **Settings → Password and authentication**.
 
-## 2. Install git locally
+## 2. Install Git locally
 
 Choose the instructions for your system.
 
@@ -32,7 +32,7 @@ git --version
 
 ### macOS
 
-Open terminal and check to see if git is already installed.
+Open terminal and check to see if Git is already installed.
 
 ```bash
 brew install git
@@ -41,7 +41,7 @@ git --version
 
 ### Windows
 
-Install Git for Windows from: [https://git-scm.com/install/](https://git-scm.com/install/)
+Install Git for Windows from [https://git-scm.com/install/](https://git-scm.com/install/).
 
 During installation, keep the default options unless you have a reason to change them.
 
@@ -55,7 +55,7 @@ git --version
 
 SSH keys let you authenticate with GitHub securely. More details here: [https://docs.github.com/en/authentication/connecting-to-github-with-ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-### 1. Generate a key
+### 3.1. Generate a key
 
 In a terminal:
 
@@ -67,14 +67,14 @@ Press `Enter` without entering anything to accept the default file location.
 
 Enter a passphrase if you want extra security (recommended). If you do not want a password, press `Enter` to continue without entering anything.
 
-### 2. Copy your public key
+### 3.2. Copy your public key
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 Copy the entire output (it starts with ssh-ed25519).
 
-### 3. Add the key to GitHub
+### 3.3. Add the key to GitHub
 
 1. Go to **GitHub** → **Settings**.
 2. Click **SSH and GPG keys**.
@@ -83,13 +83,13 @@ Copy the entire output (it starts with ssh-ed25519).
 5. Enter a descriptive title (e.g., `laptop`, `desktop`, `cluster`).
 6. Click **Add SSH key**.
 
-### 4. Test the connection
+### 3.4. Test the connection
 
 ```bash
 ssh -T git@github.com
 ```
 
-You should see a message indicating authentication succeeded.
+You should see a message indicating that authentication succeeded.
 
 ---
 
@@ -97,7 +97,7 @@ You should see a message indicating authentication succeeded.
 
 As a researcher, you often need to build on existing code. This guide follows the typical workflow: finding a repository on GitHub, forking it to your account, creating a space on your local machine to experiment with code, and, when you're ready, and securely pushing your changes back to a new branch on your fork that is accessible by others who want to use your code.
 
-## 1. Get the Code
+## 1. Get the code
 
 Find the repository of the code you want to use. Hit the **"Fork"** button on the original GitHub repository to create a copy under your own account. Then, clone the repository to your local machine.
 
@@ -106,7 +106,7 @@ Find the repository of the code you want to use. Hit the **"Fork"** button on th
     git clone [url]
     ```
 
-## 2. Make a New Branch
+## 2. Make a new branch
 
 To ensure your experiments don't break the original, stable code, you should create a dedicated development branch locally. 
 
@@ -123,12 +123,12 @@ To ensure your experiments don't break the original, stable code, you should cre
     git checkout [branch-name]
     ```
 
-## 3. Make Your Changes
+## 3. Make your changes
 
 On your local machine, edit the code until you are happy with your workflow. Then, tell Git which files you want it to track and update (stage).
 
 * **Check the status of your files:**
-    *(Shows modified files in your working directory and what is staged for your next commit)*
+    *(Shows modified files in your working directory and what is staged for your next commit.)*
     ```bash
     git status
     ```
@@ -141,18 +141,18 @@ On your local machine, edit the code until you are happy with your workflow. The
     git add .
     ```
 * **Commit your staged changes to your local history:**
-    *(Leave a clear note for yourself and future collaborators summarizing what changes you made in plain language)*
+    *(Leave a clear note for yourself and future collaborators summarizing what changes you made in plain language.)*
     ```bash
     git commit -m "[message]"
     ```
 
 
-## 4. Tell Git Where to Put Your New Branch
+## 4. Tell git where to put your new branch
 
 So far, your changes are only on your local machine. Now, you need to push them up to your new branch on GitHub so other people can see and build on them.
 
 * **Link a remote repository:**
-    *(If you need to define where your code is going, or want to link back to the original source you forked from, your default alias is `origin`)*
+    *(If you need to define where your code is going, or want to link back to the original source you forked from, your default alias is `origin`.)*
     ```bash
     git remote add [alias] [url]
     ```
@@ -161,7 +161,7 @@ So far, your changes are only on your local machine. Now, you need to push them 
     git push [alias] [branch-name]
     ```
 
-##  5. Retrieve Changes to your Branch
+##  5. Retrieve changes to your branch
 If collaborators have updated the code, or you want to sync your local branch with remote updates (what's on your GitHub account):
 
 * **Fetch and merge remote changes into your local workspace:**
