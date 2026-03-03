@@ -178,7 +178,7 @@ The `<Material>` section of the .feb file specifies that you are using the FSG m
 </Material>
 ```
 
-`type="FSG` tells FEBio to use the Fluid–Solid–Growth material model implemented in the FEBio-FSG fork of the solver.
+`type="FSG"` tells FEBio to use the Fluid–Solid–Growth material model implemented in the FEBio-FSG fork of the solver.
 
 This material:
 

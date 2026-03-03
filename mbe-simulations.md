@@ -176,7 +176,7 @@ The `<Material>` section of the .feb file specifies that you are using the MBE m
 </Material>
 ```
 
-`type="mbe_cmm` tells FEBio to use the mechanobiologically equilibrated material model.
+`type="mbe_cmm"` tells FEBio to use the mechanobiologically equilibrated material model.
 
 In this input, `e_r`, `e_t`, and `e_z` mathematically define the radial, circumferential, and axial directions, respectively.
 
