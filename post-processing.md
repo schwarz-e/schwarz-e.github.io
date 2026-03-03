@@ -10,4 +10,4 @@ This page explains how to post-process and visualize outputs from MBE and FSG si
 
 ---
 
-# 1. Overview
+# 1. Install ParaView
