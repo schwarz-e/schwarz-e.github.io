@@ -26,9 +26,9 @@ summary:hover {
 
 # Linux Environment Setup
 
-Growth and Remodeling (G&R) simulations are most reliably executed in a Linux environment. Many of the required tools (compilers, MPI libraries, FEBio builds, scripting workflows) are designed with Linux-based systems in mind.
+Simulations are most reliably executed in a Linux environment. Many of the required tools (compilers, MPI libraries, FEBio builds, scripting workflows) are designed with Linux-based systems in mind.
 
-This page outlines three common approaches:
+This page outlines three common approaches to set up a Linux environment:
 
 - Installing Linux as your primary operating system  
 - Running Linux inside a virtual machine  
@@ -72,8 +72,8 @@ Installing Linux directly on your machine provides the most stable and highest-p
 - Simplest path for building FEBio from source
 - Most consistent with HPC cluster environments
 
-
 </div>
+
 </details>
 
 <details>
@@ -85,34 +85,34 @@ Installing Linux directly on your machine provides the most stable and highest-p
 
 ## Overview
 
-A virtual machine allows you to run Linux inside your existing operating system. This is a good option if you cannot replace your OS but want a stable Linux environment.
+A virtual machine (VM) allows you to run Linux inside your existing operating system. This is a good option if you cannot replace your OS but want a stable Linux environment.
 
 ## VM Software Options
 
-* VirtualBox (free)
-* VMware Workstation / Fusion
-* UTM (macOS Apple Silicon)
+- VirtualBox (free)
+- VMware Workstation / Fusion
+- UTM (macOS Apple Silicon)
 
 Install a Linux ISO (Ubuntu) inside the VM.
 
 ## Recommended VM Configuration
 
-* At least 8 GB RAM allocated (if available)
-* 2–4 CPU cores (allows testing parallelization)
-* 40+ GB storage
+- At least 8 GB RAM allocated (if available)
+- 2–4 CPU cores (allows testing parallelization)
+- 40+ GB storage
 
 ## Advantages
 
-* No need to modify your primary OS
-* Safe sandbox environment for learning workflows, testing small changes to code, and developing scripts
-* Can run most MBE simulations
+- No need to modify your primary OS
+- Safe sandbox environment for learning workflows, testing small changes to code, and developing scripts
+- Can run most MBE simulations
 
 ## Limitations
 
-* Slower than native Linux
-* Limited memory and CPU availability
-* Not ideal for large-scale simulations
-* For large FSG simulations, an HPC cluster is preferred.
+- Slower than native Linux
+- Limited memory and CPU availability
+- Not ideal for large-scale simulations (e.g., for large FSG simulations, an HPC cluster is preferred)
+
 </div>
 
 </details>
@@ -128,10 +128,10 @@ Install a Linux ISO (Ubuntu) inside the VM.
 
 ## Overview
 
-Clusters provide scalable computational power for large simulations, parameter sweeps, and optimization studies. Most research institutions provide access to an HPC system. Commonly used clusters:
+Clusters provide scalable computational power for large simulations, parameteric sweeps, and optimization studies. Most research institutions provide access to an HPC system. Commonly used clusters:
 
 - **Yale Grace Cluster**  
-  Documentation: [https://docs.ycrc.yale.edu/clusters/grace/  ](https://docs.ycrc.yale.edu/clusters/grace/)
+  Documentation: [https://docs.ycrc.yale.edu/clusters/grace/  ](https://docs.ycrc.yale.edu/clusters/grace/)<br>
   To request access, follow the instructions under **“Access the Cluster.”**
 
 - **Expanse (SDSC)**  
@@ -170,11 +170,9 @@ sbatch run_simulation.sh
 ## Limitations
 
 * Requires learning job schedulers and file management via command line
-* Often no graphical interface (but who needs one?)
+* Often no graphical interface
 
-**Suggestion:** Use local machine to develop code and workflow, and use clusters for scaling to final computational study.
-
-
+**Suggestion:** Use a local machine to develop code and workflow, then use clusters for scaling to final study.
 
 </div>
 
@@ -184,7 +182,7 @@ sbatch run_simulation.sh
 
 # Typical Software Stack
 
-After establishing your linux environment, you will typically install:
+After establishing your Linux environment, you will typically install:
 
 ```bash
 sudo apt update
@@ -198,11 +196,11 @@ Additional tools may include:
 * Paraview
 * PyVista / NumPy / SciPy
 
-This setup provides a reproducible research environment.
+This setup provides a reproducible computational environment.
 
 ---
 
-# Terminal Command Cheat Sheet
+# Linux Terminal/Command Line Cheat Sheet
 - `pwd` — Print the current working directory.
 - `ls` — List files.
 - `cd <dir>` — Change directory.  
@@ -217,4 +215,3 @@ This setup provides a reproducible research environment.
 - `less file.txt` — View large text files (press `q` to quit).
 - `vim file.txt` — Edit a file in Vim.
 - `emacs file.txt` — Edit a file in Emacs.
-
