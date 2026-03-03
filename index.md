@@ -5,31 +5,31 @@ title: Home
 
 # Growth and Remodeling Tutorials
 
-Welcome to the **Growth and Remodeling (G&R) Tutorials** site!
+Welcome to the **Growth and Remodeling Tutorials** site!
 
-This site provides step-by-step guidance for growth and remodeling simulations. The goal is to make mechanobiologically driven vascular modeling accessible, reproducible, and extendable for new users and collaborators.
+This site provides step-by-step guidance for setting up and running growth and remodeling (G&R) simulations. The goal is to make constrained mixture modeling-based vascular simulations accessible, reproducible, and extendable for new users and collaborators.
 
 ---
 
 ## Tutorials
 
-The tutorials are organized into modules:
+The tutorials are organized into modules. You can proceed sequentially or jump to a specific module depending on your goals.
 
 1. **[GitHub Account Setup]({{ "/github-setup/" | relative_url }})**  
    Make a GitHub account and learn how to use Git on your machine.
 
 2. **[Linux Environment Setup]({{ "/linux-setup/" | relative_url }})**  
-   Installation and configuration of required tools. This module ensures a reproducible computational environment for running growth and remodeling simulations.
+   Installation and configuration of required tools. This module ensures a reproducible computational environment for running G&R simulations.
 
 3. **[Running MBE Simulations]({{ "/mbe-simulations/" | relative_url }})**  
-   Step-by-step instructions for mechanobiologically equilibrated (MBE) simulations.
+   Step-by-step instructions for mechanobiologically equilibrated (MBE) G&R simulations.
 
 4. **[Running FSG Simulations]({{ "/fsg-simulations/" | relative_url }})**  
-   Step-by-step instructions for running fluid–solid–growth (FSG) simulations
+   Step-by-step instructions for running fluid–solid–growth (FSG) G&R simulations.
 
 5. **[Post-Processing and Visualization]({{ "/post-processing/" | relative_url }})**  
    Tools and workflows for visualizing simulation results and extracting metrics.
 
-You may proceed sequentially or jump to a specific module depending on your goals.
-
 ---
+
+Last updated March 2026.
