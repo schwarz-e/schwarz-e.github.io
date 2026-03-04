@@ -24,6 +24,8 @@ Choose the instructions for your system.
 
 ### Linux (Ubuntu/Debian)
 
+In a terminal window, run the following command:
+
 ```bash
 sudo apt update
 sudo apt install git
@@ -32,7 +34,7 @@ git --version
 
 ### macOS
 
-Most versions of macOS already have Git installed. Open Terminal and check to see if Git is already activated. If Git is not installed, you can install the latest version from [GitHub](https://github.com/).
+Most versions of macOS already have Git installed. Open a terminal window and check to see if Git is already activated. If Git is not installed, you can install the latest version from [GitHub](https://github.com/). If you have Homebrew already installed, you can use the following command:
 
 ```bash
 brew install git
