@@ -32,7 +32,7 @@ git --version
 
 ### macOS
 
-Open terminal and check to see if Git is already installed.
+Most versions of macOS already have Git installed. Open Terminal and check to see if Git is already activated. If Git is not installed, you can install the latest version from [GitHub](https://github.com/).
 
 ```bash
 brew install git
