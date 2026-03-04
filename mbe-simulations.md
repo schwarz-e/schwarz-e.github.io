@@ -102,7 +102,7 @@ make -j
 
 *Note: -j enables parallel compilation*
 
-The terminal window will display the percentage completion of the build. Once completed, it will display *Built target febio4*. After a successful build, the solver executable `febio4` will appear in `bin`, and libraries will be in `lib`.
+The terminal window will display the percentage completion of the build. Once completed, it will display **Built target febio4**. After a successful build, the solver executable `febio4` will appear in `bin`, and libraries will be in `lib`.
 
 *Note: If the build is unsuccessful and you need to rebuild, run `make clean` in `build` before trying again.*
 
@@ -118,7 +118,7 @@ cd FEMBE_Plugin
 
 # 5. Compile the Plugin
 
-The plugin must link against the same solver build you compiled earlier. **Do not attempt to link it with the FEBio-FSG solver meant to be used with the FSG plugin, it will not work and it will be confusing to all involved.**
+The plugin must link against the same solver build you compiled earlier. **Do not attempt to link it with the FEBio-FSG solver meant to be used with the FSG plugin --- it will not work.**
 
 Example build command:
 
