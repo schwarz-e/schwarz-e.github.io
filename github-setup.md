@@ -112,7 +112,7 @@ Find the repository of the code you want to use. Hit the **"Fork"** button on th
 
 * **Clone your forked repository locally:**
 
-In a terminal window, enter the following, replacing the `url` with the link to the GitHub repository (e.g., git@github.com:febiosoftware/FEBio.git).
+In a terminal window, enter the following, replacing the `[url]` with the link to the GitHub repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
 
     ```bash
     git clone [url]
@@ -127,6 +127,9 @@ To ensure your experiments don't break the original stable code, you should crea
     git branch
     ```
 * **Create a new development branch:**
+
+Replace `[branch-name]` with the name you want to use for your branch.
+
     ```bash
     git branch [branch-name]
     ```
