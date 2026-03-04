@@ -133,7 +133,7 @@ Replace `[branch-name]` with the name you want to use for your branch.
     ```bash
     git branch [branch-name]
     ```
-* **Then switch to that branch:**
+* **Switch to your new branch:**
     ```bash
     git checkout [branch-name]
     ```
@@ -148,15 +148,21 @@ On your local machine, edit the code until you are happy with your workflow. The
     git status
     ```
 * **Stage a specific file:**
+
+Replace `[file]` with the file name(s) you want to update.
+
     ```bash
     git add [file]
     ```
-* **Stage ALL your current changes:**
+* **Or, stage ALL your current changes:**
     ```bash
     git add .
     ```
 * **Commit your staged changes to your local history:**
     *(Leave a clear note for yourself and future collaborators summarizing what changes you made in plain language.)*
+
+Replace `[message]` with your note.
+
     ```bash
     git commit -m "[message]"
     ```
