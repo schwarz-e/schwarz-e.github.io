@@ -34,7 +34,9 @@ git --version
 
 ### macOS
 
-Most versions of macOS already have Git installed. Open a terminal window and check to see if Git is already activated. If Git is not installed, you can install the latest version from [GitHub](https://github.com/). If you have Homebrew already installed, you can use the following command:
+Most versions of macOS already have Git installed. Open a terminal window and check to see if Git is already activated. If Git is not installed, you can install the latest version from [GitHub](https://github.com/).
+
+If you have Homebrew already installed, you can use the following command:
 
 ```bash
 brew install git
@@ -59,7 +61,7 @@ SSH keys let you authenticate with GitHub securely. More details here: [https://
 
 ### 3.1. Generate a key
 
-In a terminal:
+Enter the following terminal window, replacing the email address in quotes with the email associated with your GitHub account:
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -71,10 +73,13 @@ Enter a passphrase if you want extra security (recommended). If you do not want 
 
 ### 3.2. Copy your public key
 
+Enter the following in the same terminal window:
+
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
-Copy the entire output (it starts with ssh-ed25519).
+
+Copy the entire output (starting with ssh-ed25519).
 
 ### 3.3. Add the key to GitHub
 
@@ -87,6 +92,8 @@ Copy the entire output (it starts with ssh-ed25519).
 
 ### 3.4. Test the connection
 
+Enter the following in the same terminal window:
+
 ```bash
 ssh -T git@github.com
 ```
@@ -97,20 +104,23 @@ You should see a message indicating that authentication succeeded.
 
 # Git Cheat Sheet
 
-As a researcher, you often need to build on existing code. This guide follows the typical workflow: finding a repository on GitHub, forking it to your account, creating a space on your local machine to experiment with code, and, when you're ready, and securely pushing your changes back to a new branch on your fork that is accessible by others who want to use your code.
+When running G&R simulations, you often need to build on existing code. This guide follows the typical workflow: finding a repository on GitHub, forking it to your account, creating a space on your local machine to experiment with code, and securely pushing your changes back to a new branch on your fork that is accessible by others who want to use your code.
 
 ## 1. Get the code
 
 Find the repository of the code you want to use. Hit the **"Fork"** button on the original GitHub repository to create a copy under your own account. Then, clone the repository to your local machine.
 
 * **Clone your forked repository locally:**
+
+In a terminal window, enter the following, replacing the `url` with the link to the GitHub repository (e.g., git@github.com:febiosoftware/FEBio.git).
+
     ```bash
     git clone [url]
     ```
 
 ## 2. Make a new branch
 
-To ensure your experiments don't break the original, stable code, you should create a dedicated development branch locally. 
+To ensure your experiments don't break the original stable code, you should create a dedicated development branch locally. 
 
 * **List all existing branches:**
     ```bash
