@@ -148,8 +148,7 @@ On your local machine, edit the code until you are happy with your workflow. The
     git commit -m "[message]"
     ```
 
-
-## 4. Tell git where to put your new branch
+## 4. Tell Git where to put your new branch
 
 So far, your changes are only on your local machine. Now, you need to push them up to your new branch on GitHub so other people can see and build on them.
 
