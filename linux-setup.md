@@ -188,13 +188,14 @@ After establishing your Linux environment, you will typically install:
 sudo apt update
 sudo apt install build-essential cmake git python3 python3-pip
 ```
+
 Additional tools may include:
 
 * GCC (modern version)
 * OpenMPI
 * MKL (if required)
-* Paraview
-* PyVista / NumPy / SciPy
+* ParaView
+* PyVista/NumPy/SciPy
 
 This setup provides a reproducible computational environment.
 
