@@ -6,12 +6,11 @@ permalink: /mbe-simulations/
 
 # Running MBE Simulations
 
-This page explains how to run MBE simulations. There are two necessary components of running MBE simulations:
+This page explains how to run MBE simulations. There are two necessary components:
 
-- **Solver code** (the FEBio repository)
-- **Plugin code** (the FEMBE_Plugin repository)
+- **Solver code** (FEBio repository)
+- **Plugin code** (FEMBE_Plugin repository)
 
-This is a critical distinction:  
 **The plugin must be compiled with this specific fork of the FEBio solver source code.**
 
 ---
@@ -45,7 +44,7 @@ If you compile a plugin against a different FEBio fork, it may:
 
 ## Plugin Code (FEMBE_Plugin)
 
-A plugin is a dynamically loaded shared library (`.so`) that extends the solver and is typically used to add new constitutive material models. The plugins do **not** replace solver and does **not** do any actual simulation. It is simply an extra dictionary for the solver to use to look up newly created materials. To reiterate **plugins do not solve any actual code, but need to be used with their solver counterpart**.
+A plugin is a dynamically loaded shared library (`.so`) that extends the solver and is typically used to add new constitutive material models. The plugins do **not** replace the solver and do **not** do any actual simulation. They are simply an extra dictionary for the solver to use to look up newly created materials. **Plugins do not solve any actual code but need to be used with their solver counterpart**.
 
 ---
 
@@ -54,7 +53,7 @@ A plugin is a dynamically loaded shared library (`.so`) that extends the solver 
 Move to your home directory:
 
 ```bash
-cd <my-home>
+cd ~
 ```
 
 *Note: It is typical to use your home directory to compile source code. Typically, the shortcut for moving to your home directory is `cd ~`.*
@@ -73,7 +72,7 @@ git clone https://github.com/febiosoftware/FEBio.git
 
 # 3. Build the Solver (CMake-Based Build)
 
-Always build in a clean directory!
+We will compile the FEBio solver from the source code downloaded in the previous step. This is done within the empty directory `build`. If `build` doesn't exist, use the following commands to create and move into the directory:
 
 ```bash
 cd <my-home>/FEBio
@@ -81,14 +80,21 @@ mkdir -p build
 cd build
 ```
 
-Configure the project:
+*Note: Always build in a clean directory! Ensure that there are no files in `build` using the `ls` command before compiling.*
 
+Once inside the `build` directory, configure the project:
 
 ```bash
 ccmake -DCMAKE_BUILD_TYPE=Release ..
 ```
 
-In the ccmake screen, press `c` to configure the Makefile until it gives you the option to press `g` to generate the Makefile. You may need to configure paths manually for additional functionality (e.g., MKL).
+In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
+
+You can toggle advanced mode by pressing `t`. Ensure `CMAKE_CXX_FLAGS` is set to `-fopenmp`. You may need to configure paths manually for additional functionality (e.g., MKL).
+
+Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
+
+
 
 Once configuration is complete:
 
@@ -98,7 +104,7 @@ make -j
 
 *Note: -j enables parallel compilation*
 
-After successful build, the solver executable and libraries will be in:
+After a successful build, the solver executable ` and libraries will be in:
 
 ```bash
 <my-home>/FEBio/build/
