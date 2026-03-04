@@ -147,7 +147,7 @@ Clusters provide scalable computational power for large simulations, parameteric
   ssh username@cluster.address.edu
   ```
 
-2. Load required modules:
+1. Load required modules:
 
   ```bash
   module load gcc
@@ -155,7 +155,7 @@ Clusters provide scalable computational power for large simulations, parameteric
   module load mpi
   ```
 
-3. Compile or run simulations (specifics under simulation tutorials), first on debug node and then submitted through scheduler (e.g., SLURM):
+1. Compile or run simulations (specifics under simulation tutorials), first on debug node and then submitted through scheduler (e.g., SLURM):
 
   ```bash
   sbatch run_simulation.sh
