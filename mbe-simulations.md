@@ -90,13 +90,11 @@ ccmake -DCMAKE_BUILD_TYPE=Release ..
 
 In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
 
-You can toggle advanced mode by pressing `t`. Ensure `CMAKE_CXX_FLAGS` is set to `-fopenmp`. You may need to configure paths manually for additional functionality (e.g., MKL).
+You can toggle advanced mode by pressing `t`. Ensure `CMAKE_CXX_FLAGS` is set to `-fopenmp`. You may need to configure other paths manually for additional functionality (e.g., MKL).
 
 Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
 
-
-
-Once configuration is complete:
+Once configuration is complete, verify that `build` has been populated with new folders (`bin`, `CMakeFiles`, and `lib`) and files (`CMakeCache.txt`, `cmake_install.cmake`, `Makefile`). You can then build the solver using the command:
 
 ```bash
 make -j
@@ -104,11 +102,9 @@ make -j
 
 *Note: -j enables parallel compilation*
 
-After a successful build, the solver executable ` and libraries will be in:
+The terminal window will display the percentage completion of the build. Once completed, it will display *Built target febio4*. After a successful build, the solver executable `febio4` will appear in `bin`, and libraries will be in `lib`.
 
-```bash
-<my-home>/FEBio/build/
-```
+*Note: If the build is unsuccessful and you need to rebuild, run `make clean` in `build` before trying again.*
 
 # 4. Clone the Plugin
 
