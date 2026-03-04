@@ -112,7 +112,7 @@ Find the repository of the code you want to use. Hit the **"Fork"** button on th
 
 * **Clone your forked repository locally:**
 
-In a terminal window, enter the following, replacing the `[url]` with the link to the GitHub repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
+In a terminal window, enter the following, replacing `[url]` with the link to the GitHub repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
 
     ```bash
     git clone [url]
@@ -172,11 +172,15 @@ Replace `[message]` with your note.
 So far, your changes are only on your local machine. Now, you need to push them up to your new branch on GitHub so other people can see and build on them.
 
 * **Link a remote repository:**
-    *(If you need to define where your code is going, or want to link back to the original source you forked from, your default alias is `origin`.)*
+    *(If you need to define where your code is going, or want to link back to the original source you forked from, your default `alias` is `origin`.)*
+
+Replace `[url]` with the link to the remote repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
+
     ```bash
     git remote add [alias] [url]
     ```
 * **Push your local branch up to your GitHub account:**
+
     ```bash
     git push [alias] [branch-name]
     ```
@@ -185,6 +189,7 @@ So far, your changes are only on your local machine. Now, you need to push them 
 If collaborators have updated the code, or you want to sync your local branch with remote updates (what's on your GitHub account):
 
 * **Fetch and merge remote changes into your local workspace:**
+
     ```bash
     git pull
     ```
