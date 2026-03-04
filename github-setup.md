@@ -114,29 +114,33 @@ Find the repository of the code you want to use. Hit the **"Fork"** button on th
 
 In a terminal window, enter the following, replacing `[url]` with the link to the GitHub repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
 
-    ```bash
-    git clone [url]
-    ```
+```bash
+git clone [url]
+```
 
 ## 2. Make a new branch
 
 To ensure your experiments don't break the original stable code, you should create a dedicated development branch locally. 
 
 * **List all existing branches:**
-    ```bash
-    git branch
-    ```
+
+```bash
+git branch
+```
+
 * **Create a new development branch:**
 
 Replace `[branch-name]` with the name you want to use for your branch.
 
-    ```bash
-    git branch [branch-name]
-    ```
+```bash
+git branch [branch-name]
+```
+
 * **Switch to your new branch:**
-    ```bash
-    git checkout [branch-name]
-    ```
+  
+```bash
+git checkout [branch-name]
+```
 
 ## 3. Make your changes
 
@@ -144,28 +148,33 @@ On your local machine, edit the code until you are happy with your workflow. The
 
 * **Check the status of your files:**
     *(Shows modified files in your working directory and what is staged for your next commit.)*
-    ```bash
-    git status
-    ```
+
+```bash
+git status
+```
+
 * **Stage a specific file:**
 
 Replace `[file]` with the file name(s) you want to update.
 
-    ```bash
-    git add [file]
-    ```
+```bash
+git add [file]
+```
+
 * **Or, stage ALL your current changes:**
-    ```bash
-    git add .
-    ```
+
+```bash
+git add .
+```
+
 * **Commit your staged changes to your local history:**
     *(Leave a clear note for yourself and future collaborators summarizing what changes you made in plain language.)*
 
 Replace `[message]` with your note.
 
-    ```bash
-    git commit -m "[message]"
-    ```
+```bash
+git commit -m "[message]"
+```
 
 ## 4. Tell Git where to put your new branch
 
@@ -176,20 +185,21 @@ So far, your changes are only on your local machine. Now, you need to push them 
 
 Replace `[url]` with the link to the remote repository (e.g., `git@github.com:febiosoftware/FEBio.git`).
 
-    ```bash
-    git remote add [alias] [url]
-    ```
+```bash
+git remote add [alias] [url]
+```
+
 * **Push your local branch up to your GitHub account:**
 
-    ```bash
-    git push [alias] [branch-name]
-    ```
+```bash
+git push [alias] [branch-name]
+```
 
 ##  5. Retrieve changes to your branch
 If collaborators have updated the code, or you want to sync your local branch with remote updates (what's on your GitHub account):
 
 * **Fetch and merge remote changes into your local workspace:**
 
-    ```bash
-    git pull
-    ```
+```bash
+git pull
+```
