@@ -26,10 +26,10 @@ The solver source code is the full executable that performs:
 - Time stepping
 - Core mechanics infrastructure
 
-It is the engine that actually runs simulations. In this workflow, we use the **official FEBio fork maintained by University of Utah and Columbia University.**:
+It is the engine that actually runs simulations. In this workflow, we use the **official FEBio fork maintained by University of Utah and Columbia University**:
 
 ```
-febiosoftware/FEBio
+git@github.com:febiosoftware/FEBio.git
 ```
 
 The MBE plugin must be built against this fork.
@@ -48,7 +48,7 @@ A plugin is a dynamically loaded shared library (`.so`) that extends the solver 
 
 ---
 
-# 2. Clone the Solver
+# 2. Cloning the Solver
 
 Move to your home directory:
 
@@ -70,12 +70,12 @@ Alternatively, if SSH is not configured:
 git clone https://github.com/febiosoftware/FEBio.git
 ```
 
-# 3. Build the Solver (CMake-Based Build)
+# 3. Building the Solver (CMake-Based Build)
 
 We will compile the FEBio solver from the source code downloaded in the previous step. This is done within the empty directory `build`. If `build` doesn't exist, use the following commands to create and move into the directory:
 
 ```bash
-cd <my-home>/FEBio
+cd ~/FEBio
 mkdir -p build
 cd build
 ```
@@ -106,17 +106,18 @@ The terminal window will display the percentage completion of the build. Once co
 
 *Note: If the build is unsuccessful and you need to rebuild, run `make clean` in `build` before trying again.*
 
-# 4. Clone the Plugin
+# 4. Cloning the Plugin
 
-Move to your project directory:
+Now that the solver code is compiled, you can create a new directory specific to your simulations. Create a project directory and move to it, then clone the MBE repository. This will create a new subfolder in your project directory entitled `FEMBE_Plugin`, which you can then move into:
 
 ```bash
+mkdir -p <my-project>
 cd <my-project>
 git clone https://github.com/yale-humphrey-lab/FEMBE_Plugin.git
 cd FEMBE_Plugin
 ```
 
-# 5. Compile the Plugin
+# 5. Compiling the Plugin
 
 The plugin must link against the same solver build you compiled earlier. **Do not attempt to link it with the FEBio-FSG solver meant to be used with the FSG plugin --- it will not work.**
 
@@ -133,21 +134,17 @@ g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp \
 
 Components explained:
 
-- `g++` - GNU C++ compiler. It translates C++ source code (`.cpp` files) to an executable or shared library.
+- `g++` - GNU C++ compiler that translates C++ source code (`.cpp` files) to an executable or shared library
 
 Flags explained:
 
 - `fPIC` - Position-independent code (required for shared libraries)
-
 - `shared` - Build shared object that can be used by the solver code
-
 - `I` - Include path (solver headers)
-
 - `L` - Library path (solver build libraries)
-
 - `l` - Link against solver libraries
 
-If the include or library paths do not match your solver build, compilation will fail.
+*Note: If the include or library paths do not match your solver build, compilation will fail.*
 
 # 6. Running Simulations
 
@@ -186,7 +183,7 @@ Unlike in the FSG plugin, the vascular constituent materials are defined directl
 
 # 8. Benchmark Example
 
-[TODO: Add benchmark example to repository] The FEMBE_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a murine thoracic aorta.  If the solver and plugin are built and linked correctly, at each timestep the solver will find the homeostatic configuration of the vessel as it ramps from its original pressure (1.0-fold) to a hypertensive pressure (1.4-fold). This example serves as a basic validation test of the solver build and plugin registration. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
+[TODO: Add benchmark example to repository] The FEMBE_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a mouse thoracic aorta. If the solver and plugin are built and linked correctly, at each timestep the solver will find the homeostatic configuration of the vessel as it ramps from its original pressure to a hypertensive pressure (1.4-fold). This example serves as a basic validation test of the solver build and plugin registration. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
 
 # Appendix A. Making New Branches
 
