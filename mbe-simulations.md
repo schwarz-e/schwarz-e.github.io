@@ -159,13 +159,13 @@ Make sure you are in the project directory containing an FEBio input file (`.feb
 <my-home>/FEBio/build/bin/febio4 -i <input>.feb -import ./FEMbeCmm.so
 ```
 
-**Important: the `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file.**
-
 Components explained:
 
 - `<my-home>/FEBio/build/bin/febio4` - Path to the FEBio solver build (if the path is different on your system, update this accordingly)
 - `-i <input>.feb` - Input file name
 - `-import ./FEMbeCmm.so` - Path to the MBE plugin
+
+**Important: the `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file.**
 
 MBE simultions are more computationally efficient and can typically be run on a local machine.
 
