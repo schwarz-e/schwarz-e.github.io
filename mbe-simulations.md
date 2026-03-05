@@ -127,10 +127,12 @@ Example build command:
 g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp \
     -o FEMbeCmm.so \
     -std=c++11 \
-    -I/<my-home>/FEBio/ \
-    -L/<my-home>/FEBio/build/lib \
-    -lfebiomech -lfecore
+    -I /<my-home>/FEBio/ \
+    -L /<my-home>/FEBio/build/lib \
+    -l febiomech -l fecore
 ```
+
+You will know the build was successful if no messages are displayed once you regain control of the terminal window.
 
 Components explained:
 
@@ -140,15 +142,16 @@ Flags explained:
 
 - `fPIC` - Position-independent code (required for shared libraries)
 - `shared` - Build shared object that can be used by the solver code
+- `o` - Output name (e.g., name of the compiled plugin)
 - `I` - Include path (solver headers)
 - `L` - Library path (solver build libraries)
 - `l` - Link against solver libraries
 
-*Note: If the include or library paths do not match your solver build, compilation will fail.*
+*Note: If the include or library paths do not match your solver build, the compilation will fail. Ensure that the paths provided after `-I` and `-L` are the exact paths to where the FEBio source code is located on your system.*
 
 # 6. Running Simulations
 
-After the sovler is built and the plugin is compiled, you should be able to run the solver executable and load the plugin.
+After the solver is built and the plugin is compiled, you should be able to run the solver executable and load the plugin.
 
 Typical run command:
 
@@ -157,6 +160,10 @@ Typical run command:
 ```
 
 **Important: the `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file**
+
+Components explained:
+
+
 
 MBE simultions can typically be run on a local machine.
 
