@@ -140,12 +140,12 @@ Components explained:
 
 Flags explained:
 
-- `fPIC` - Position-independent code (required for shared libraries)
-- `shared` - Build shared object that can be used by the solver code
-- `o` - Output name (e.g., name of the compiled plugin)
-- `I` - Include path (solver headers)
-- `L` - Library path (solver build libraries)
-- `l` - Link against solver libraries
+- `-fPIC` - Position-independent code (required for shared libraries)
+- `-shared` - Build shared object that can be used by the solver code
+- `-o` - Output name (e.g., name of the compiled plugin)
+- `-I` - Include path (solver headers)
+- `-L` - Library path (solver build libraries)
+- `-l` - Link against solver libraries
 
 *Note: If the include or library paths do not match your solver build, the compilation will fail. Ensure that the paths provided after `-I` and `-L` are the exact paths to where the FEBio source code is located on your system.*
 
