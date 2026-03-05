@@ -165,13 +165,13 @@ Components explained:
 - `-i <input>.feb` - Input file name
 - `-import ./FEMbeCmm.so` - Path to the MBE plugin
 
-**Important: the `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file.**
+**Important: The `-import ./FEMbeCmm.so` flag lets the solver know to import your plugin. If you exclude this flag, it will not be able to run an MBE input file.**
 
-MBE simultions are more computationally efficient and can typically be run on a local machine.
+MBE simulations are more computationally efficient and can typically be run on a local machine.
 
 # 7. Configuring Simulations
 
-The `<Material>` section of the .feb file specifies that you are using the MBE material, which is implemented through the FEBio solver.
+The `<Material>` section of the .feb file specifies that you are using the MBE user material, which is implemented through the FEBio solver.
 
 ```xml
 <Material>
@@ -184,11 +184,11 @@ The `<Material>` section of the .feb file specifies that you are using the MBE m
 </Material>
 ```
 
-`type="mbe_cmm"` tells FEBio to use the mechanobiologically equilibrated material model.
+`type="mbe_cmm"` tells FEBio to use the mechanobiologically equilibrated user material.
 
 In this input, `e_r`, `e_t`, and `e_z` mathematically define the radial, circumferential, and axial directions, respectively.
 
-Unlike in the FSG plugin, the vascular constituent materials are defined directly in the plugin code, `FEMbeCmm.cpp`. If you wish to change the material behavior, you must edit the `FEMbeCmm.cpp` directly and the recompile the plugin (Step 5 on this page).
+Unlike in the [FSG plugin](/fsg-simulations/), the vascular constituent materials are defined directly in the plugin source code, `FEMbeCmm.cpp`. If you wish to change the material behavior, you must edit the `FEMbeCmm.cpp` directly and the recompile the plugin (Step 5 on this page).
 
 # 8. Benchmark Example
 
