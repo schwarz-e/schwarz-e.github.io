@@ -48,7 +48,7 @@ The benchmark case is:
 - **Comparison:** run appropriate input files with the **MBE plugin** and **FSG plugin**
 
 
-# 1. Run the Benchmark in the MBE Plugin
+## 1. Run the Benchmark in the MBE Plugin
 
 Move into the folder containing the MBE version of the benchmark and run:
 
@@ -58,7 +58,7 @@ Move into the folder containing the MBE version of the benchmark and run:
 
 After the run finishes, confirm that the sequence of VTK files for each saved time point was created.
 
-# 2. Run the Benchmark in the FSG Plugin
+## 2. Run the Benchmark in the FSG Plugin
 
 Repeat the same process for the FSG version of the benchmark, run:
 
@@ -67,7 +67,7 @@ Repeat the same process for the FSG version of the benchmark, run:
 ```
 Again, confirm that the run completes successfully and produces the expected VTK output files.
 
-# 3. Check That Both Simulations Completed Properly
+## 3. Check That Both Simulations Completed Properly
 
 Before comparing results, verify that:
 
@@ -80,7 +80,7 @@ Useful checks include:
 - checking the .log file for convergence,
 - confirming that the final VTK file exists in both cases.
 
-# 4. Open the Results in ParaView
+## 4. Open the Results in ParaView
 
 Launch ParaView and load the VTK outputs from both runs.
 
@@ -93,11 +93,11 @@ A convenient workflow is:
 
 If the benchmark outputs a time series, you may also load the full time-dependent file sequence for each case.
 
-# 5. Compare the Final Deformed Geometry
+## 5. Compare the Final Deformed Geometry
 
 The first validation step is to confirm that the final deformed configurations match.
 
-## 5.1 Warp by displacement
+### 5.1 Warp by displacement
 
 For each dataset:
 
@@ -108,7 +108,7 @@ For each dataset:
 
 Repeat for both the MBE and FSG results.
 
-## 5.2 Overlay the two solutions
+### 5.2 Overlay the two solutions
 
 To compare the shapes:
 
@@ -118,7 +118,7 @@ rotate and zoom to inspect the geometry.
 
 The final deformed shapes should visually overlap.
 
-# 6. Compare Stress Fields
+## 6. Compare Stress Fields
 
 The second validation step is to confirm that the stresses match at the final time point.
 
@@ -129,7 +129,7 @@ principal stresses,
 effective stress or von Mises stress, if available,
 constituent or mixture stress fields, depending on the output variables written by the plugins.
 
-## 6.1 Color by a stress quantity
+### 6.1 Color by a stress quantity
 
 For each dataset:
 
@@ -143,7 +143,7 @@ manually set the same colormap range for both solutions,
 inspect the same regions of the vessel,
 compare both the distribution pattern and the numerical range.
 
-## 6.2 Probe values if needed
+### 6.2 Probe values if needed
 
 If you want a more quantitative check:
 
@@ -151,7 +151,7 @@ Use Probe Location or Plot Data Over Line.
 Sample the same location or path in both datasets.
 Compare the reported stress values directly.
 
-# 7. Compare the Final Time Point Only
+## 7. Compare the Final Time Point Only
 
 Although the full time history can be explored, the main benchmark validation target is the last saved time point.
 
@@ -182,7 +182,7 @@ The benchmark case is:
 - **Comparison:** run appropriate input files with the **MBE plugin** and **FSG plugin**
 
 
-# 1. Run the Benchmark in the MBE Plugin
+## 1. Run the Benchmark in the MBE Plugin
 
 Move into the folder containing the MBE version of the benchmark and run:
 
@@ -192,7 +192,7 @@ Move into the folder containing the MBE version of the benchmark and run:
 
 After the run finishes, confirm that the sequence of VTK files for each saved time point was created.
 
-# 2. Run the Benchmark in the FSG Plugin
+## 2. Run the Benchmark in the FSG Plugin
 
 Repeat the same process for the FSG version of the benchmark, run:
 
@@ -202,7 +202,7 @@ Repeat the same process for the FSG version of the benchmark, run:
 
 Again, confirm that the run completes successfully and produces the expected VTK output files.
 
-# 3. Check That Both Simulations Completed Properly
+## 3. Check That Both Simulations Completed Properly
 
 Before comparing results, verify that:
 
@@ -215,7 +215,7 @@ Useful checks include:
 - checking the .log file for convergence,
 - confirming that the final VTK file exists in both cases.
 
-# 4. Open the Results in ParaView
+## 4. Open the Results in ParaView
 
 Launch ParaView and load the VTK outputs from both runs.
 
@@ -228,11 +228,11 @@ A convenient workflow is:
 
 If the benchmark outputs a time series, you may also load the full time-dependent file sequence for each case.
 
-# 5. Compare the Final Deformed Geometry
+## 5. Compare the Final Deformed Geometry
 
 The first validation step is to confirm that the final deformed configurations match.
 
-## 5.1 Warp by displacement
+### 5.1 Warp by displacement
 
 For each dataset:
 
@@ -243,7 +243,7 @@ For each dataset:
 
 Repeat for both the MBE and FSG results.
 
-## 5.2 Overlay the two solutions
+### 5.2 Overlay the two solutions
 
 To compare the shapes:
 
@@ -253,7 +253,7 @@ rotate and zoom to inspect the geometry.
 
 The final deformed shapes should visually overlap.
 
-# 6. Compare Stress Fields
+## 6. Compare Stress Fields
 
 The second validation step is to confirm that the stresses match at the final time point.
 
@@ -264,7 +264,7 @@ principal stresses,
 effective stress or von Mises stress, if available,
 constituent or mixture stress fields, depending on the output variables written by the plugins.
 
-## 6.1 Color by a stress quantity
+### 6.1 Color by a stress quantity
 
 For each dataset:
 
@@ -278,7 +278,7 @@ manually set the same colormap range for both solutions,
 inspect the same regions of the vessel,
 compare both the distribution pattern and the numerical range.
 
-## 6.2 Probe values if needed
+### 6.2 Probe values if needed
 
 If you want a more quantitative check:
 
@@ -286,7 +286,7 @@ Use Probe Location or Plot Data Over Line.
 Sample the same location or path in both datasets.
 Compare the reported stress values directly.
 
-# 7. Compare the Final Time Point Only
+## 7. Compare the Final Time Point Only
 
 Although the full time history can be explored, the main benchmark validation target is the last saved time point.
 
