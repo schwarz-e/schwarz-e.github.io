@@ -34,6 +34,8 @@ This page walks through a benchmark validation problem using a **murine thoracic
 - the **deformed geometry** is the same at the last saved time point, and
 - key stress fields agree between the two solutions.
 
+---
+
 <details>
 <summary>
 <span class="summary-title">Hypertension Benchmark Problem</span><br>
@@ -167,6 +169,8 @@ At the final time point, the MBE and FSG solutions should produce the same defor
 
 </div>
 </details>
+
+---
 
 <details>
 <summary>
@@ -304,6 +308,7 @@ At the final time point, the MBE and FSG solutions should produce the same defor
 
 </details>
 
+---
 
 # Suggested Validation Checklist
 
