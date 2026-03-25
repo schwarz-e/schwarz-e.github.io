@@ -5,7 +5,7 @@ title: Home
 
 # Growth and Remodeling Tutorials
 
-Welcome to the **Growth and Remodeling Tutorials** site!
+Welcome to the **Growth and Remodeling Tutorial Site**!
 
 This site provides step-by-step guidance for setting up and running growth and remodeling (G&R) simulations. The goal is to make constrained mixture modeling-based vascular simulations accessible, reproducible, and extendable for new users and collaborators.
 
@@ -29,6 +29,9 @@ The tutorials are organized into modules. You can proceed sequentially or jump t
 
 5. **[Post-Processing and Visualization]({{ "/post-processing/" | relative_url }})**  
    Tools and workflows for visualizing simulation results and extracting metrics.
+
+5. **[Benchmark and Validation]({{ "/validation/" | relative_url }})**  
+   Validate behavior of MBE and FSG G&R code.
 
 ---
 

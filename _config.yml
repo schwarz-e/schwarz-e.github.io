@@ -1,6 +1,6 @@
 # Site settings
 title: Growth and Remodeling Tutorial Site
-description: A website walking through the FEBio implementation of constrained mixture growth and remodeling.
+description: A website walking through the FEBio implementation of constrained mixture growth and remodeling. Tutorials are brought to you by Erica L. Schwarz and David S. Li.
 url: "https://schwarz-e.github.io" # replace with your actual GitHub Pages URL
 author: Erica L. Schwarz
 
@@ -26,5 +26,7 @@ navigation:
     link: /fsg-simulations/
   - name: Post-Processing
     link: /post-processing/
+  - name: Validation
+    link: /validation/
 
 markdown: kramdown
