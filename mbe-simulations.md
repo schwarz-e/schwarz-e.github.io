@@ -17,6 +17,14 @@ This page explains how to run MBE simulations. There are two necessary component
 
 # 1. Overview
 
+## Prerequisites
+
+**Intel Math Kernel Library (MKL)**
+
+FEBio requires the Intel Math Kernel Library (MKL) in order to utilize the Pardiso linear solver and some of the iterative linear solvers. This library can be downloaded as part of the Intel oneAPI Base Toolkit from [Intel's website](https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit.html). In the absence of MKL, FEBio will default to using the Skyline linear solver. However, the Pardiso solver is significantly faster and more memory-efficient than the Skyline solver, and it is strongly recommended that the Pardiso solver be used.
+
+On Intel's website, follow the specific download instructions for your platform before compiling the FEBio source code.
+
 ## Solver Source Code (FEBio)
 
 The solver source code is the full executable that performs:
@@ -86,6 +94,7 @@ Once inside the `build` directory, configure the project:
 
 ```bash
 ccmake -DCMAKE_BUILD_TYPE=Release ..
+ccmake .. -DCMAKE_C_FLAGS="-fopenmp" -DCMAKE_CXX_FLAGS="-fopenmp" -DUSE_MKL=ON
 ```
 
 In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
