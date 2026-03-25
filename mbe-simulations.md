@@ -64,7 +64,7 @@ Move to your home directory:
 cd ~
 ```
 
-*Note: It is typical to use your home directory to compile source code. Typically, the shortcut for moving to your home directory is `cd ~`.*
+*Note: It is typical to use your home directory to compile source code. The shortcut for moving to your home directory is `cd ~`.*
 
 Clone the solver repository:
 
@@ -88,18 +88,17 @@ mkdir -p build
 cd build
 ```
 
-*Note: Always build in a clean directory! Ensure that there are no files in `build` using the `ls` command before compiling.*
+*Note: Always build in a clean directory! Ensure that there are no files in `build` using the `ls` command before compiling. If the directory is empty, `ls` should not return anything.*
 
 Once inside the `build` directory, configure the project:
 
 ```bash
-ccmake -DCMAKE_BUILD_TYPE=Release ..
 ccmake .. -DCMAKE_C_FLAGS="-fopenmp" -DCMAKE_CXX_FLAGS="-fopenmp" -DUSE_MKL=ON
 ```
 
 In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
 
-You can toggle advanced mode by pressing `t`. Ensure `CMAKE_CXX_FLAGS` is set to `-fopenmp`. You may need to configure other paths manually for additional functionality (e.g., MKL).
+You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `/opt/intel/oneapi/mkl`).
 
 Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
 
