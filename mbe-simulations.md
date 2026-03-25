@@ -127,7 +127,7 @@ cd FEMBE_Plugin
 
 # 5. Compiling the Plugin
 
-The plugin must link against the same solver build you compiled earlier. **Do not attempt to link it with the FEBio-FSG solver meant to be used with the FSG plugin --- it will not work.**
+The plugin must link against the same solver build you compiled earlier. If you alter any build parameters for the FEBio build, you must recompile the plugin as well. **Do not attempt to link it with the FEBio-FSG solver meant to be used with the FSG plugin --- it will not work.**
 
 Example build command:
 
@@ -135,8 +135,8 @@ Example build command:
 g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp \
     -o FEMbeCmm.so \
     -std=c++11 \
-    -I /<my-home>/FEBio/ \
-    -L /<my-home>/FEBio/build/lib \
+    -I <my-home>/FEBio/ \
+    -L <my-home>/FEBio/build/lib \
     -l febiomech -l fecore
 ```
 
