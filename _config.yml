@@ -1,6 +1,6 @@
 # Site settings
-title: Growth and Remodeling
-description: Growth and Remodeling
+title: Growth and Remodeling Tutorial Site
+description: A website walking through the FEBio implementation of constrained mixture growth and remodeling.
 url: "https://schwarz-e.github.io" # replace with your actual GitHub Pages URL
 author: Erica L. Schwarz
 
@@ -10,7 +10,6 @@ plugins:
   - jekyll-remote-theme
 
 # Appearance
-logo: /assets/logo.svg # add a headshot in assets/
 show_downloads: false
 
 # Navigation links (appear in header)
