@@ -3,6 +3,27 @@ layout: default
 title: Validation
 permalink: /validation/
 ---
+<style>
+summary {
+  font-weight: 700;
+  font-size: 1.75em;        /* ≈ ## heading size */
+  cursor: pointer;
+  line-height: 1.2;
+  color: #267CB9;
+  margin-bottom: 0.5em;
+}
+summary:hover {
+  color: #069;
+}
+.summary-sub {
+  display: block;
+  font-size: 0.8em;               /* same as normal body text */
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+
+</style>
+
 
 # Validating Benchmark Problems
 
@@ -13,8 +34,6 @@ This page walks through a benchmark validation problem using a **murine thoracic
 - the **deformed geometry** is the same at the last saved time point, and
 - key stress fields agree between the two solutions.
 
-
-</details>
 <details>
 <summary>
 <span class="summary-title">Hypertension Benchmark Problem</span><br>
@@ -147,9 +166,6 @@ A concise validation statement is:
 At the final time point, the MBE and FSG solutions should produce the same deformed configuration and matching stress distributions for the benchmark.
 
 </div>
-</details>
-
-
 </details>
 
 <details>
