@@ -153,6 +153,7 @@ Clusters provide scalable computational power for large simulations, parameteric
   module load gcc
   module load cmake
   module load mpi
+  module load mkl
   ```
 
 3. Compile or run simulations (specifics under simulation tutorials), first on debug node and then submitted through scheduler (e.g., SLURM):
@@ -189,15 +190,19 @@ sudo apt update
 sudo apt install build-essential cmake git python3 python3-pip
 ```
 
-Additional tools may include:
+Additional tools:
 
-* GCC (modern version)
+* GCC
 * OpenMPI
-* MKL (if required)
+* MKL
 * ParaView
 * PyVista/NumPy/SciPy
 
 This setup provides a reproducible computational environment.
+
+# Important Note on MKL
+
+FEBio requires the **Intel Math Kernel Library (MKL)** in order to utilize the Pardiso linear solver and some of the iterative linear solvers. On HPC environments, this is likely to be available as a shared module that can be loaded. Otherwise, this library can be downloaded as part of the Intel oneAPI Base Toolkit from [Intel's website](https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit.html). In the absence of MKL, FEBio will default to using the Skyline linear solver. However, the Pardiso solver is significantly faster and more memory-efficient than the Skyline solver, and it is strongly recommended that the Pardiso solver be used. On Intel's website, follow the specific download instructions for your platform before compiling the FEBio source code.
 
 ---
 

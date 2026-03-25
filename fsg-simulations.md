@@ -19,6 +19,14 @@ This is a critical distinction:
 
 # 1. Overview
 
+## Prerequisites
+
+**Intel Math Kernel Library (MKL)**
+
+FEBio requires the Intel Math Kernel Library (MKL) in order to utilize the Pardiso linear solver and some of the iterative linear solvers. This library can be downloaded as part of the Intel oneAPI Base Toolkit from [Intel's website](https://software.intel.com/content/www/us/en/develop/tools/oneapi/base-toolkit.html). In the absence of MKL, FEBio will default to using the Skyline linear solver. However, the Pardiso solver is significantly faster and more memory-efficient than the Skyline solver, and it is strongly recommended that the Pardiso solver be used.
+
+On Intel's website, follow the specific download instructions for your platform before compiling the FEBio source code.
+
 ## Solver Source Code (FEBio-FSG)
 
 The solver source code is the full executable that performs:
@@ -86,12 +94,16 @@ Configure the project:
 
 
 ```bash
-ccmake -DCMAKE_BUILD_TYPE=Release ..
+ccmake .. -DCMAKE_C_FLAGS="-fopenmp" -DCMAKE_CXX_FLAGS="-fopenmp" -DUSE_MKL=ON
 ```
 
-In the ccmake screen, press `c` to configure the Makefile until it gives you the option to press `g` to generate the Makefile. You may need to configure paths manually for additional functionality (e.g., MKL).
+In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
 
-Once configuration is complete:
+You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `<my-example-mkl-directory>/opt/intel/oneapi/mkl`).
+
+Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
+
+Once configuration is complete, verify that `build` has been populated with new folders (`bin`, `CMakeFiles`, and `lib`) and files (`CMakeCache.txt`, `cmake_install.cmake`, `Makefile`). You can then build the solver using the command:
 
 ```bash
 make -j
@@ -122,12 +134,7 @@ The plugin must link against the exact solver build you compiled earlier.
 Example build command:
 
 ```bash
-g++ -fPIC -shared FEFSG.cpp dllmain.cpp \
-    -o FEFSG.so \
-    -std=c++11 \
-    -I/<my-home>/FEBio-FSG/ \
-    -L/<my-home>/FEBio-FSG/build/lib \
-    -lfebiomech -lfecore
+g++ -fPIC -shared FEFSG.cpp dllmain.cpp -o FEFSG.so -std=c++11 -I /<my-home>/FEBio-FSG/ -L /<my-home>/FEBio-FSG/build/lib -lfebiomech -lfecore
 ```
 
 Components explained:

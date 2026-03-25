@@ -98,7 +98,7 @@ ccmake .. -DCMAKE_C_FLAGS="-fopenmp" -DCMAKE_CXX_FLAGS="-fopenmp" -DUSE_MKL=ON
 
 In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
 
-You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `/opt/intel/oneapi/mkl`).
+You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `<my-example-mkl-directory>/opt/intel/oneapi/mkl`).
 
 Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
 
@@ -132,12 +132,7 @@ The plugin must link against the same solver build you compiled earlier. If you 
 Example build command:
 
 ```bash
-g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp \
-    -o FEMbeCmm.so \
-    -std=c++11 \
-    -I <my-home>/FEBio/ \
-    -L <my-home>/FEBio/build/lib \
-    -l febiomech -l fecore
+g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp -o FEMbeCmm.so -std=c++11 -I <my-home>/FEBio/ -L <my-home>/FEBio/build/lib -l febiomech -l fecore
 ```
 
 You will know the build was successful if no messages are displayed once you regain control of the terminal window.
