@@ -210,10 +210,6 @@ Each subsequent line is an individual constituent (up to six total) with propert
 m_degradable m_inflammatory m_active m_polymer c1_alpha_h c2_alpha_h eta_alpha_h g_alpha_h g_alpha_r g_alpha_theta g_alpha_z phi_alpha k_alpha_h K_tauw_p_alpha_h K_sigma_p_alpha_h K_tauw_d_alpha_h K_sigma_d_alpha_h
 ```
 
-# 8. Benchmark Example
-
-The FSG_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a murine thoracic aorta subjected to a 1.4-fold increase in pressure. If the solver and plugin are built and linked correctly, this file should produce results where the wall thickens to return the intramural stress toward its homeostatic value over time. This example serves as a basic validation test of the solver build, plugin registration, and proper reading of the configuration.txt file. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
-
 # Appendix A. Making New Branches
 
 If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version", so to speak):

@@ -6,7 +6,7 @@ permalink: /post-processing/
 
 # Post-Processing and Visualization
 
-This page explains how to post-process and visualize outputs from MBE and FSG simulations. **ParaView** is used for visualization of the simulation geometry and computed metrics.
+This page explains how to post-process and visualize outputs from MBE and FSG simulations. **ParaView** is used for visualization of the simulation geometry and computed metrics. To learn the basic layout of **ParaView**, please see the [ParaView User's Guide](https://docs.paraview.org/en/latest/UsersGuide/index.html).
 
 ---
 
@@ -40,6 +40,7 @@ To visualize deformation:
 
 Notes:
 - Use **Scale Factor = 1** for true deformation, adjust **Scale Factor** if needed
+
 ---
 
 # 4. Inspect Quantities of Interest
@@ -55,13 +56,10 @@ Notes:
    - Click **Color Map Editor**
    - Use **Rescale to Data Range** or **Custom Range**
 
----
-
 ## 4.2 Probe Values
 
 To inspect values at a point select **Hover Points/Cells On**
 
----
 
 ## 4.3 Plot Over Time
 
@@ -100,11 +98,8 @@ Tips:
 ---
 
 # 7. Export Data
-
-## 7.1 Extract Point/Cell Data
-
-- Use **Plot Selection Over Time** for tracked points
-- Use **Spreadsheet View** to inspect raw values
+Use **Plot Selection Over Time** for tracked points.
+Use **Spreadsheet View** to inspect raw values.
 
 ---
 
@@ -122,12 +117,12 @@ Tips:
 # 10. Common Issues
 
 - **No time controls visible**  
-  → Ensure files are loaded as a time series
+Ensure files are loaded as a time series
 
 - **Warp looks incorrect**  
-  → Check displacement field name and scale factor
+Check displacement field name and scale factor
 
 - **Color map misleading**  
-  → Fix range manually instead of auto-rescaling
+Fix range manually instead of auto-rescaling
 
 ---

@@ -193,10 +193,6 @@ In this input, `e_r`, `e_t`, and `e_z` mathematically define the radial, circumf
 
 Unlike in the [FSG plugin](/fsg-simulations/), the vascular constituent materials are defined directly in the plugin source code, `FEMbeCmm.cpp`. If you wish to change the material behavior, you must edit the `FEMbeCmm.cpp` directly and the recompile the plugin (Step 5 on this page).
 
-# 8. Benchmark Example
-
-[TODO: Add benchmark example to repository] The FEMBE_Plugin repository includes the benchmark file TAA_hypertension.feb, which simulates a mouse thoracic aorta. If the solver and plugin are built and linked correctly, at each timestep the solver will find the homeostatic configuration of the vessel as it ramps from its original pressure to a hypertensive pressure (1.4-fold). This example serves as a basic validation test of the solver build and plugin registration. For instructions on analyzing results and comparing them to benchmark behavior, see the [post-processing page](/post-processing/).
-
 # Appendix A. Making New Branches
 
 If you plan on modifying the source code, create a new branch for development (i.e., if your name was Taylor, you might want to make your version of the code, or "Taylor's Version", so to speak):
