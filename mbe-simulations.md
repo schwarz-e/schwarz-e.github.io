@@ -96,7 +96,18 @@ ccmake .. -DCMAKE_C_FLAGS="-fopenmp" -DCMAKE_CXX_FLAGS="-fopenmp" -DUSE_MKL=ON
 
 In the ccmake screen, you should see the message **EMPTY CACHE**. Press `c` configure the Makefile. The screen should populate with several flags, beginning with `CMAKE_BUILD_FLAG`, which should be set to `Release`.
 
-You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `<my-example-mkl-directory>/opt/intel/oneapi/mkl`). On the YCRC cluster Bouchet, CMake may not be able to find certain MKL files. Run `source /apps/software/2024a/software/imkl/2024.2.0/setvars.sh`. If it still can't find the `MKL_OMP_LIB`. Populate it manually with the path `/apps/software/2024a/software/imkl/2024.2.0/compiler/2024.2/lib/libiomp5.so`.
+You can toggle advanced mode on and off by pressing `t`. You may need to configure other paths manually for additional functionality (e.g., MKL --- ensure that `MKLROOT` is populated with `<my-example-mkl-directory>/opt/intel/oneapi/mkl`). 
+    
+On the YCRC cluster Bouchet, CMake may not be able to find certain MKL files. Run 
+
+```bash
+source /apps/software/2024a/software/imkl/2024.2.0/setvars.sh
+```
+If it still can't find the `MKL_OMP_LIB`. Populate it manually with the path 
+
+```bash
+/apps/software/2024a/software/imkl/2024.2.0/compiler/2024.2/lib/libiomp5.so
+```
 
 Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
 
