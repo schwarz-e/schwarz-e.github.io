@@ -147,13 +147,12 @@ Clusters provide scalable computational power for large simulations, parameteric
   ssh username@cluster.address.edu
   ```
 
-2. Load required modules:
+2. Load required modules. For example:
 
   ```bash
-  module load gcc
-  module load cmake
-  module load mpi
-  module load mkl
+  module load foss
+  module load CMake
+  module load SciPy-bundle
   ```
 
 3. Compile or run simulations (specifics under simulation tutorials), first on debug node and then submitted through scheduler (e.g., SLURM):
