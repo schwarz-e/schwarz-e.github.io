@@ -36,9 +36,7 @@ The solver source code is the full executable that performs:
 
 It is the engine that actually runs simulations. In this workflow, we use the **official FEBio fork maintained by University of Utah and Columbia University**:
 
-```
-git@github.com:febiosoftware/FEBio.git
-```
+[git@github.com:febiosoftware/FEBio.git](https://github.com/febiosoftware/FEBio)
 
 The MBE plugin must be built against this fork.
 
