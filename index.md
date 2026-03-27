@@ -13,7 +13,11 @@ This site provides step-by-step guidance for setting up and running growth and r
 
 ## Tutorials
 
-The tutorials are organized into modules. You can proceed sequentially or jump to a specific module depending on your goals.
+A quick-start guide for users on the Yale Center for Research Computing **Bouchet** cluster can be found here:
+
+**[Bouchet Quick Start Guide]({{ "/quick-start/" | relative_url }})**  
+
+The rest of the tutorials are organized into modules. You can proceed sequentially or jump to a specific module depending on your goals.
 
 1. **[GitHub Account Setup]({{ "/github-setup/" | relative_url }})**  
    Make a GitHub account and learn how to use Git on your machine.
