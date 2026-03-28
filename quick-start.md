@@ -3,13 +3,88 @@ layout: default
 title: Bouchet Quick Start
 permalink: /quick-start/
 ---
+<style>
+summary {
+  font-weight: 700;
+  font-size: 1.75em;        /* ≈ ## heading size */
+  cursor: pointer;
+  line-height: 1.2;
+  color: #267CB9;
+  margin-bottom: 0.5em;
+}
+summary:hover {
+  color: #069;
+}
+.summary-sub {
+  display: block;
+  font-size: 0.8em;               /* same as normal body text */
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+
+</style>
 
 
-# 1. Log On to Bouchet Cluster
+# Overview
+
+From starting a computing session to running a simulation, execute the following commands:
+
+```bash
+# 1. Log on to cluster
+
+# Start interactive computing session
+salloc -p devel -t 02:00:00 -n 4
+# Set environment variables
+module load foss
+module load CMake
+module load SciPy-bundle
+source /apps/software/2024a/software/imkl/2024.2.0/setvars.sh
+
+# 2. Build solver
+git clone https://github.com/febiosoftware/FEBio.git
+cd ~/FEBio
+mkdir -p build
+cd build
+cmake .. -DUSE_MKL=ON -DMKLROOT=/apps/software/2024a/software/imkl/2024.2.0/mkl/latest -DMKL_OMP_LIB=/apps/software/2024a/software/imkl/2024.2.0/compiler/2024.2/lib/libiomp5.so
+make -j4
+
+# 3. Build plugin
+cd ~
+mkdir -p my_project
+cd my_project
+git clone https://github.com/yale-humphrey-lab/FEMBE_Plugin.git
+cd FEMBE_Plugin
+g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp -o FEMbeCmm.so -std=c++11 -I ~/FEBio/ -L ~/FEBio/build/lib -l febiomech -l fecore
+
+# 4. Run simulation
+~/FEBio/build/bin/febio4 -i thoracic_aorta_hypertension_mbe.feb -import ./FEMbeCmm.so
+```
+
+Details are summarized below and more details can be found on each tutorial page.
+
+---
+
+
+<details>
+<summary>
+<span class="summary-title">1. Log On to Bouchet Cluster</span><br>
+<span class="summary-sub">Click to expand.</span>
+</summary>
+<div markdown="1">
 
 [Todo]
 
-# 2. Building the Solver
+</div>
+</details>
+
+---
+
+<details>
+<summary>
+<span class="summary-title">2. Build Solver</span><br>
+<span class="summary-sub">Click to expand.</span>
+</summary>
+<div markdown="1">
 
 ## 2.1 Start an Interactive Compute Session
 
@@ -106,9 +181,17 @@ make -j4
 - Builds the code using the Makefile
 - `-j4`: Use 4 cores in parallel (the number specified when the interactive node was launched)
 
+</div>
+</details>
+
 ---
 
-# 3. Building the Plugin
+<details>
+<summary>
+<span class="summary-title">3. Build Plugin</span><br>
+<span class="summary-sub">Click to expand.</span>
+</summary>
+<div markdown="1">
 
 ## 3.1 Set Up a Working Directory
 
@@ -177,9 +260,19 @@ FEMbeCmm.so
 
 This is the plugin file that can be loaded into FEBio.
 
+</div>
+</details>
+
 ---
 
-# 4. Running a Simulation
+
+<details>
+<summary>
+<span class="summary-title">4. Run Simulation</span><br>
+<span class="summary-sub">Click to expand.</span>
+</summary>
+<div markdown="1">
+
 ```bash
 ~/FEBio/build/bin/febio4 -i thoracic_aorta_hypertension_mbe.feb -import ./FEMbeCmm.so
 ```
@@ -189,5 +282,7 @@ This is the plugin file that can be loaded into FEBio.
 - `~/FEBio/build/bin/febio4`: Path to the FEBio executable  
 - `-i <...>.feb`: Specifies the input file (in this case, `thoracic_aorta_hypertension_mbe.feb`)  
 - `-import ./FEMbeCmm.so`: Loads the custom plugin at runtime. `./` means the plugin is in the current directory  
+</div>
+</details>
 
 ---
