@@ -241,7 +241,7 @@ g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp -o FEMbeCmm.so -std=c++11 -I ~/FEBio/
 - `-o FEMbeCmm.so`: Output file name (shared library)  
 - `-std=c++11`: Use the C++11 standard  
 
-### Linking to FEBio Solver:
+### Linking:
 
 - `-I ~/FEBio/`: Path to FEBio header files (include directory)
 - `-L ~/FEBio/build/lib`: Path to FEBio compiled libraries  
@@ -276,8 +276,6 @@ This is the plugin file that can be loaded into FEBio.
 ```bash
 ~/FEBio/build/bin/febio4 -i thoracic_aorta_hypertension_mbe.feb -import ./FEMbeCmm.so
 ```
-
-## Command Breakdown
 
 - `~/FEBio/build/bin/febio4`: Path to the FEBio executable  
 - `-i <...>.feb`: Specifies the input file (in this case, `thoracic_aorta_hypertension_mbe.feb`)  
