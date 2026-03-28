@@ -11,13 +11,18 @@ This site provides step-by-step guidance for setting up and running growth and r
 
 ---
 
-## Tutorials
+## Quick Start Guide
 
-A quick-start guide for users on the Yale Center for Research Computing **Bouchet** cluster can be found here:
+A quick start guide for users on the Yale Center for Research Computing **Bouchet** cluster can be found here:
 
 **[Bouchet Quick Start Guide]({{ "/quick-start/" | relative_url }})**  
 
-The rest of the tutorials are organized into modules. You can proceed sequentially or jump to a specific module depending on your goals.
+---
+
+
+## Tutorials
+
+The tutorials are organized into modules. You can proceed sequentially or jump to a specific module depending on your goals.
 
 1. **[GitHub Account Setup]({{ "/github-setup/" | relative_url }})**  
    Make a GitHub account and learn how to use Git on your machine.
@@ -29,7 +34,7 @@ The rest of the tutorials are organized into modules. You can proceed sequential
    Step-by-step instructions for mechanobiologically equilibrated (MBE) G&R simulations.
 
 4. **[Running FSG Simulations]({{ "/fsg-simulations/" | relative_url }})**  
-   Step-by-step instructions for running fluid–solid–growth (FSG) G&R simulations.
+   Step-by-step instructions for running time-reolved (FSG) G&R simulations.
 
 5. **[Post-Processing and Visualization]({{ "/post-processing/" | relative_url }})**  
    Tools and workflows for visualizing simulation results and extracting metrics.
