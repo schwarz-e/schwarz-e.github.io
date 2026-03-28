@@ -108,13 +108,14 @@ If it still can't find the `MKL_OMP_LIB`. Populate it manually with the path
 ```bash
 /apps/software/2024a/software/imkl/2024.2.0/compiler/2024.2/lib/libiomp5.so
 ```
-Or with `cmake`:
+Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
+
+Alternatively, generate the Makefile with `cmake` if  `ccmake` is not available:
 
 ```bash
 cmake .. -DUSE_MKL=ON -DMKLROOT=/apps/software/2024a/software/imkl/2024.2.0/mkl/latest -DMKL_OMP_LIB=/apps/software/2024a/software/imkl/2024.2.0/compiler/2024.2/lib/libiomp5.so
 ```
 
-Press `c` again until it you have the option at the bottom to press `g` to generate the Makefile.
 
 Once configuration is complete, verify that `build` has been populated with new folders (`bin`, `CMakeFiles`, and `lib`) and files (`CMakeCache.txt`, `cmake_install.cmake`, `Makefile`). You can then build the solver using the command:
 
