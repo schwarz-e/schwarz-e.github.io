@@ -31,7 +31,7 @@ summary:hover {
 
 - Go to: [https://ood-bouchet.ycrc.yale.edu/](https://ood-bouchet.ycrc.yale.edu/) 
 *Note: must be on Yale network or Yale VPN*
-- Click on **Bouchet Shell Access** in the *top banner*
+- On to **TOP BANNER** of the website click on **Bouchet Shell Access**
 
 ## 2. Execute the following commands:
 
