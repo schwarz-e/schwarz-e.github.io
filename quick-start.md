@@ -27,6 +27,10 @@ summary:hover {
 
 # Overview
 
+- Go to: [https://ood-bouchet.ycrc.yale.edu/](https://ood-bouchet.ycrc.yale.edu/) 
+*Note: must be on Yale network or Yale VPN*
+- Click on `Bouchet Shell Access` in the top banner
+
 From starting a computing session to running a simulation, execute the following commands:
 
 ```bash
@@ -73,7 +77,8 @@ Details are summarized below and more details can be found on each tutorial page
 <div markdown="1">
 
 [Todo]
-- Go to: [https://ood-bouchet.ycrc.yale.edu/](https://ood-bouchet.ycrc.yale.edu/) (must be on Yale network or Yale VPN)
+- Go to: [https://ood-bouchet.ycrc.yale.edu/](https://ood-bouchet.ycrc.yale.edu/) 
+*Note: must be on Yale network or Yale VPN*
 - Click on `Bouchet Shell Access` in the top banner
 
 </div>
