@@ -63,3 +63,5 @@ g++ -fPIC -shared FEMbeCmm.cpp dllmain.cpp -o FEMbeCmm.so -std=c++11 -I ~/FEBio/
 # 2.5 Run simulation
 ~/FEBio/build/bin/febio4 -i thoracic_aorta_hypertension_mbe.feb -import ./FEMbeCmm.so
 ```
+
+For more details, see the tutorial pages.
