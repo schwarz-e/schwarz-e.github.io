@@ -34,7 +34,7 @@ The tutorials are organized into modules. You can proceed sequentially or jump t
    Step-by-step instructions for mechanobiologically equilibrated (MBE) G&R simulations.
 
 4. **[Running FSG Simulations]({{ "/fsg-simulations/" | relative_url }})**  
-   Step-by-step instructions for running time-reolved (FSG) G&R simulations.
+   Step-by-step instructions for running time-resolved (FSG) G&R simulations.
 
 5. **[Post-Processing and Visualization]({{ "/post-processing/" | relative_url }})**  
    Tools and workflows for visualizing simulation results and extracting metrics.
